@@ -17,6 +17,8 @@ export default class DatabaseManagement {
     }
 }
 
+export { MongoModel };
+
 export interface Internacional<T> {
     _id?: string;
     active?: boolean;
