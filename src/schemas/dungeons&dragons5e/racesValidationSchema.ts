@@ -17,7 +17,7 @@ const subRacesZodSchema = z.object({
     characteristics: z.array(characteristicsZodSchema),
 });
 
-const racesZodSchema = z.object({
+const raceZodSchema = z.object({
     name: z.string(),
     description: z.string(),
     abilityScoreIncrease: abilityScoreIncreaseZodSchema,
@@ -33,8 +33,8 @@ const racesZodSchema = z.object({
 });
 
 export type Characteristic = z.infer<typeof characteristicsZodSchema>;
-export type Race = z.infer<typeof racesZodSchema>;
+export type Race = z.infer<typeof raceZodSchema>;
 export type SubRace = z.infer<typeof subRacesZodSchema>;
 export type AbilityScoreIncrease = z.infer<typeof abilityScoreIncreaseZodSchema>;
 
-export default racesZodSchema;
+export default raceZodSchema;

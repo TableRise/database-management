@@ -5,7 +5,7 @@ const costZodSchema = z.object({
     value: z.number(),
 });
 
-const armorsZodSchema = z.object({
+const armorZodSchema = z.object({
     name: z.string(),
     description: z.string(),
     cost: costZodSchema,
@@ -16,7 +16,7 @@ const armorsZodSchema = z.object({
     stealthPenalty: z.boolean(),
 });
 
-export type Armor = z.infer<typeof armorsZodSchema>;
+export type Armor = z.infer<typeof armorZodSchema>;
 export type Cost = z.infer<typeof costZodSchema>;
 
-export default armorsZodSchema;
+export default armorZodSchema;

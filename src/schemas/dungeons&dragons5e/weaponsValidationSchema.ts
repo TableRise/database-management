@@ -5,7 +5,7 @@ const costZodSchema = z.object({
     value: z.number(),
 });
 
-const weaponsZodSchema = z.object({
+const weaponZodSchema = z.object({
     name: z.string(),
     description: z.string(),
     cost: costZodSchema,
@@ -15,7 +15,7 @@ const weaponsZodSchema = z.object({
     properties: z.array(z.string()),
 });
 
-export type Weapon = z.infer<typeof weaponsZodSchema>;
+export type Weapon = z.infer<typeof weaponZodSchema>;
 export type Cost = z.infer<typeof costZodSchema>;
 
-export default weaponsZodSchema;
+export default weaponZodSchema;

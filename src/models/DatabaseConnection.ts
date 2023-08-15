@@ -1,4 +1,4 @@
-import TableRiseConnections from '../types/TableRiseConnections';
+import TableRiseConnections from '../types/TableRiseConnection';
 import mongoose from 'mongoose';
 import generateMongoURI from '../helpers/generateMongoURI';
 

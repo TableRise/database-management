@@ -16,7 +16,7 @@ const costZodSchema = z.object({
     value: z.number(),
 });
 
-const itemsZodSchema = z.object({
+const itemZodSchema = z.object({
     name: z.string(),
     description: z.string(),
     cost: costZodSchema,
@@ -29,6 +29,6 @@ const itemsZodSchema = z.object({
 export type Cost = z.infer<typeof costZodSchema>;
 export type TradeGoods = z.infer<typeof tradeGoodsZodSchema>;
 export type MountOrVehicle = z.infer<typeof mountOrVehicleZodSchema>;
-export type Item = z.infer<typeof itemsZodSchema>;
+export type Item = z.infer<typeof itemZodSchema>;
 
-export default itemsZodSchema;
+export default itemZodSchema;
