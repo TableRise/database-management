@@ -24,7 +24,7 @@
   },
   "dependencies": {
     "mongoose": "7.4.3",
-    "zod": "^3.22.0"
+    "zod": "3.22.0"
   },
   "devDependencies": {
     "@types/node": "20.5.0",
