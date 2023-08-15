@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+      "outDir": "./dist",
+      "rootDir": ".",
+      "target": "es2019",
+      "module": "commonjs",
+      "declaration": true,
+      "baseUrl": "./src/",
+      "paths": {
+          "src/*": ["*"]
+      }
+  },
+  "exclude": ["node_modules"]
+}

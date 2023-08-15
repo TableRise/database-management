@@ -1,0 +1,33 @@
+{
+  "name": "@tablerise/fireball",
+  "version": "1.0.0",
+  "description": "A library to manage the project database",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "@tablerise/fireball": "index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/TableRise/fireball.git"
+  },
+  "author": "@table-rise/adson-gomes-oliveira",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TableRise/fireball.git./issues"
+  },
+  "homepage": "https://github.com/TableRise/fireball.git.#readme",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "dependencies": {
+    "mongoose": "7.4.3",
+    "zod": "^3.22.0"
+  },
+  "devDependencies": {
+    "@types/node": "20.5.0",
+    "typescript": "5.1.6"
+  }
+}
