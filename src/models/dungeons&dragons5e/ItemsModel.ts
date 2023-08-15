@@ -1,8 +1,8 @@
 import { Schema } from 'mongoose';
-import Connections from 'src/models/DatabaseConnection';
-import { Internacional } from 'src/schemas/languagesWrapperSchema';
-import { Item, MountOrVehicle, TradeGoods, Cost } from 'src/schemas/dungeons&dragons5e/itemsValidationSchema';
-import MongoModel from 'src/models/MongoModel';
+import Connections from '../../models/DatabaseConnection';
+import { Internacional } from '../../schemas/languagesWrapperSchema';
+import { Item, MountOrVehicle, TradeGoods, Cost } from '../../schemas/dungeons&dragons5e/itemsValidationSchema';
+import MongoModel from '../../models/MongoModel';
 
 const costSchema = new Schema<Cost>({
     currency: { type: String, required: true },

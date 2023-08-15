@@ -1,13 +1,13 @@
 import { Schema } from 'mongoose';
-import Connections from 'src/models/DatabaseConnection';
-import { Internacional } from 'src/schemas/languagesWrapperSchema';
+import Connections from '../../models/DatabaseConnection';
+import { Internacional } from '../../schemas/languagesWrapperSchema';
 import {
     Race,
     SubRace,
     Characteristic,
     AbilityScoreIncrease,
-} from 'src/schemas/dungeons&dragons5e/racesValidationSchema';
-import MongoModel from 'src/models/MongoModel';
+} from '../../schemas/dungeons&dragons5e/racesValidationSchema';
+import MongoModel from '../../models/MongoModel';
 
 const abilityScoreIncreaseSchema = new Schema<AbilityScoreIncrease>({
     name: { type: String, required: true },

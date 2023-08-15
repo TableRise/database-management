@@ -1,8 +1,8 @@
 import { Schema } from 'mongoose';
-import Connections from 'src/models/DatabaseConnection';
-import { Spell, Damage, HigherLevels } from 'src/schemas/dungeons&dragons5e/spellsValidationSchema';
-import MongoModel from 'src/models/MongoModel';
-import { Internacional } from 'src/schemas/languagesWrapperSchema';
+import Connections from '../../models/DatabaseConnection';
+import { Spell, Damage, HigherLevels } from '../../schemas/dungeons&dragons5e/spellsValidationSchema';
+import MongoModel from '../../models/MongoModel';
+import { Internacional } from '../../schemas/languagesWrapperSchema';
 
 const damageMongooseSchema = new Schema<Damage>(
     {

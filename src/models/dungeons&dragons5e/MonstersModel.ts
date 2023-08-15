@@ -1,5 +1,5 @@
 import { Schema } from 'mongoose';
-import Connections from 'src/models/DatabaseConnection';
+import Connections from '../../models/DatabaseConnection';
 import {
     Monster,
     HitPoints,
@@ -8,9 +8,9 @@ import {
     AbilityScore,
     Skills,
     Actions,
-} from 'src/schemas/dungeons&dragons5e/monstersValidationSchema';
-import MongoModel from 'src/models/MongoModel';
-import { Internacional } from 'src/schemas/languagesWrapperSchema';
+} from '../../schemas/dungeons&dragons5e/monstersValidationSchema';
+import MongoModel from '../../models/MongoModel';
+import { Internacional } from '../../schemas/languagesWrapperSchema';
 
 const hitPointsMongooseSchema = new Schema<HitPoints>(
     {

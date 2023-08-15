@@ -1,8 +1,8 @@
 import { Schema } from 'mongoose';
-import Connections from 'src/models/DatabaseConnection';
-import { MagicItem } from 'src/schemas/dungeons&dragons5e/magicItemsValidationSchema';
-import MongoModel from 'src/models/MongoModel';
-import { Internacional } from 'src/schemas/languagesWrapperSchema';
+import Connections from '../../models/DatabaseConnection';
+import { MagicItem } from '../../schemas/dungeons&dragons5e/magicItemsValidationSchema';
+import MongoModel from '../../models/MongoModel';
+import { Internacional } from '../../schemas/languagesWrapperSchema';
 
 const schema = new Schema<MagicItem>(
     {

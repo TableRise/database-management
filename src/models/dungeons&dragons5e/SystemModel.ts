@@ -1,7 +1,7 @@
 import { Schema } from 'mongoose';
-import Connections from 'src/models/DatabaseConnection';
-import { System, SystemContent, SystemReference } from 'src/schemas/dungeons&dragons5e/systemValidationSchema';
-import MongoModel from 'src/models/MongoModel';
+import Connections from '../../models/DatabaseConnection';
+import { System, SystemContent, SystemReference } from '../../schemas/dungeons&dragons5e/systemValidationSchema';
+import MongoModel from '../../models/MongoModel';
 
 const systemReferenceMongooseSchema = new Schema<SystemReference>(
     {
