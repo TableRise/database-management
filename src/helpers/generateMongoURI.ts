@@ -1,4 +1,3 @@
-import 'dotenv/config';
 const path = require('path');
 
 export default (databaseName: string): string => {

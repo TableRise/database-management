@@ -1,5 +1,3 @@
-import 'module-alias/register';
-
 import { z } from 'zod';
 import { DnDEntities, RpgSystems } from './src/types/RPG';
 import models from './src/models';
