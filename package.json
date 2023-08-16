@@ -1,11 +1,12 @@
 {
   "name": "@tablerise/database-management",
-  "version": "2.1.1",
+  "version": "2.1.0",
   "description": "A library to manage the project database",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "publish": "tsc && npm publish"
   },
   "bin": {
     "@tablerise/database-management": "index.js"
