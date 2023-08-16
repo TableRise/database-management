@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { DnDEntities, RpgSystems } from './src/types/RPG';
 import models from './src/models';
 import MongoModel from './src/models/MongoModel';
-import schemas from './src/schemas';
+import schemas, { SchemasDnDType } from './src/schemas';
 
 export default class DatabaseManagement {
     public modelInstance(rpgSystem: RpgSystems, entity: DnDEntities): MongoModel<unknown> {
@@ -11,12 +11,13 @@ export default class DatabaseManagement {
         return model;
     }
 
-    public schemaInstance(RpgSystem: RpgSystems) {
+    public schemaInstance(RpgSystem: RpgSystems): SchemasDnDType {
         const allSchemasFromGroup = schemas[RpgSystem];
         return allSchemasFromGroup;
     }
 }
 
+export { SchemasDnDType };
 export { MongoModel };
 
 export interface Internacional<T> {
