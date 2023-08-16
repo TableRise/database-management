@@ -5,7 +5,7 @@ import MongoModel from './src/models/MongoModel';
 import schemas, { SchemasDnDType } from './src/schemas';
 
 export default class DatabaseManagement {
-    public modelInstance(rpgSystem: RpgSystems, entity: DnDEntities): MongoModel<unknown> {
+    public modelInstance(rpgSystem: RpgSystems, entity: DnDEntities): MongoModel<any> {
         const entityString = `${entity}Model`;
         const model = models[rpgSystem][entityString];
         return model;
