@@ -1,8 +1,9 @@
 import { Schema } from 'mongoose';
-import Connections from '../../models/DatabaseConnection';
+import connectInDB from '../../models/DatabaseConnection';
 import { Armor, Cost } from '../../schemas/dungeons&dragons5e/armorsValidationSchema';
 import MongoModel from '../../models/MongoModel';
 import { Internacional } from '../../schemas/languagesWrapperSchema';
+import { ModelMockArgs } from '../../types/ModelMock';
 
 const costMongooseSchema = new Schema<Cost>(
     {
@@ -37,10 +38,11 @@ export const armorsMongooseSchema = new Schema<Internacional<Armor>>(
     }
 );
 
-export const model = Connections['dungeons&dragons5e'].model('armor', armorsMongooseSchema);
-
 export default class ArmorsModel extends MongoModel<Internacional<Armor>> {
-    constructor() {
-        super(model);
+    constructor(public mockObject: ModelMockArgs | null) {
+        super(
+            mockObject.mock ? connectInDB(mockObject)['dungeons&dragons5e'].model('armor', armorsMongooseSchema)
+            : connectInDB(null)['dungeons&dragons5e'].model('armor', armorsMongooseSchema)
+        );
     }
 }

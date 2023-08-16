@@ -4,11 +4,12 @@ import models from './src/models';
 import MongoModel from './src/models/MongoModel';
 import schemas, { SchemasDnDType } from './src/schemas';
 import { SystemContent } from './src/schemas/dungeons&dragons5e/systemValidationSchema';
+import { ModelMockArgs } from './src/types/ModelMock';
 
 export default class DatabaseManagement {
-    public modelInstance(rpgSystem: RpgSystems, entity: DnDEntities): MongoModel<any> {
+    public modelInstance(rpgSystem: RpgSystems, entity: DnDEntities, mockObject: ModelMockArgs = null): MongoModel<any> {
         const entityString = `${entity}Model`;
-        const model = models[rpgSystem][entityString];
+        const model = new models[rpgSystem][entityString](mockObject);
         return model;
     }
 

@@ -1,8 +1,9 @@
 import { Schema } from 'mongoose';
-import Connections from '../../models/DatabaseConnection';
+import connectInDB from '../../models/DatabaseConnection';
 import { Internacional } from '../../schemas/languagesWrapperSchema';
 import { Item, MountOrVehicle, TradeGoods, Cost } from '../../schemas/dungeons&dragons5e/itemsValidationSchema';
 import MongoModel from '../../models/MongoModel';
+import { ModelMockArgs } from '../../types/ModelMock';
 
 const costSchema = new Schema<Cost>({
     currency: { type: String, required: true },
@@ -41,10 +42,11 @@ export const itemsMongooseSchema = new Schema<Internacional<Item>>(
     }
 );
 
-const model = Connections['dungeons&dragons5e'].model('item', itemsMongooseSchema);
-
 export default class ItemsModel extends MongoModel<Internacional<Item>> {
-    constructor() {
-        super(model);
+    constructor(public mockObject: ModelMockArgs) {
+        super(
+            mockObject.mock ? connectInDB(mockObject)['dungeons&dragons5e'].model('item', itemsMongooseSchema)
+            : connectInDB(null)['dungeons&dragons5e'].model('item', itemsMongooseSchema)
+        );
     }
 }

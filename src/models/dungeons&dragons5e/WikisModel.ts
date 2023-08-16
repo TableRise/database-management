@@ -1,8 +1,9 @@
 import { Schema } from 'mongoose';
-import Connections from '../../models/DatabaseConnection';
+import connectInDB from '../../models/DatabaseConnection';
 import { Wiki, SubTopic } from '../../schemas/dungeons&dragons5e/wikisValidationSchema';
 import MongoModel from '../../models/MongoModel';
 import { Internacional } from '../../schemas/languagesWrapperSchema';
+import { ModelMockArgs } from '../../types/ModelMock';
 
 const subTopicsMongooseSchema = new Schema<SubTopic>(
     {
@@ -34,10 +35,11 @@ export const wikisMongooseSchema = new Schema<Internacional<Wiki>>(
     }
 );
 
-const model = Connections['dungeons&dragons5e'].model('wiki', wikisMongooseSchema);
-
 export default class WikisModel extends MongoModel<Internacional<Wiki>> {
-    constructor() {
-        super(model);
+    constructor(public mockObject: ModelMockArgs) {
+        super(
+            mockObject.mock ? connectInDB(mockObject)['dungeons&dragons5e'].model('wiki', wikisMongooseSchema)
+            : connectInDB(null)['dungeons&dragons5e'].model('wiki', wikisMongooseSchema)
+        );
     }
 }

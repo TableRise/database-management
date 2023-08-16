@@ -1,5 +1,5 @@
 import { Schema } from 'mongoose';
-import Connections from '../../models/DatabaseConnection';
+import connectInDB from '../../models/DatabaseConnection';
 import {
     Background,
     BackgroundCharacteristics,
@@ -7,6 +7,7 @@ import {
 } from '../../schemas/dungeons&dragons5e/backgroundsValidationSchema';
 import MongoModel from '../../models/MongoModel';
 import { Internacional } from '../../schemas/languagesWrapperSchema';
+import { ModelMockArgs } from '../../types/ModelMock';
 
 const suggestedSchema = new Schema<BackgroundSuggested>(
     {
@@ -50,10 +51,11 @@ export const backgroundsMongooseSchema = new Schema<Internacional<Background>>(
     }
 );
 
-const model = Connections['dungeons&dragons5e'].model('background', backgroundsMongooseSchema);
-
 export default class BackgroundsModel extends MongoModel<Internacional<Background>> {
-    constructor() {
-        super(model);
+    constructor(public mockObject: ModelMockArgs) {
+        super(
+            mockObject.mock ? connectInDB(mockObject)['dungeons&dragons5e'].model('background', backgroundsMongooseSchema)
+            : connectInDB(null)['dungeons&dragons5e'].model('background', backgroundsMongooseSchema)
+        );
     }
 }

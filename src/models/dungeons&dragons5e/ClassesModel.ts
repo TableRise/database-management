@@ -1,5 +1,5 @@
 import { Schema } from 'mongoose';
-import Connections from '../../models/DatabaseConnection';
+import connectInDB from '../../models/DatabaseConnection';
 import {
     Class,
     HitPoints,
@@ -21,6 +21,7 @@ import {
 } from '../../schemas/dungeons&dragons5e/classesValidationSchema';
 import MongoModel from '../../models/MongoModel';
 import { Internacional } from '../../schemas/languagesWrapperSchema';
+import { ModelMockArgs } from '../../types/ModelMock';
 
 const hitPointsMongooseSchema = new Schema<HitPoints>(
     {
@@ -191,10 +192,11 @@ export const classMongooseSchema = new Schema<Internacional<Class>>(
     }
 );
 
-const model = Connections['dungeons&dragons5e'].model('class', classMongooseSchema);
-
 export default class ClassModel extends MongoModel<Internacional<Class>> {
-    constructor() {
-        super(model);
+    constructor(public mockObject: ModelMockArgs) {
+        super(
+            mockObject.mock ? connectInDB(mockObject)['dungeons&dragons5e'].model('class', classMongooseSchema)
+            : connectInDB(null)['dungeons&dragons5e'].model('class', classMongooseSchema)
+        );
     }
 }

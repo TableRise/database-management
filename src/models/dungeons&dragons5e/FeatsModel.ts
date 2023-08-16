@@ -1,8 +1,9 @@
 import { Schema } from 'mongoose';
-import Connections from '../../models/DatabaseConnection';
+import connectInDB from '../../models/DatabaseConnection';
 import { Feat } from '../../schemas/dungeons&dragons5e/featsValidationSchema';
 import MongoModel from '../../models/MongoModel';
 import { Internacional } from '../../schemas/languagesWrapperSchema';
+import { ModelMockArgs } from '../../types/ModelMock';
 
 const schema = new Schema<Feat>(
     {
@@ -14,7 +15,7 @@ const schema = new Schema<Feat>(
     { versionKey: false, _id: false }
 );
 
-export const featsMongooseSchema = new Schema<Internacional<Feat>>(
+export const featMongooseSchema = new Schema<Internacional<Feat>>(
     {
         active: { type: Boolean, required: true },
         en: schema,
@@ -24,11 +25,11 @@ export const featsMongooseSchema = new Schema<Internacional<Feat>>(
         versionKey: false,
     }
 );
-
-const model = Connections['dungeons&dragons5e'].model('feat', featsMongooseSchema);
-
 export default class FeatsModel extends MongoModel<Internacional<Feat>> {
-    constructor() {
-        super(model);
+    constructor(public mockObject: ModelMockArgs) {
+        super(
+            mockObject.mock ? connectInDB(mockObject)['dungeons&dragons5e'].model('feat', featMongooseSchema)
+            : connectInDB(null)['dungeons&dragons5e'].model('feat', featMongooseSchema)
+        );
     }
 }

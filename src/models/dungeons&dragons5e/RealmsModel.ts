@@ -1,8 +1,9 @@
 import { Schema } from 'mongoose';
-import Connections from '../../models/DatabaseConnection';
+import connectInDB from '../../models/DatabaseConnection';
 import { Realm } from '../../schemas/dungeons&dragons5e/realmsValidationSchema';
 import MongoModel from '../../models/MongoModel';
 import { Internacional } from '../../schemas/languagesWrapperSchema';
+import { ModelMockArgs } from '../../types/ModelMock';
 
 const schema = new Schema<Realm>(
     {
@@ -24,10 +25,11 @@ export const realmsMongooseSchema = new Schema<Internacional<Realm>>(
     }
 );
 
-const model = Connections['dungeons&dragons5e'].model('realm', realmsMongooseSchema);
-
 export default class RealmsModel extends MongoModel<Internacional<Realm>> {
-    constructor() {
-        super(model);
+    constructor(public mockObject: ModelMockArgs) {
+        super(
+            mockObject.mock ? connectInDB(mockObject)['dungeons&dragons5e'].model('realm', realmsMongooseSchema)
+            : connectInDB(null)['dungeons&dragons5e'].model('realm', realmsMongooseSchema)
+        );
     }
 }
