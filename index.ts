@@ -17,8 +17,7 @@ export default class DatabaseManagement {
     }
 }
 
-export { SchemasDnDType };
-export { MongoModel };
+export { MongoModel, SchemasDnDType };
 
 export interface Internacional<T> {
     _id?: string;
