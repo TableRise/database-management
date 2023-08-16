@@ -3,6 +3,7 @@ import { DnDEntities, RpgSystems } from './src/types/RPG';
 import models from './src/models';
 import MongoModel from './src/models/MongoModel';
 import schemas, { SchemasDnDType } from './src/schemas';
+import { SystemContent } from './src/schemas/dungeons&dragons5e/systemValidationSchema';
 
 export default class DatabaseManagement {
     public modelInstance(rpgSystem: RpgSystems, entity: DnDEntities): MongoModel<any> {
@@ -17,7 +18,7 @@ export default class DatabaseManagement {
     }
 }
 
-export { MongoModel, SchemasDnDType };
+export { MongoModel, SchemasDnDType, SystemContent };
 
 export interface Internacional<T> {
     _id?: string;
