@@ -3,7 +3,7 @@ import connectInDB from '../../models/DatabaseConnection';
 import { Wiki, SubTopic } from '../../schemas/dungeons&dragons5e/wikisValidationSchema';
 import MongoModel from '../../models/MongoModel';
 import { Internacional } from '../../schemas/languagesWrapperSchema';
-import { ModelMockArgs } from '../../types/ModelMock';
+import { ModelOptions } from '../../types/ModelMock';
 
 const subTopicsMongooseSchema = new Schema<SubTopic>(
     {
@@ -36,7 +36,7 @@ export const wikisMongooseSchema = new Schema<Internacional<Wiki>>(
 );
 
 export default class WikisModel extends MongoModel<Internacional<Wiki>> {
-    constructor(public mockObject: ModelMockArgs) {
+    constructor(public mockObject: ModelOptions) {
         super(
             mockObject.mock ? connectInDB(mockObject)['dungeons&dragons5e'].model('wiki', wikisMongooseSchema)
             : connectInDB(null)['dungeons&dragons5e'].model('wiki', wikisMongooseSchema)

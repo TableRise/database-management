@@ -3,7 +3,7 @@ import connectInDB from '../../models/DatabaseConnection';
 import { System, SystemContent, SystemReference } from '../../schemas/dungeons&dragons5e/systemValidationSchema';
 import MongoModel from '../../models/MongoModel';
 import { Internacional } from '../../schemas/languagesWrapperSchema';
-import { ModelMockArgs } from '../../types/ModelMock';
+import { ModelOptions } from '../../types/ModelMock';
 
 const systemReferenceMongooseSchema = new Schema<SystemReference>(
     {
@@ -43,7 +43,7 @@ const systemMongooseSchema = new Schema<System>(
 );
 
 export default class SystemModel extends MongoModel<System> {
-    constructor(public mockObject: ModelMockArgs) {
+    constructor(public mockObject: ModelOptions) {
         super(
             mockObject.mock ? connectInDB(mockObject)['dungeons&dragons5e'].model('system', systemMongooseSchema)
             : connectInDB(null)['dungeons&dragons5e'].model('system', systemMongooseSchema)

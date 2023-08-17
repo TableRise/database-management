@@ -3,7 +3,7 @@ import connectInDB from '../../models/DatabaseConnection';
 import { MagicItem } from '../../schemas/dungeons&dragons5e/magicItemsValidationSchema';
 import MongoModel from '../../models/MongoModel';
 import { Internacional } from '../../schemas/languagesWrapperSchema';
-import { ModelMockArgs } from '../../types/ModelMock';
+import { ModelOptions } from '../../types/ModelMock';
 
 const schema = new Schema<MagicItem>(
     {
@@ -26,7 +26,7 @@ export const magicItemsMongooseSchema = new Schema<Internacional<MagicItem>>(
 );
 
 export default class MagicItemsModel extends MongoModel<Internacional<MagicItem>> {
-    constructor(public mockObject: ModelMockArgs) {
+    constructor(public mockObject: ModelOptions) {
         super(
             mockObject.mock ? connectInDB(mockObject)['dungeons&dragons5e'].model('magicItem', magicItemsMongooseSchema)
             : connectInDB(null)['dungeons&dragons5e'].model('magicItem', magicItemsMongooseSchema)

@@ -8,7 +8,7 @@ import {
     AbilityScoreIncrease,
 } from '../../schemas/dungeons&dragons5e/racesValidationSchema';
 import MongoModel from '../../models/MongoModel';
-import { ModelMockArgs } from '../../types/ModelMock';
+import { ModelOptions } from '../../types/ModelMock';
 
 const abilityScoreIncreaseSchema = new Schema<AbilityScoreIncrease>({
     name: { type: String, required: true },
@@ -54,7 +54,7 @@ export const racesMongooseSchema = new Schema<Internacional<Race>>(
 );
 
 export default class RacesModel extends MongoModel<Internacional<Race>> {
-    constructor(public mockObject: ModelMockArgs) {
+    constructor(public mockObject: ModelOptions) {
         super(
             mockObject.mock ? connectInDB(mockObject)['dungeons&dragons5e'].model('race', racesMongooseSchema)
             : connectInDB(null)['dungeons&dragons5e'].model('race', racesMongooseSchema)

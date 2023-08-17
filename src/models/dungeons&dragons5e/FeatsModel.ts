@@ -3,7 +3,7 @@ import connectInDB from '../../models/DatabaseConnection';
 import { Feat } from '../../schemas/dungeons&dragons5e/featsValidationSchema';
 import MongoModel from '../../models/MongoModel';
 import { Internacional } from '../../schemas/languagesWrapperSchema';
-import { ModelMockArgs } from '../../types/ModelMock';
+import { ModelOptions } from '../../types/ModelMock';
 
 const schema = new Schema<Feat>(
     {
@@ -26,7 +26,7 @@ export const featMongooseSchema = new Schema<Internacional<Feat>>(
     }
 );
 export default class FeatsModel extends MongoModel<Internacional<Feat>> {
-    constructor(public mockObject: ModelMockArgs) {
+    constructor(public mockObject: ModelOptions) {
         super(
             mockObject.mock ? connectInDB(mockObject)['dungeons&dragons5e'].model('feat', featMongooseSchema)
             : connectInDB(null)['dungeons&dragons5e'].model('feat', featMongooseSchema)

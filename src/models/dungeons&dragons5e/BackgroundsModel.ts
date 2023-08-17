@@ -7,7 +7,7 @@ import {
 } from '../../schemas/dungeons&dragons5e/backgroundsValidationSchema';
 import MongoModel from '../../models/MongoModel';
 import { Internacional } from '../../schemas/languagesWrapperSchema';
-import { ModelMockArgs } from '../../types/ModelMock';
+import { ModelOptions } from '../../types/ModelMock';
 
 const suggestedSchema = new Schema<BackgroundSuggested>(
     {
@@ -52,7 +52,7 @@ export const backgroundsMongooseSchema = new Schema<Internacional<Background>>(
 );
 
 export default class BackgroundsModel extends MongoModel<Internacional<Background>> {
-    constructor(public mockObject: ModelMockArgs) {
+    constructor(public mockObject: ModelOptions) {
         super(
             mockObject.mock ? connectInDB(mockObject)['dungeons&dragons5e'].model('background', backgroundsMongooseSchema)
             : connectInDB(null)['dungeons&dragons5e'].model('background', backgroundsMongooseSchema)

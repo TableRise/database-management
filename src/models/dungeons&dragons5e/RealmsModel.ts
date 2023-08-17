@@ -3,7 +3,7 @@ import connectInDB from '../../models/DatabaseConnection';
 import { Realm } from '../../schemas/dungeons&dragons5e/realmsValidationSchema';
 import MongoModel from '../../models/MongoModel';
 import { Internacional } from '../../schemas/languagesWrapperSchema';
-import { ModelMockArgs } from '../../types/ModelMock';
+import { ModelOptions } from '../../types/ModelMock';
 
 const schema = new Schema<Realm>(
     {
@@ -26,7 +26,7 @@ export const realmsMongooseSchema = new Schema<Internacional<Realm>>(
 );
 
 export default class RealmsModel extends MongoModel<Internacional<Realm>> {
-    constructor(public mockObject: ModelMockArgs) {
+    constructor(public mockObject: ModelOptions) {
         super(
             mockObject.mock ? connectInDB(mockObject)['dungeons&dragons5e'].model('realm', realmsMongooseSchema)
             : connectInDB(null)['dungeons&dragons5e'].model('realm', realmsMongooseSchema)
