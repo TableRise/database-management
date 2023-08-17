@@ -1,6 +1,6 @@
 import ArmorsModel from './ArmorsModel';
 import BackgroundsModel from './BackgroundsModel';
-import ClassModel from './ClassesModel';
+import ClassesModel from './ClassesModel';
 import GodsModel from './GodsModel';
 import ItemsModel from './ItemsModel';
 import MagicItemsModel from './MagicItemsModel';
@@ -15,7 +15,7 @@ import WikisModel from './WikisModel';
 export default {
     ArmorsModel,
     BackgroundsModel,
-    ClassModel,
+    ClassesModel,
     GodsModel,
     ItemsModel,
     MagicItemsModel,
