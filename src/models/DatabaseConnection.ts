@@ -11,21 +11,21 @@ const Connections: TableRiseConnections = {
 };
 
 export default function connectInDB({
-    mock,
-    createReturn,
-    findReturn,
-    findOneReturn,
-    findByIdAndUpdateReturn,
-    findByIdAndDeleteReturn
+    mock = null,
+    createReturn = null,
+    findReturn = null,
+    findOneReturn = null,
+    findByIdAndUpdateReturn = null,
+    findByIdAndDeleteReturn = null
 }: ModelMockArgs): TableRiseConnections {
     if (mock) {
         Connections['dungeons&dragons5e'] = {
             model: (): ModelMock => ({
-                create: (payload) => createReturn ? ({ ...createReturn }) : ({ _id: generateNewMongoID(), ...payload }),
-                find: () => findReturn ? ({ ...createReturn }) : [],
-                findOne: (_id) => findOneReturn ?  ({ ...createReturn }) : ({ _id }),
-                findByIdAndUpdate: (_id) => findByIdAndUpdateReturn ? ({ ...findByIdAndDeleteReturn }) : ({ _id }),
-                findByIdAndDelete: (_id) => findByIdAndUpdateReturn ? ({ ...findByIdAndDeleteReturn }) : {}
+                create: async (payload) => createReturn ? ({ ...createReturn }) : ({ _id: generateNewMongoID(), ...payload }),
+                find: async () => findReturn ? ([ ...findReturn ]) : [],
+                findOne: async (_id) => findOneReturn ?  ({ ...findOneReturn }) : ({ _id }),
+                findByIdAndUpdate: async (_id) => findByIdAndUpdateReturn ? ({ ...findByIdAndDeleteReturn }) : ({ _id }),
+                findByIdAndDelete: async (_id) => findByIdAndUpdateReturn ? ({ ...findByIdAndDeleteReturn }) : {}
             }),
         } as unknown as mongoose.Connection;
 
