@@ -46,7 +46,7 @@ export default class SystemModel extends MongoModel<System> {
     constructor(public mockObject: ModelOptions) {
         super(
             mockObject.mock ? connectInDB(mockObject)['dungeons&dragons5e'].model('system', systemMongooseSchema)
-            : connectInDB(null)['dungeons&dragons5e'].model('system', systemMongooseSchema)
+            : connectInDB({ mock: false })['dungeons&dragons5e'].model('system', systemMongooseSchema)
         );
     }
 }

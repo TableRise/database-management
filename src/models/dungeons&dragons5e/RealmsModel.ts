@@ -29,7 +29,7 @@ export default class RealmsModel extends MongoModel<Internacional<Realm>> {
     constructor(public mockObject: ModelOptions) {
         super(
             mockObject.mock ? connectInDB(mockObject)['dungeons&dragons5e'].model('realm', realmsMongooseSchema)
-            : connectInDB(null)['dungeons&dragons5e'].model('realm', realmsMongooseSchema)
+            : connectInDB({ mock: false })['dungeons&dragons5e'].model('realm', realmsMongooseSchema)
         );
     }
 }

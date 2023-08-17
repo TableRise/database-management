@@ -56,7 +56,7 @@ export default class SpellsModel extends MongoModel<Internacional<Spell>> {
     constructor(public mockObject: ModelOptions) {
         super(
             mockObject.mock ? connectInDB(mockObject)['dungeons&dragons5e'].model('spell', spellsMongooseSchema)
-            : connectInDB(null)['dungeons&dragons5e'].model('spell', spellsMongooseSchema)
+            : connectInDB({ mock: false })['dungeons&dragons5e'].model('spell', spellsMongooseSchema)
         );
     }
 }

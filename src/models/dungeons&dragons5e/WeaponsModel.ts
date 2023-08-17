@@ -41,7 +41,7 @@ export default class WeaponsModel extends MongoModel<Internacional<Weapon>> {
     constructor(public mockObject: ModelOptions) {
         super(
             mockObject.mock ? connectInDB(mockObject)['dungeons&dragons5e'].model('weapon', weaponsMongooseSchema)
-            : connectInDB(null)['dungeons&dragons5e'].model('weapon', weaponsMongooseSchema)
+            : connectInDB({ mock: false })['dungeons&dragons5e'].model('weapon', weaponsMongooseSchema)
         );
     }
 }

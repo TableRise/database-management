@@ -196,7 +196,7 @@ export default class ClassModel extends MongoModel<Internacional<Class>> {
     constructor(public mockObject: ModelOptions) {
         super(
             mockObject.mock ? connectInDB(mockObject)['dungeons&dragons5e'].model('class', classMongooseSchema)
-            : connectInDB(null)['dungeons&dragons5e'].model('class', classMongooseSchema)
+            : connectInDB({ mock: false })['dungeons&dragons5e'].model('class', classMongooseSchema)
         );
     }
 }

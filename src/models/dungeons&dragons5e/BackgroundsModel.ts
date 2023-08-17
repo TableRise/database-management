@@ -55,7 +55,7 @@ export default class BackgroundsModel extends MongoModel<Internacional<Backgroun
     constructor(public mockObject: ModelOptions) {
         super(
             mockObject.mock ? connectInDB(mockObject)['dungeons&dragons5e'].model('background', backgroundsMongooseSchema)
-            : connectInDB(null)['dungeons&dragons5e'].model('background', backgroundsMongooseSchema)
+            : connectInDB({ mock: false })['dungeons&dragons5e'].model('background', backgroundsMongooseSchema)
         );
     }
 }

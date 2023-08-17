@@ -29,7 +29,7 @@ export default class FeatsModel extends MongoModel<Internacional<Feat>> {
     constructor(public mockObject: ModelOptions) {
         super(
             mockObject.mock ? connectInDB(mockObject)['dungeons&dragons5e'].model('feat', featMongooseSchema)
-            : connectInDB(null)['dungeons&dragons5e'].model('feat', featMongooseSchema)
+            : connectInDB({ mock: false })['dungeons&dragons5e'].model('feat', featMongooseSchema)
         );
     }
 }

@@ -29,7 +29,7 @@ export default class MagicItemsModel extends MongoModel<Internacional<MagicItem>
     constructor(public mockObject: ModelOptions) {
         super(
             mockObject.mock ? connectInDB(mockObject)['dungeons&dragons5e'].model('magicItem', magicItemsMongooseSchema)
-            : connectInDB(null)['dungeons&dragons5e'].model('magicItem', magicItemsMongooseSchema)
+            : connectInDB({ mock: false })['dungeons&dragons5e'].model('magicItem', magicItemsMongooseSchema)
         );
     }
 }

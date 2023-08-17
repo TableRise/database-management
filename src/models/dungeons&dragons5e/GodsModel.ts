@@ -31,7 +31,7 @@ export default class GodsModel extends MongoModel<Internacional<God>> {
     constructor(public mockObject: ModelOptions) {
         super(
             mockObject.mock ? connectInDB(mockObject)['dungeons&dragons5e'].model('god', godsMongooseSchema)
-            : connectInDB(null)['dungeons&dragons5e'].model('god', godsMongooseSchema)
+            : connectInDB({ mock: false })['dungeons&dragons5e'].model('god', godsMongooseSchema)
         );
     }
 }

@@ -42,7 +42,7 @@ export default class ArmorsModel extends MongoModel<Internacional<Armor>> {
     constructor(public mockObject: ModelOptions | null) {
         super(
             mockObject.mock ? connectInDB(mockObject)['dungeons&dragons5e'].model('armor', armorsMongooseSchema)
-            : connectInDB(null)['dungeons&dragons5e'].model('armor', armorsMongooseSchema)
+            : connectInDB({ mock: false })['dungeons&dragons5e'].model('armor', armorsMongooseSchema)
         );
     }
 }

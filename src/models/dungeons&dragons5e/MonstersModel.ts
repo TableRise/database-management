@@ -99,7 +99,7 @@ export default class MonstersModel extends MongoModel<Internacional<Monster>> {
     constructor(public mockObject: ModelOptions) {
         super(
             mockObject.mock ? connectInDB(mockObject)['dungeons&dragons5e'].model('monster', monstersMongooseSchema)
-            : connectInDB(null)['dungeons&dragons5e'].model('monster', monstersMongooseSchema)
+            : connectInDB({ mock: false })['dungeons&dragons5e'].model('monster', monstersMongooseSchema)
         );
     }
 }

@@ -57,7 +57,7 @@ export default class RacesModel extends MongoModel<Internacional<Race>> {
     constructor(public mockObject: ModelOptions) {
         super(
             mockObject.mock ? connectInDB(mockObject)['dungeons&dragons5e'].model('race', racesMongooseSchema)
-            : connectInDB(null)['dungeons&dragons5e'].model('race', racesMongooseSchema)
+            : connectInDB({ mock: false })['dungeons&dragons5e'].model('race', racesMongooseSchema)
         );
     }
 }
