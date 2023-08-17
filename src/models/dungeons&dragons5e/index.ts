@@ -3,6 +3,7 @@ import BackgroundsModel from './BackgroundsModel';
 import ClassesModel from './ClassesModel';
 import GodsModel from './GodsModel';
 import ItemsModel from './ItemsModel';
+import FeatsModel from './FeatsModel';
 import MagicItemsModel from './MagicItemsModel';
 import MonstersModel from './MonstersModel';
 import RacesModel from './RacesModel';
@@ -18,6 +19,7 @@ export default {
     ClassesModel,
     GodsModel,
     ItemsModel,
+    FeatsModel,
     MagicItemsModel,
     MonstersModel,
     RacesModel,
