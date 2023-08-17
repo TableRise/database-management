@@ -192,7 +192,7 @@ export const classMongooseSchema = new Schema<Internacional<Class>>(
     }
 );
 
-export default class ClassModel extends MongoModel<Internacional<Class>> {
+export default class ClassesModel extends MongoModel<Internacional<Class>> {
     constructor(public mockObject: ModelOptions) {
         super(
             mockObject.mock ? connectInDB(mockObject)['dungeons&dragons5e'].model('class', classMongooseSchema)
