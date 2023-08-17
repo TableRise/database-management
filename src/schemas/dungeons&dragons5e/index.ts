@@ -9,7 +9,7 @@ import monsterZod from "./monstersValidationSchema";
 import raceZod from "./racesValidationSchema";
 import realmZod from "./realmsValidationSchema";
 import spellZod from "./spellsValidationSchema";
-import systemZod from "./systemValidationSchema";
+import systemZod, { systemPayloadZodSchema } from "./systemValidationSchema";
 import weaponZod from "./weaponsValidationSchema";
 import wikiZod from "./wikisValidationSchema";
 
@@ -25,7 +25,7 @@ export default {
     raceZod,
     realmZod,
     spellZod,
-    systemZod,
+    systemZod: { systemZod, systemPayloadZodSchema },
     weaponZod,
     wikiZod
 }
