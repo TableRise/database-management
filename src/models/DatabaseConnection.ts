@@ -9,7 +9,7 @@ const Connections: TableRiseConnections = {
     'dungeons&dragons5e': {} as mongoose.Connection,
 };
 
-export default function connectInDB({ mock = null }: ModelOptions): TableRiseConnections {
+export default function connectInDB({ mock }: ModelOptions): TableRiseConnections {
     if (mock) {
         Connections['dungeons&dragons5e'] = {
             model: () => {},
