@@ -1,7 +1,9 @@
-import { Model, UpdateQuery } from 'mongoose';
+import mongoose, { Model, UpdateQuery } from 'mongoose';
 import ModelType from '../types/Model';
 
 abstract class MongoModel<T> implements ModelType<T> {
+    public connection: mongoose.Connection;
+
     constructor(protected _model: Model<T>) {}
 
     public async create(payload: T): Promise<T> {

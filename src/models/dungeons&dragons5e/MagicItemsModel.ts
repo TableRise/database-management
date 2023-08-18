@@ -25,11 +25,16 @@ export const magicItemsMongooseSchema = new Schema<Internacional<MagicItem>>(
     }
 );
 
+const connection = connectInDB({ mock: false })['dungeons&dragons5e'];
+const connectionMock = (mockObject: ModelOptions | null) => connectionMock(mockObject);
+
 export default class MagicItemsModel extends MongoModel<Internacional<MagicItem>> {
     constructor(public mockObject: ModelOptions) {
         super(
-            mockObject.mock ? connectInDB(mockObject)['dungeons&dragons5e'].model('magicItem', magicItemsMongooseSchema)
-            : connectInDB({ mock: false })['dungeons&dragons5e'].model('magicItem', magicItemsMongooseSchema)
+            mockObject.mock ? connectionMock(mockObject).model('magicItem', magicItemsMongooseSchema)
+            : connection.model('magicItem', magicItemsMongooseSchema)
         );
+
+        this.connection = mockObject.mock ? connectionMock(mockObject) : connection;
     }
 }

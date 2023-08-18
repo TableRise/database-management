@@ -51,11 +51,16 @@ export const backgroundsMongooseSchema = new Schema<Internacional<Background>>(
     }
 );
 
+const connection = connectInDB({ mock: false })['dungeons&dragons5e'];
+const connectionMock = (mockObject: ModelOptions | null) => connectionMock(mockObject);
+
 export default class BackgroundsModel extends MongoModel<Internacional<Background>> {
     constructor(public mockObject: ModelOptions) {
         super(
-            mockObject.mock ? connectInDB(mockObject)['dungeons&dragons5e'].model('background', backgroundsMongooseSchema)
-            : connectInDB({ mock: false })['dungeons&dragons5e'].model('background', backgroundsMongooseSchema)
+            mockObject.mock ? connectionMock(mockObject).model('background', backgroundsMongooseSchema)
+            : connection.model('background', backgroundsMongooseSchema)
         );
+
+        this.connection = mockObject.mock ? connectionMock(mockObject) : connection;
     }
 }

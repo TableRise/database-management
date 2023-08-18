@@ -27,11 +27,16 @@ export const godsMongooseSchema = new Schema<Internacional<God>>(
     }
 );
 
+const connection = connectInDB({ mock: false })['dungeons&dragons5e'];
+const connectionMock = (mockObject: ModelOptions | null) => connectionMock(mockObject);
+
 export default class GodsModel extends MongoModel<Internacional<God>> {
     constructor(public mockObject: ModelOptions) {
         super(
-            mockObject.mock ? connectInDB(mockObject)['dungeons&dragons5e'].model('god', godsMongooseSchema)
-            : connectInDB({ mock: false })['dungeons&dragons5e'].model('god', godsMongooseSchema)
+            mockObject.mock ? connectionMock(mockObject).model('god', godsMongooseSchema)
+            : connection.model('god', godsMongooseSchema)
         );
+
+        this.connection = mockObject.mock ? connectionMock(mockObject) : connection;
     }
 }

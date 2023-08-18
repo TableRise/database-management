@@ -52,11 +52,16 @@ export const spellsMongooseSchema = new Schema<Internacional<Spell>>(
     }
 );
 
+const connection = connectInDB({ mock: false })['dungeons&dragons5e'];
+const connectionMock = (mockObject: ModelOptions | null) => connectionMock(mockObject);
+
 export default class SpellsModel extends MongoModel<Internacional<Spell>> {
     constructor(public mockObject: ModelOptions) {
         super(
-            mockObject.mock ? connectInDB(mockObject)['dungeons&dragons5e'].model('spell', spellsMongooseSchema)
-            : connectInDB({ mock: false })['dungeons&dragons5e'].model('spell', spellsMongooseSchema)
+            mockObject.mock ? connectionMock(mockObject).model('spell', spellsMongooseSchema)
+            : connection.model('spell', spellsMongooseSchema)
         );
+
+        this.connection = mockObject.mock ? connectionMock(mockObject) : connection;
     }
 }

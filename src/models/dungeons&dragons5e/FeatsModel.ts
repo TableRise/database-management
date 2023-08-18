@@ -25,11 +25,17 @@ export const featMongooseSchema = new Schema<Internacional<Feat>>(
         versionKey: false,
     }
 );
+
+const connection = connectInDB({ mock: false })['dungeons&dragons5e'];
+const connectionMock = (mockObject: ModelOptions | null) => connectionMock(mockObject);
+
 export default class FeatsModel extends MongoModel<Internacional<Feat>> {
     constructor(public mockObject: ModelOptions) {
         super(
-            mockObject.mock ? connectInDB(mockObject)['dungeons&dragons5e'].model('feat', featMongooseSchema)
-            : connectInDB({ mock: false })['dungeons&dragons5e'].model('feat', featMongooseSchema)
+            mockObject.mock ? connectionMock(mockObject).model('feat', featMongooseSchema)
+            : connection.model('feat', featMongooseSchema)
         );
+
+        this.connection = mockObject.mock ? connectionMock(mockObject) : connection;
     }
 }
