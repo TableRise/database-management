@@ -26,7 +26,7 @@ export const realmsMongooseSchema = new Schema<Internacional<Realm>>(
 );
 
 const connection = connectInDB({ mock: false })['dungeons&dragons5e'];
-const connectionMock = (mockObject: ModelOptions | null) => connectionMock(mockObject);
+const connectionMock = (mockObject: ModelOptions | null) => connectInDB(mockObject)['dungeons&dragons5e'];
 
 export default class RealmsModel extends MongoModel<Internacional<Realm>> {
     constructor(public mockObject: ModelOptions) {

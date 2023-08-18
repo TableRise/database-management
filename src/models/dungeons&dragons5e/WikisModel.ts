@@ -36,7 +36,7 @@ export const wikisMongooseSchema = new Schema<Internacional<Wiki>>(
 );
 
 const connection = connectInDB({ mock: false })['dungeons&dragons5e'];
-const connectionMock = (mockObject: ModelOptions | null) => connectionMock(mockObject);
+const connectionMock = (mockObject: ModelOptions | null) => connectInDB(mockObject)['dungeons&dragons5e'];
 
 export default class WikisModel extends MongoModel<Internacional<Wiki>> {
     constructor(public mockObject: ModelOptions) {

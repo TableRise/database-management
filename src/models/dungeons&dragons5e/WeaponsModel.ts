@@ -38,7 +38,7 @@ export const weaponsMongooseSchema = new Schema<Internacional<Weapon>>(
 );
 
 const connection = connectInDB({ mock: false })['dungeons&dragons5e'];
-const connectionMock = (mockObject: ModelOptions | null) => connectionMock(mockObject);
+const connectionMock = (mockObject: ModelOptions | null) => connectInDB(mockObject)['dungeons&dragons5e'];
 
 export default class WeaponsModel extends MongoModel<Internacional<Weapon>> {
     constructor(public mockObject: ModelOptions) {

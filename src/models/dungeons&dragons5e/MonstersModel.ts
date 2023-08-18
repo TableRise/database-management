@@ -96,7 +96,7 @@ export const monstersMongooseSchema = new Schema<Internacional<Monster>>(
 );
 
 const connection = connectInDB({ mock: false })['dungeons&dragons5e'];
-const connectionMock = (mockObject: ModelOptions | null) => connectionMock(mockObject);
+const connectionMock = (mockObject: ModelOptions | null) => connectInDB(mockObject)['dungeons&dragons5e'];
 
 export default class MonstersModel extends MongoModel<Internacional<Monster>> {
     constructor(public mockObject: ModelOptions) {

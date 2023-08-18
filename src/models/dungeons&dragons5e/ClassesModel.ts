@@ -193,7 +193,7 @@ export const classMongooseSchema = new Schema<Internacional<Class>>(
 );
 
 const connection = connectInDB({ mock: false })['dungeons&dragons5e'];
-const connectionMock = (mockObject: ModelOptions | null) => connectionMock(mockObject);
+const connectionMock = (mockObject: ModelOptions | null) => connectInDB(mockObject)['dungeons&dragons5e'];
 
 export default class ClassesModel extends MongoModel<Internacional<Class>> {
     constructor(public mockObject: ModelOptions) {

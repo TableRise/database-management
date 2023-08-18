@@ -54,7 +54,7 @@ export const racesMongooseSchema = new Schema<Internacional<Race>>(
 );
 
 const connection = connectInDB({ mock: false })['dungeons&dragons5e'];
-const connectionMock = (mockObject: ModelOptions | null) => connectionMock(mockObject);
+const connectionMock = (mockObject: ModelOptions | null) => connectInDB(mockObject)['dungeons&dragons5e'];
 
 export default class RacesModel extends MongoModel<Internacional<Race>> {
     constructor(public mockObject: ModelOptions) {

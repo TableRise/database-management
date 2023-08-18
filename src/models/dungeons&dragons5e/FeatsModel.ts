@@ -27,7 +27,7 @@ export const featMongooseSchema = new Schema<Internacional<Feat>>(
 );
 
 const connection = connectInDB({ mock: false })['dungeons&dragons5e'];
-const connectionMock = (mockObject: ModelOptions | null) => connectionMock(mockObject);
+const connectionMock = (mockObject: ModelOptions | null) => connectInDB(mockObject)['dungeons&dragons5e'];
 
 export default class FeatsModel extends MongoModel<Internacional<Feat>> {
     constructor(public mockObject: ModelOptions) {
