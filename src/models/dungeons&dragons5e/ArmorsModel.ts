@@ -39,14 +39,14 @@ export const armorsMongooseSchema = new Schema<Internacional<Armor>>(
     }
 );
 
-const connection = (mockObject: ModelOptions | null): ConnectionInstance => ({
+const connection = (mockObject: ModelOptions): ConnectionInstance => ({
     instance: connectInDB(mockObject)['dungeons&dragons5e'],
     name: 'armor',
     schema: armorsMongooseSchema
 });
 
 export default class ArmorsModel extends MongoModel<Internacional<Armor>> {
-    constructor(public mockObject: ModelOptions | null) {
+    constructor(public mockObject: ModelOptions) {
         super(connection(mockObject));
     }
 }

@@ -4,6 +4,7 @@ import { God } from '../../schemas/dungeons&dragons5e/godsValidationSchema';
 import MongoModel from '../../models/MongoModel';
 import { Internacional } from '../../schemas/languagesWrapperSchema';
 import { ModelOptions } from '../../types/ModelMock';
+import { ConnectionInstance } from '../../types/TableRiseConnection';
 
 const schema = new Schema<God>(
     {
@@ -27,12 +28,14 @@ export const godsMongooseSchema = new Schema<Internacional<God>>(
     }
 );
 
-const connection = (mockObject: ModelOptions | null) => connectInDB(mockObject)['dungeons&dragons5e'];
+const connection = (mockObject: ModelOptions): ConnectionInstance => ({
+    instance: connectInDB(mockObject)['dungeons&dragons5e'],
+    name: 'god',
+    schema: godsMongooseSchema
+});
 
 export default class GodsModel extends MongoModel<Internacional<God>> {
     constructor(public mockObject: ModelOptions) {
-        super(connection(mockObject).model('god', godsMongooseSchema));
-
-        this.connection = connection(mockObject);
+        super(connection(mockObject));
     }
 }

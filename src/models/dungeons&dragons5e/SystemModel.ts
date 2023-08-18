@@ -4,6 +4,7 @@ import { System, SystemContent, SystemReference } from '../../schemas/dungeons&d
 import MongoModel from '../../models/MongoModel';
 import { Internacional } from '../../schemas/languagesWrapperSchema';
 import { ModelOptions } from '../../types/ModelMock';
+import { ConnectionInstance } from '../../types/TableRiseConnection';
 
 const systemReferenceMongooseSchema = new Schema<SystemReference>(
     {
@@ -42,12 +43,14 @@ const systemMongooseSchema = new Schema<System>(
     }
 );
 
-const connection = (mockObject: ModelOptions | null) => connectInDB(mockObject)['dungeons&dragons5e'];
+const connection = (mockObject: ModelOptions): ConnectionInstance => ({
+    instance: connectInDB(mockObject)['dungeons&dragons5e'],
+    name: 'system',
+    schema: systemMongooseSchema
+});
 
 export default class SystemModel extends MongoModel<System> {
     constructor(public mockObject: ModelOptions) {
-        super(connection(mockObject).model('system', systemMongooseSchema));
-
-        this.connection = connection(mockObject);
+        super(connection(mockObject));
     }
 }

@@ -8,6 +8,7 @@ import {
 import MongoModel from '../../models/MongoModel';
 import { Internacional } from '../../schemas/languagesWrapperSchema';
 import { ModelOptions } from '../../types/ModelMock';
+import { ConnectionInstance } from '../../types/TableRiseConnection';
 
 const suggestedSchema = new Schema<BackgroundSuggested>(
     {
@@ -51,12 +52,14 @@ export const backgroundsMongooseSchema = new Schema<Internacional<Background>>(
     }
 );
 
-const connection = (mockObject: ModelOptions | null) => connectInDB(mockObject)['dungeons&dragons5e'];
+const connection = (mockObject: ModelOptions): ConnectionInstance => ({
+    instance: connectInDB(mockObject)['dungeons&dragons5e'],
+    name: 'background',
+    schema: backgroundsMongooseSchema
+});
 
 export default class BackgroundsModel extends MongoModel<Internacional<Background>> {
     constructor(public mockObject: ModelOptions) {
-        super(connection(mockObject).model('background', backgroundsMongooseSchema));
-
-        this.connection = connection(mockObject);
+        super(connection(mockObject));
     }
 }

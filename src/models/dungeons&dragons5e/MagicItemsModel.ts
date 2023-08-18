@@ -4,6 +4,7 @@ import { MagicItem } from '../../schemas/dungeons&dragons5e/magicItemsValidation
 import MongoModel from '../../models/MongoModel';
 import { Internacional } from '../../schemas/languagesWrapperSchema';
 import { ModelOptions } from '../../types/ModelMock';
+import { ConnectionInstance } from '../../types/TableRiseConnection';
 
 const schema = new Schema<MagicItem>(
     {
@@ -25,12 +26,14 @@ export const magicItemsMongooseSchema = new Schema<Internacional<MagicItem>>(
     }
 );
 
-const connection = (mockObject: ModelOptions | null) => connectInDB(mockObject)['dungeons&dragons5e'];
+const connection = (mockObject: ModelOptions): ConnectionInstance => ({
+    instance: connectInDB(mockObject)['dungeons&dragons5e'],
+    name: 'magicItem',
+    schema: magicItemsMongooseSchema
+});
 
 export default class MagicItemsModel extends MongoModel<Internacional<MagicItem>> {
     constructor(public mockObject: ModelOptions) {
-        super(connection(mockObject).model('magicItem', magicItemsMongooseSchema));
-
-        this.connection = connection(mockObject);
+        super(connection(mockObject));
     }
 }

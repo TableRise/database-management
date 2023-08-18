@@ -22,6 +22,7 @@ import {
 import MongoModel from '../../models/MongoModel';
 import { Internacional } from '../../schemas/languagesWrapperSchema';
 import { ModelOptions } from '../../types/ModelMock';
+import { ConnectionInstance } from '../../types/TableRiseConnection';
 
 const hitPointsMongooseSchema = new Schema<HitPoints>(
     {
@@ -192,12 +193,14 @@ export const classMongooseSchema = new Schema<Internacional<Class>>(
     }
 );
 
-const connection = (mockObject: ModelOptions | null) => connectInDB(mockObject)['dungeons&dragons5e'];
+const connection = (mockObject: ModelOptions): ConnectionInstance => ({
+    instance: connectInDB(mockObject)['dungeons&dragons5e'],
+    name: 'class',
+    schema: classMongooseSchema
+});
 
 export default class ClassesModel extends MongoModel<Internacional<Class>> {
     constructor(public mockObject: ModelOptions) {
-        super(connection(mockObject).model('class', classMongooseSchema));
-
-        this.connection = connection(mockObject);
+        super(connection(mockObject));
     }
 }

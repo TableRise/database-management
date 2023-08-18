@@ -9,6 +9,7 @@ import {
 } from '../../schemas/dungeons&dragons5e/racesValidationSchema';
 import MongoModel from '../../models/MongoModel';
 import { ModelOptions } from '../../types/ModelMock';
+import { ConnectionInstance } from '../../types/TableRiseConnection';
 
 const abilityScoreIncreaseSchema = new Schema<AbilityScoreIncrease>({
     name: { type: String, required: true },
@@ -53,12 +54,14 @@ export const racesMongooseSchema = new Schema<Internacional<Race>>(
     }
 );
 
-const connection = (mockObject: ModelOptions | null) => connectInDB(mockObject)['dungeons&dragons5e'];
+const connection = (mockObject: ModelOptions): ConnectionInstance => ({
+    instance: connectInDB(mockObject)['dungeons&dragons5e'],
+    name: 'race',
+    schema: racesMongooseSchema
+});
 
 export default class RacesModel extends MongoModel<Internacional<Race>> {
     constructor(public mockObject: ModelOptions) {
-        super(connection(mockObject).model('race', racesMongooseSchema));
-
-        this.connection = connection(mockObject);
+        super(connection(mockObject));
     }
 }
