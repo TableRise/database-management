@@ -11,7 +11,6 @@ const Connections: TableRiseConnections = {
 
 export default function connectInDB({ mock }: ModelOptions): TableRiseConnections {
     if (mock) {
-        logger('info', 'Dungeons and Dragons 5° Edition - MOCK [ Database Connection Instanciated ]');
         Connections['dungeons&dragons5e'] = {
             model: () => {},
         } as unknown as mongoose.Connection;
