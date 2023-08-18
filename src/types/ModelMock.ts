@@ -1,3 +1,3 @@
 export interface ModelOptions {
-    mock: boolean
+    mock: boolean | null
 }

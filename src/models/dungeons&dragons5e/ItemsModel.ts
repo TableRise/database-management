@@ -42,16 +42,12 @@ export const itemsMongooseSchema = new Schema<Internacional<Item>>(
     }
 );
 
-const connection = connectInDB({ mock: false })['dungeons&dragons5e'];
-const connectionMock = (mockObject: ModelOptions | null) => connectInDB(mockObject)['dungeons&dragons5e'];
+const connection = (mockObject: ModelOptions | null) => connectInDB(mockObject)['dungeons&dragons5e'];
 
 export default class ItemsModel extends MongoModel<Internacional<Item>> {
     constructor(public mockObject: ModelOptions) {
-        super(
-            mockObject.mock ? connectionMock(mockObject).model('item', itemsMongooseSchema)
-            : connection.model('item', itemsMongooseSchema)
-        );
+        super(connection(mockObject).model('item', itemsMongooseSchema));
 
-        this.connection = mockObject.mock ? connectionMock(mockObject) : connection;
+        this.connection = connection(mockObject);
     }
 }

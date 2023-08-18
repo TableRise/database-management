@@ -7,7 +7,7 @@ import { SystemContent } from './src/schemas/dungeons&dragons5e/systemValidation
 import { ModelOptions } from './src/types/ModelMock';
 
 export default class DatabaseManagement {
-    public modelInstance(rpgSystem: RpgSystems, entity: DnDEntities, mockObject: ModelOptions = { mock: false }): MongoModel<any> {
+    public modelInstance(rpgSystem: RpgSystems, entity: DnDEntities, mockObject: ModelOptions = { mock: null }): MongoModel<any> {
         const entityString = `${entity}Model`;
         const model = new models[rpgSystem][entityString](mockObject);
         return model;

@@ -35,16 +35,12 @@ export const wikisMongooseSchema = new Schema<Internacional<Wiki>>(
     }
 );
 
-const connection = connectInDB({ mock: false })['dungeons&dragons5e'];
-const connectionMock = (mockObject: ModelOptions | null) => connectInDB(mockObject)['dungeons&dragons5e'];
+const connection = (mockObject: ModelOptions | null) => connectInDB(mockObject)['dungeons&dragons5e'];
 
 export default class WikisModel extends MongoModel<Internacional<Wiki>> {
     constructor(public mockObject: ModelOptions) {
-        super(
-            mockObject.mock ? connectionMock(mockObject).model('wiki', wikisMongooseSchema)
-            : connection.model('wiki', wikisMongooseSchema)
-        );
+        super(connection(mockObject).model('wiki', wikisMongooseSchema));
 
-        this.connection = mockObject.mock ? connectionMock(mockObject) : connection;
+        this.connection = connection(mockObject);
     }
 }
