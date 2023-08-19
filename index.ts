@@ -10,7 +10,7 @@ import { SystemContent } from './src/schemas/dungeons&dragons5e/systemValidation
 const path = require('path');
 
 export default class DatabaseManagement {
-    static connect(on: boolean = false): Promise<void> {
+    static connect(on: boolean = false): Promise<mongoose.Mongoose> {
         if (on) {
             const tableriseEnvs = require(path.resolve('./tablerise.environment.js'));
 
@@ -20,7 +20,7 @@ export default class DatabaseManagement {
             const database = tableriseEnvs.database_database as string;
             const initialString = tableriseEnvs.database_initialString as string;
 
-            mongoose.connect(`${initialString}://${username}:${password}@${host}/${database}`);
+            return mongoose.connect(`${initialString}://${username}:${password}@${host}/${database}`);
         }
 
         return;
