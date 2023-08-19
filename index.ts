@@ -39,7 +39,7 @@ export default class DatabaseManagement {
     }
 }
 
-export { MongoModel, SchemasDnDType, SystemContent };
+export { MongoModel, SchemasDnDType, SystemContent, mongoose };
 
 export interface Internacional<T> {
     _id?: string;
