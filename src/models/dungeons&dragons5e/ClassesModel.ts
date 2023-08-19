@@ -190,7 +190,7 @@ export const classMongooseSchema = new Schema<Internacional<Class>>(
     }
 );
 
-const connection = mongoose.connection.useDb('dungeons&dragons5e', { noListener: true });
+const connection = mongoose.connection.useDb('dungeons&dragons5e', { noListener: true, useCache: true });
 
 export default class ClassesModel extends MongoModel<Internacional<Class>> {
     constructor(public model = connection.model('class', classMongooseSchema)) {

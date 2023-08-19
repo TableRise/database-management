@@ -24,7 +24,7 @@ export const featsMongooseSchema = new Schema<Internacional<Feat>>(
     }
 );
 
-const connection = mongoose.connection.useDb('dungeons&dragons5e', { noListener: true });
+const connection = mongoose.connection.useDb('dungeons&dragons5e', { noListener: true, useCache: true });
 
 export default class FeatsModel extends MongoModel<Internacional<Feat>> {
     constructor(public model = connection.model('feat', featsMongooseSchema)) {

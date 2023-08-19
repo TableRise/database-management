@@ -35,7 +35,7 @@ export const weaponsMongooseSchema = new Schema<Internacional<Weapon>>(
     }
 );
 
-const connection = mongoose.connection.useDb('dungeons&dragons5e', { noListener: true });
+const connection = mongoose.connection.useDb('dungeons&dragons5e', { noListener: true, useCache: true });
 
 export default class WeaponsModel extends MongoModel<Internacional<Weapon>> {
     constructor(public model = connection.model('weapon', weaponsMongooseSchema)) {

@@ -36,7 +36,7 @@ export const armorsMongooseSchema = new Schema<Internacional<Armor>>(
     }
 );
 
-const connection = mongoose.connection.useDb('dungeons&dragons5e', { noListener: true });
+const connection = mongoose.connection.useDb('dungeons&dragons5e', { noListener: true, useCache: true });
 
 export default class ArmorsModel extends MongoModel<Internacional<Armor>> {
     constructor(public model = connection.model('armor', armorsMongooseSchema)) {

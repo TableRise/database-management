@@ -23,7 +23,7 @@ export const realmsMongooseSchema = new Schema<Internacional<Realm>>(
     }
 );
 
-const connection = mongoose.connection.useDb('dungeons&dragons5e', { noListener: true });
+const connection = mongoose.connection.useDb('dungeons&dragons5e', { noListener: true, useCache: true });
 
 export default class RealmsModel extends MongoModel<Internacional<Realm>> {
     constructor(public model = connection.model('realm', realmsMongooseSchema)) {

@@ -23,7 +23,7 @@ export const magicItemsMongooseSchema = new Schema<Internacional<MagicItem>>(
     }
 );
 
-const connection = mongoose.connection.useDb('dungeons&dragons5e', { noListener: true });
+const connection = mongoose.connection.useDb('dungeons&dragons5e', { noListener: true, useCache: true });
 
 export default class MagicItemsModel extends MongoModel<Internacional<MagicItem>> {
     constructor(public model = connection.model('magicItem', magicItemsMongooseSchema)) {

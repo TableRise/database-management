@@ -51,7 +51,7 @@ export const racesMongooseSchema = new Schema<Internacional<Race>>(
     }
 );
 
-const connection = mongoose.connection.useDb('dungeons&dragons5e', { noListener: true });
+const connection = mongoose.connection.useDb('dungeons&dragons5e', { noListener: true, useCache: true });
 
 export default class RacesModel extends MongoModel<Internacional<Race>> {
     constructor(public model = connection.model('race', racesMongooseSchema)) {

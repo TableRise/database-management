@@ -40,7 +40,7 @@ export const itemsMongooseSchema = new Schema<Internacional<Item>>(
     }
 );
 
-const connection = mongoose.connection.useDb('dungeons&dragons5e', { noListener: true });
+const connection = mongoose.connection.useDb('dungeons&dragons5e', { noListener: true, useCache: true });
 
 export default class ItemsModel extends MongoModel<Internacional<Item>> {
     constructor(public model = connection.model('item', itemsMongooseSchema)) {
