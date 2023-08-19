@@ -25,7 +25,7 @@ export const godsMongooseSchema = new Schema<Internacional<God>>(
     }
 );
 
-const connection = mongoose.connection.useDb('dungeons&dragons5e');
+const connection = mongoose.connection.useDb('dungeons&dragons5e', { noListener: true });
 
 export default class GodsModel extends MongoModel<Internacional<God>> {
     constructor(public model = connection.model('god', godsMongooseSchema)) {

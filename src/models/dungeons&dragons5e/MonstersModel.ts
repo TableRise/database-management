@@ -93,7 +93,7 @@ export const monstersMongooseSchema = new Schema<Internacional<Monster>>(
     }
 );
 
-const connection = mongoose.connection.useDb('dungeons&dragons5e');
+const connection = mongoose.connection.useDb('dungeons&dragons5e', { noListener: true });
 
 export default class MonstersModel extends MongoModel<Internacional<Monster>> {
     constructor(public model = connection.model('monster', monstersMongooseSchema)) {

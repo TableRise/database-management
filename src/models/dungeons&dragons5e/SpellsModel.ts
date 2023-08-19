@@ -50,7 +50,7 @@ export const spellsMongooseSchema = new Schema<Internacional<Spell>>(
     }
 );
 
-const connection = mongoose.connection.useDb('dungeons&dragons5e');
+const connection = mongoose.connection.useDb('dungeons&dragons5e', { noListener: true });
 
 export default class SpellsModel extends MongoModel<Internacional<Spell>> {
     constructor(public model = connection.model('spell', spellsMongooseSchema)) {

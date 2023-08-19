@@ -49,7 +49,7 @@ export const backgroundsMongooseSchema = new Schema<Internacional<Background>>(
     }
 );
 
-const connection = mongoose.connection.useDb('dungeons&dragons5e');
+const connection = mongoose.connection.useDb('dungeons&dragons5e', { noListener: true });
 
 export default class BackgroundsModel extends MongoModel<Internacional<Background>> {
     constructor(public model = connection.model('background', backgroundsMongooseSchema)) {
