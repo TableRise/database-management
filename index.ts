@@ -8,10 +8,9 @@ import schemas, { SchemasDnDType } from './src/schemas';
 import { SystemContent } from './src/schemas/dungeons&dragons5e/systemValidationSchema';
 
 const path = require('path');
-const logger = require('@tablerise/dynamic-logger');
 
 export default class DatabaseManagement {
-    static connect(on: boolean = false) {
+    static connect(on: boolean = false): Promise<void> | null {
         if (on) {
             const tableriseEnvs = require(path.resolve('./tablerise.environment.js'));
 
@@ -21,10 +20,10 @@ export default class DatabaseManagement {
             const database = tableriseEnvs.database_database as string;
             const initialString = tableriseEnvs.database_initialString as string;
 
-            mongoose.connect(`${initialString}://${username}:${password}@${host}/${database}`)
-                .then(() => logger('info', 'Database connection instanciated'))
-                .catch(() => logger('error', 'Database connection failed'));
+            mongoose.connect(`${initialString}://${username}:${password}@${host}/${database}`);
         }
+
+        return;
     }
 
     public modelInstance(rpgSystem: RpgSystems, entity: DnDEntities): MongoModel<any> {
