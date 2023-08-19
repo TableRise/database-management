@@ -1,10 +1,7 @@
-import { Schema } from 'mongoose';
-import connectInDB from '../../models/DatabaseConnection';
+import mongoose, { Schema } from 'mongoose';
 import { Spell, Damage, HigherLevels } from '../../schemas/dungeons&dragons5e/spellsValidationSchema';
 import MongoModel from '../../models/MongoModel';
 import { Internacional } from '../../schemas/languagesWrapperSchema';
-import { ModelOptions } from '../../types/ModelMock';
-import { ConnectionInstance } from '../../types/TableRiseConnection';
 
 const damageMongooseSchema = new Schema<Damage>(
     {
@@ -53,14 +50,10 @@ export const spellsMongooseSchema = new Schema<Internacional<Spell>>(
     }
 );
 
-const connection = (mockObject: ModelOptions): ConnectionInstance => ({
-    instance: connectInDB(mockObject)['dungeons&dragons5e'],
-    name: 'spell',
-    schema: spellsMongooseSchema
-});
+const connection = mongoose.connection.useDb('dungeons&dragons5e');
 
 export default class SpellsModel extends MongoModel<Internacional<Spell>> {
-    constructor(public mockObject: ModelOptions) {
-        super(connection(mockObject));
+    constructor(public model = connection.model('spell', spellsMongooseSchema)) {
+        super(model);
     }
 }

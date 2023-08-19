@@ -1,10 +1,7 @@
-import { Schema } from 'mongoose';
-import connectInDB from '../../models/DatabaseConnection';
+import mongoose, { Schema } from 'mongoose';
 import { Feat } from '../../schemas/dungeons&dragons5e/featsValidationSchema';
 import MongoModel from '../../models/MongoModel';
 import { Internacional } from '../../schemas/languagesWrapperSchema';
-import { ModelOptions } from '../../types/ModelMock';
-import { ConnectionInstance } from '../../types/TableRiseConnection';
 
 const schema = new Schema<Feat>(
     {
@@ -27,14 +24,10 @@ export const featsMongooseSchema = new Schema<Internacional<Feat>>(
     }
 );
 
-const connection = (mockObject: ModelOptions): ConnectionInstance => ({
-    instance: connectInDB(mockObject)['dungeons&dragons5e'],
-    name: 'feat',
-    schema: featsMongooseSchema
-});
+const connection = mongoose.connection.useDb('dungeons&dragons5e');
 
 export default class FeatsModel extends MongoModel<Internacional<Feat>> {
-    constructor(public mockObject: ModelOptions) {
-        super(connection(mockObject));
+    constructor(public model = connection.model('feat', featsMongooseSchema)) {
+        super(model);
     }
 }

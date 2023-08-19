@@ -1,15 +1,35 @@
 import { z } from 'zod';
+import mongoose from 'mongoose';
+
 import { DnDEntities, RpgSystems } from './src/types/RPG';
 import models from './src/models';
 import MongoModel from './src/models/MongoModel';
 import schemas, { SchemasDnDType } from './src/schemas';
 import { SystemContent } from './src/schemas/dungeons&dragons5e/systemValidationSchema';
-import { ModelOptions } from './src/types/ModelMock';
+
+const path = require('path');
+const logger = require('@tablerise/dynamic-logger');
 
 export default class DatabaseManagement {
-    public modelInstance(rpgSystem: RpgSystems, entity: DnDEntities, mockObject: ModelOptions = { mock: null }): MongoModel<any> {
+    static connect(on: boolean = false) {
+        if (on) {
+            const tableriseEnvs = require(path.resolve('./tablerise.environment.js'));
+
+            const username = tableriseEnvs.database_username as string;
+            const password = tableriseEnvs.database_password as string;
+            const host = tableriseEnvs.database_host as string;
+            const database = tableriseEnvs.database_database as string;
+            const initialString = tableriseEnvs.database_initialString as string;
+
+            mongoose.connect(`${initialString}://${username}:${password}@${host}/${database}`)
+                .then(() => logger('info', 'Database connection instanciated'))
+                .catch(() => logger('error', 'Database connection failed'));
+        }
+    }
+
+    public modelInstance(rpgSystem: RpgSystems, entity: DnDEntities): MongoModel<any> {
         const entityString = `${entity}Model`;
-        const model = new models[rpgSystem][entityString](mockObject);
+        const model = new models[rpgSystem][entityString]();
         return model;
     }
 

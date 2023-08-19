@@ -1,15 +1,8 @@
-import mongoose, { Model, UpdateQuery } from 'mongoose';
+import { Model, UpdateQuery } from 'mongoose';
 import ModelType from '../types/Model';
-import { ConnectionInstance } from '../types/TableRiseConnection';
 
 abstract class MongoModel<T> implements ModelType<T> {
-    protected _model: Model<T>;
-
-    constructor(public connection: ConnectionInstance) {
-        const { instance, name, schema } = connection;
-
-        this._model = instance.model(name, schema);
-    }
+    constructor(protected _model: Model<T>) {}
 
     public async create(payload: T): Promise<T> {
         return await this._model.create({ ...payload });

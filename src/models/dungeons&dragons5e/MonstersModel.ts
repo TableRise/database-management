@@ -1,5 +1,4 @@
-import { Schema } from 'mongoose';
-import connectInDB from '../../models/DatabaseConnection';
+import mongoose, { Schema } from 'mongoose';
 import {
     Monster,
     HitPoints,
@@ -11,8 +10,6 @@ import {
 } from '../../schemas/dungeons&dragons5e/monstersValidationSchema';
 import MongoModel from '../../models/MongoModel';
 import { Internacional } from '../../schemas/languagesWrapperSchema';
-import { ModelOptions } from '../../types/ModelMock';
-import { ConnectionInstance } from '../../types/TableRiseConnection';
 
 const hitPointsMongooseSchema = new Schema<HitPoints>(
     {
@@ -96,14 +93,10 @@ export const monstersMongooseSchema = new Schema<Internacional<Monster>>(
     }
 );
 
-const connection = (mockObject: ModelOptions): ConnectionInstance => ({
-    instance: connectInDB(mockObject)['dungeons&dragons5e'],
-    name: 'monster',
-    schema: monstersMongooseSchema
-});
+const connection = mongoose.connection.useDb('dungeons&dragons5e');
 
 export default class MonstersModel extends MongoModel<Internacional<Monster>> {
-    constructor(public mockObject: ModelOptions) {
-        super(connection(mockObject));
+    constructor(public model = connection.model('monster', monstersMongooseSchema)) {
+        super(model);
     }
 }

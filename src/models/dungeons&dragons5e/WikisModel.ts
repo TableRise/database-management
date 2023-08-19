@@ -1,10 +1,7 @@
-import { Schema } from 'mongoose';
-import connectInDB from '../../models/DatabaseConnection';
+import mongoose, { Schema } from 'mongoose';
 import { Wiki, SubTopic } from '../../schemas/dungeons&dragons5e/wikisValidationSchema';
 import MongoModel from '../../models/MongoModel';
 import { Internacional } from '../../schemas/languagesWrapperSchema';
-import { ModelOptions } from '../../types/ModelMock';
-import { ConnectionInstance } from '../../types/TableRiseConnection';
 
 const subTopicsMongooseSchema = new Schema<SubTopic>(
     {
@@ -36,14 +33,10 @@ export const wikisMongooseSchema = new Schema<Internacional<Wiki>>(
     }
 );
 
-const connection = (mockObject: ModelOptions): ConnectionInstance => ({
-    instance: connectInDB(mockObject)['dungeons&dragons5e'],
-    name: 'wiki',
-    schema: wikisMongooseSchema
-});
+const connection = mongoose.connection.useDb('dungeons&dragons5e');
 
 export default class WikisModel extends MongoModel<Internacional<Wiki>> {
-    constructor(public mockObject: ModelOptions) {
-        super(connection(mockObject));
+    constructor(public model = connection.model('wiki', wikisMongooseSchema)) {
+        super(model);
     }
 }
