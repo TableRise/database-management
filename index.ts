@@ -20,7 +20,7 @@ export default class DatabaseManagement {
             const database = tableriseEnvs.database_database as string;
             const initialString = tableriseEnvs.database_initialString as string;
 
-            return mongoose.connect(`${initialString}://${username}:${password}@${host}/${database}`);
+            return mongoose.connect(`mongodb://root:secret@127.0.0.1:27017/dungeons&dragons5e?authSource=admin`);
         }
 
         return;
