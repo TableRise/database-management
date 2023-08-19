@@ -10,7 +10,7 @@ import { SystemContent } from './src/schemas/dungeons&dragons5e/systemValidation
 const path = require('path');
 
 export default class DatabaseManagement {
-    static connect(on: boolean = false): Promise<void> | null {
+    static connect(on: boolean = false): Promise<void> {
         if (on) {
             const tableriseEnvs = require(path.resolve('./tablerise.environment.js'));
 
