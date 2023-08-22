@@ -12,7 +12,7 @@ const path = require('path');
 export default class DatabaseManagement {
     static connect(on: boolean = false): Promise<mongoose.Mongoose> {
         if (on) {
-            const tableriseEnvs = require(path.resolve('./tablerise.environment.ts'));
+            const tableriseEnvs = require(path.resolve('./tablerise.environment.js'));
 
             const username = tableriseEnvs.database_username as string;
             const password = tableriseEnvs.database_password as string;
