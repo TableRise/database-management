@@ -1,5 +1,5 @@
-import UsersModel from './userModel';
-import UserDetailsModel from './userDetailModel';
+import UsersModel from './UserModel';
+import UserDetailsModel from './UserDetailModel';
 
 export default {
     UsersModel,
