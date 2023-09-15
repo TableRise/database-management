@@ -6,6 +6,7 @@ import models from './src/models';
 import MongoModel from './src/models/MongoModel';
 import schemas, { SchemasDnDType } from './src/schemas';
 import { SystemContent } from './src/schemas/dungeons&dragons5e/systemValidationSchema';
+import { SchemasUserType } from './src/schemas/index';
 
 const path = require('path');
 
@@ -38,7 +39,7 @@ export default class DatabaseManagement {
     }
 }
 
-export { MongoModel, SchemasDnDType, SystemContent, mongoose };
+export { MongoModel, SchemasDnDType, SchemasUserType, SystemContent, mongoose };
 
 export interface Internacional<T> {
     _id?: string;
@@ -81,3 +82,9 @@ export type DnDSystem = z.infer<typeof dndsystem>
 export type DnDSystemPayload = z.infer<typeof dndsystempayload>
 export type DnDWeapon = z.infer<typeof dndweapon>
 export type DnDWiki = z.infer<typeof dndwiki>
+
+// User Schemas Type Export
+const user = schemas.user.userZod;
+const userDetails = schemas.user.userDetailZod;
+export type User = z.infer<typeof user>
+export type UserDetail = z.infer<typeof userDetails>

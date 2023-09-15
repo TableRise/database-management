@@ -2,6 +2,7 @@ import { z } from 'zod';
 import dungeonsAndDragons5eSchemas from "./dungeons&dragons5e";
 import languagesWrapperSchema from "./languagesWrapperSchema";
 import updateContentZodSchema from "./updateContentSchema";
+import userSchemas from './user';
 
 const schemas = {
     'dungeons&dragons5e': {
@@ -9,7 +10,11 @@ const schemas = {
         updateContentZodSchema,
         helpers: { languagesWrapperSchema }
     },
+    user: {
+        ...userSchemas
+    }
 }
 
 export type SchemasDnDType = typeof schemas['dungeons&dragons5e'];
+export type SchemasUserType = typeof schemas.user;
 export default schemas;
