@@ -1,12 +1,11 @@
 import { z } from 'zod';
 import mongoose from 'mongoose';
 
-import { DnDEntities, RpgSystems } from './src/types/RPG';
 import models from './src/models';
 import MongoModel from './src/models/MongoModel';
-import schemas, { SchemasDnDType } from './src/schemas';
+import schemas, { SchemasDnDType, SchemasUserType } from './src/schemas';
 import { SystemContent } from './src/schemas/dungeons&dragons5e/systemValidationSchema';
-import { SchemasUserType } from './src/schemas/index';
+import { DnDEntities, ModelEntity, UserEntities } from './src/types/DatabaseEntities';
 
 const path = require('path');
 
@@ -27,14 +26,14 @@ export default class DatabaseManagement {
         return;
     }
 
-    public modelInstance(rpgSystem: RpgSystems, entity: DnDEntities): MongoModel<any> {
+    public modelInstance(modelEntity: ModelEntity, entity: DnDEntities | UserEntities): MongoModel<any> {
         const entityString = `${entity}Model`;
-        const model = new models[rpgSystem][entityString]();
+        const model = new models[modelEntity][entityString]();
         return model;
     }
 
-    public schemaInstance(RpgSystem: RpgSystems): SchemasDnDType {
-        const allSchemasFromGroup = schemas[RpgSystem];
+    public schemaInstance(modelEntity: ModelEntity): SchemasDnDType | SchemasUserType {
+        const allSchemasFromGroup = schemas[modelEntity];
         return allSchemasFromGroup;
     }
 }
