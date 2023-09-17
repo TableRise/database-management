@@ -13,13 +13,13 @@ const secretQuestionZodSchema = z.object({
 
 const userDetailsZodSchema = z.object({
     userId: z.string().length(16).optional(),
-    firstName: z.string().max(16).nullable(),
-    lastName: z.string().max(80).nullable(),
-    pronoun: z.enum(['he/his', 'she/her', 'he/his - she/her', 'neutral']).nullable(),
-    secretQuestion: secretQuestionZodSchema.nullable(),
-    birthday: z.string().regex(new RegExp('^\d{4}/(0[1-9]|1[0-2])/(0[1-9]|[12]\d|3[01])$')).nullable(),
+    firstName: z.string().max(16).or(z.null()),
+    lastName: z.string().max(80).or(z.null()),
+    pronoun: z.enum(['he/his', 'she/her', 'he/his - she/her', 'neutral']).or(z.null()),
+    secretQuestion: secretQuestionZodSchema.or(z.null()),
+    birthday: z.string().regex(new RegExp('^\d{4}/(0[1-9]|1[0-2])/(0[1-9]|[12]\d|3[01])$')).or(z.null()),
     gameInfo: gameInfoZodSchema,
-    biography: z.string().max(500).nullable(),
+    biography: z.string().max(500).or(z.null()),
     role: z.enum(['user', 'admin'])
 });
 
