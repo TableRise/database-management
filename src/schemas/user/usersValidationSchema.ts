@@ -11,6 +11,6 @@ const usersZodSchema = z.object({
     updatedAt: z.string()
 });
 
-export type User = z.infer<typeof usersZodSchema>;
+export type User = z.infer<typeof usersZodSchema> & { _id?: string };
 
 export default usersZodSchema;
