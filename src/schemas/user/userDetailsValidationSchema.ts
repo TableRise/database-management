@@ -17,7 +17,7 @@ const userDetailsZodSchema = z.object({
     lastName: z.string().max(80).or(z.null()),
     pronoun: z.enum(['he/his', 'she/her', 'he/his - she/her', 'neutral']).or(z.null()),
     secretQuestion: secretQuestionZodSchema.or(z.null()),
-    birthday: z.string().regex(new RegExp('^\d{4}/(0[1-9]|1[0-2])/(0[1-9]|[12]\d|3[01])$')).or(z.null()),
+    birthday: z.string().regex(new RegExp('^\d{4}\-(0?[1-9]|1[012])\-(0?[1-9]|[12][0-9]|3[01])$')).or(z.null()),
     gameInfo: gameInfoZodSchema,
     biography: z.string().max(500).or(z.null()),
     role: z.enum(['user', 'admin'])
