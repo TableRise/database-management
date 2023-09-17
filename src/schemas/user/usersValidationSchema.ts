@@ -7,8 +7,8 @@ const usersZodSchema = z.object({
     nickname: z.string().max(16).nullable(),
     tag: z.string().length(4),
     picture: z.string().max(120).optional().nullable(),
-    createdAt: z.date(),
-    updatedAt: z.date()
+    createdAt: z.string(),
+    updatedAt: z.string()
 });
 
 export type User = z.infer<typeof usersZodSchema>;

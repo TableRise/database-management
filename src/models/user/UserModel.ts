@@ -10,8 +10,8 @@ const userMongooseSchema = new Schema<User>(
         nickname: { type: String },
         tag: { type: String, required: true, unique: true },
         picture: { type: String },
-        createdAt: { type: Date, required: true },
-        updatedAt: { type: Date, required: true }
+        createdAt: { type: String, required: true },
+        updatedAt: { type: String, required: true }
 
     },
     { versionKey: false, _id: false }
