@@ -30,7 +30,7 @@ const userDetailsMongooseSchema = new Schema<UserDetail>(
         role: { type: String, required: true },
 
     },
-    { versionKey: false, _id: false }
+    { versionKey: false }
 );
 
 const connection = mongoose.connection.useDb('user', { noListener: true, useCache: true });
