@@ -8,7 +8,7 @@ const userMongooseSchema = new Schema<User>(
         email: { type: String, required: true, unique: true },
         password: { type: String, required: true },
         nickname: { type: String },
-        tag: { type: String, required: true, unique: true },
+        tag: { type: String },
         picture: { type: String },
         createdAt: { type: String, required: true },
         updatedAt: { type: String, required: true }
