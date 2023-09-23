@@ -1,9 +1,17 @@
 import mongoose, { Schema } from 'mongoose';
-import { User } from '../../schemas/user/usersValidationSchema';
 import MongoModel from '../MongoModel';
+import { InProgress, User } from '../../schemas/user/usersValidationSchema';
+
+const inProgressMongooseSchema = new Schema<InProgress>(
+    {
+        status: { type: String },
+        code: { type: Number }
+    }
+)
 
 const userMongooseSchema = new Schema<User>(
     {
+        inProgress: { type: inProgressMongooseSchema },
         providerId: { type: String },
         email: { type: String, required: true, unique: true },
         password: { type: String, required: true },
