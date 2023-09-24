@@ -26,7 +26,7 @@ const schema = new Schema<Background>(
     {
         name: { type: String, required: true },
         description: { type: String, required: true },
-        skillProficiences: { type: [String], required: true },
+        skillProficiencies: { type: [String], required: true },
         languages: { type: [String], required: true },
         equipment: { type: [String], required: true },
         characteristics: characteristicsSchema,

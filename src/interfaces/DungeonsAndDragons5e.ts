@@ -32,7 +32,7 @@ export interface Characteristics {
 export interface Background {
     name: string;
     description: string;
-    skillProficiences: string[];
+    skillProficiencies: string[];
     languages: string[];
     equipment: string[];
     characteristics: Characteristics;
