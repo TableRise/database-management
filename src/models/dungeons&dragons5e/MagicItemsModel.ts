@@ -1,7 +1,7 @@
 import mongoose, { Schema } from 'mongoose';
-import { MagicItem } from '../../schemas/dungeons&dragons5e/magicItemsValidationSchema';
 import MongoModel from '../../models/MongoModel';
-import { Internacional } from '../../schemas/languagesWrapperSchema';
+import { MagicItem } from '../../interfaces/DungeonsAndDragons5e';
+import { Internacional } from '../../interfaces/Internacional';
 
 const schema = new Schema<MagicItem>(
     {

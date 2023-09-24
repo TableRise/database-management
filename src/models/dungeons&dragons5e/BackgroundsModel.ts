@@ -1,13 +1,9 @@
 import mongoose, { Schema } from 'mongoose';
-import {
-    Background,
-    BackgroundCharacteristics,
-    BackgroundSuggested,
-} from '../../schemas/dungeons&dragons5e/backgroundsValidationSchema';
 import MongoModel from '../../models/MongoModel';
-import { Internacional } from '../../schemas/languagesWrapperSchema';
+import { Suggested, Characteristics, Background } from '../../interfaces/DungeonsAndDragons5e';
+import { Internacional } from '../../interfaces/Internacional';
 
-const suggestedSchema = new Schema<BackgroundSuggested>(
+const suggestedSchema = new Schema<Suggested>(
     {
         personalityTrait: { type: [String], required: true },
         ideal: { type: [String], required: true },
@@ -17,7 +13,7 @@ const suggestedSchema = new Schema<BackgroundSuggested>(
     { versionKey: false, _id: false }
 );
 
-const characteristicsSchema = new Schema<BackgroundCharacteristics>(
+const characteristicsSchema = new Schema<Characteristics>(
     {
         name: { type: String, required: true },
         description: { type: String, required: true },

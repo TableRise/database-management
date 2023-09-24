@@ -2,7 +2,6 @@ import mongoose from 'mongoose';
 
 import models from './src/models';
 import MongoModel from './src/models/MongoModel';
-import schemas, { SchemasDnDType, SchemasUserType } from './src/schemas';
 import { DnDEntities, ModelEntity, UserEntities } from './src/types/DatabaseEntities';
 
 const path = require('path');
@@ -28,11 +27,6 @@ export default class DatabaseManagement {
         const entityString = `${entity}Model`;
         const model = new models[modelEntity][entityString]();
         return model;
-    }
-
-    public schemaInstance(modelEntity: ModelEntity): SchemasDnDType | SchemasUserType {
-        const allSchemasFromGroup = schemas[modelEntity];
-        return allSchemasFromGroup;
     }
 }
 

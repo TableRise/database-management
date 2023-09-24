@@ -1,7 +1,7 @@
 import mongoose, { Schema } from 'mongoose';
-import { Realm } from '../../schemas/dungeons&dragons5e/realmsValidationSchema';
 import MongoModel from '../../models/MongoModel';
-import { Internacional } from '../../schemas/languagesWrapperSchema';
+import { Internacional } from '../../interfaces/Internacional';
+import { Realm } from '../../interfaces/DungeonsAndDragons5e';
 
 const schema = new Schema<Realm>(
     {

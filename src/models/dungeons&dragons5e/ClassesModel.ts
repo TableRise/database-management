@@ -1,25 +1,7 @@
 import mongoose, { Schema } from 'mongoose';
-import {
-    Class,
-    HitPoints,
-    Proficiencies,
-    Equipment,
-    CantripsKnown,
-    SpellSlotsPerSpellLevel,
-    SpellsKnown,
-    KiPoints,
-    MartialArts,
-    UnarmoredMovement,
-    SneakAttack,
-    SorceryPoints,
-    InvocationsKnown,
-    Rages,
-    RageDamage,
-    LevelingSpecs,
-    Characteristics,
-} from '../../schemas/dungeons&dragons5e/classesValidationSchema';
 import MongoModel from '../../models/MongoModel';
-import { Internacional } from '../../schemas/languagesWrapperSchema';
+import { HitPoints, Proficiencies, Equipment, CantripsKnown, SpellSlotsPerSpellLevel, SpellsKnown, KiPoints, MartialArts, UnarmoredMovement, SneakAttack, SorceryPoints, InvocationsKnown, Rages, RageDamage, LevelingSpecs, Characteristics, Class } from '../../interfaces/DungeonsAndDragons5e';
+import { Internacional } from '../../interfaces/Internacional';
 
 const hitPointsMongooseSchema = new Schema<HitPoints>(
     {

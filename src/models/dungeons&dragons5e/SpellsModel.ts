@@ -1,7 +1,7 @@
 import mongoose, { Schema } from 'mongoose';
-import { Spell, Damage, HigherLevels } from '../../schemas/dungeons&dragons5e/spellsValidationSchema';
 import MongoModel from '../../models/MongoModel';
-import { Internacional } from '../../schemas/languagesWrapperSchema';
+import { Damage, HigherLevels, Spell } from '../../interfaces/DungeonsAndDragons5e';
+import { Internacional } from '../../interfaces/Internacional';
 
 const damageMongooseSchema = new Schema<Damage>(
     {

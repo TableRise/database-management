@@ -1,15 +1,7 @@
 import mongoose, { Schema } from 'mongoose';
-import {
-    Monster,
-    HitPoints,
-    SavingThrows,
-    Stats,
-    AbilityScore,
-    Skills,
-    Actions,
-} from '../../schemas/dungeons&dragons5e/monstersValidationSchema';
 import MongoModel from '../../models/MongoModel';
-import { Internacional } from '../../schemas/languagesWrapperSchema';
+import { HitPoints, Stats, AbilityScore, Monster, Action, SavingThrow, Skill } from '../../interfaces/DungeonsAndDragons5e';
+import { Internacional } from '../../interfaces/Internacional';
 
 const hitPointsMongooseSchema = new Schema<HitPoints>(
     {
@@ -19,7 +11,7 @@ const hitPointsMongooseSchema = new Schema<HitPoints>(
     { versionKey: false, _id: false }
 );
 
-const savingThrowsMongooseSchema = new Schema<SavingThrows>(
+const savingThrowsMongooseSchema = new Schema<SavingThrow>(
     {
         name: { type: String, required: true },
         value: { type: Number, required: true },
@@ -52,7 +44,7 @@ const abilityScoreMongooseSchema = new Schema<AbilityScore>(
     { versionKey: false, _id: false }
 );
 
-const skillsMongooseSchema = new Schema<Skills>(
+const skillsMongooseSchema = new Schema<Skill>(
     {
         name: { type: String, required: true },
         description: { type: String, required: true },
@@ -60,7 +52,7 @@ const skillsMongooseSchema = new Schema<Skills>(
     { versionKey: false, _id: false }
 );
 
-const actionsMongooseSchema = new Schema<Actions>(
+const actionsMongooseSchema = new Schema<Action>(
     {
         name: { type: String, required: true },
         description: { type: String, required: true },

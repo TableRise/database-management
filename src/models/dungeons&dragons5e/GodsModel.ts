@@ -1,7 +1,7 @@
 import mongoose, { Schema } from 'mongoose';
-import { God } from '../../schemas/dungeons&dragons5e/godsValidationSchema';
 import MongoModel from '../../models/MongoModel';
-import { Internacional } from '../../schemas/languagesWrapperSchema';
+import { God } from '../../interfaces/DungeonsAndDragons5e';
+import { Internacional } from '../../interfaces/Internacional';
 
 const schema = new Schema<God>(
     {
@@ -9,7 +9,7 @@ const schema = new Schema<God>(
         alignment: { type: String, required: true },
         suggestedDomains: { type: String, required: true },
         symbol: { type: String, required: true },
-        phanteon: { type: String, required: true },
+        pantheon: { type: String, required: true },
     },
     { versionKey: false, _id: false }
 );

@@ -1,7 +1,7 @@
 import mongoose, { Schema } from 'mongoose';
-import { Weapon, Cost } from '../../schemas/dungeons&dragons5e/weaponsValidationSchema';
 import MongoModel from '../../models/MongoModel';
-import { Internacional } from '../../schemas/languagesWrapperSchema';
+import { Cost, Weapon } from '../../interfaces/DungeonsAndDragons5e';
+import { Internacional } from '../../interfaces/Internacional';
 
 const costMongooseSchema = new Schema<Cost>(
     {

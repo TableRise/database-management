@@ -1,19 +1,14 @@
 import mongoose, { Schema } from 'mongoose';
-import { Internacional } from '../../schemas/languagesWrapperSchema';
-import {
-    Race,
-    SubRace,
-    Characteristic,
-    AbilityScoreIncrease,
-} from '../../schemas/dungeons&dragons5e/racesValidationSchema';
 import MongoModel from '../../models/MongoModel';
+import { AbilityScoreIncrease, SubRace, Race, Characteristics } from '../../interfaces/DungeonsAndDragons5e';
+import { Internacional } from '../../interfaces/Internacional';
 
 const abilityScoreIncreaseSchema = new Schema<AbilityScoreIncrease>({
     name: { type: String, required: true },
     value: { type: Number, required: true },
 });
 
-const characteristicsSchema = new Schema<Characteristic>({
+const characteristicsSchema = new Schema<Characteristics>({
     name: { type: String, required: true },
     description: { type: String, required: true },
 });
@@ -35,8 +30,8 @@ const schema = new Schema<Race>({
     speed: { type: [String, Number], required: true },
     language: { type: [String], required: true },
     subRaces: { type: [subRacesSchema], required: true },
-    skillProficiences: { type: [String], required: true },
-    characterstics: { type: [characteristicsSchema], required: true },
+    skillProficiencies: { type: [String], required: true },
+    characteristics: { type: [characteristicsSchema], required: true },
     weightMax: { type: Number, required: true },
 });
 

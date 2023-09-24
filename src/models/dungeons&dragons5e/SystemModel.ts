@@ -1,9 +1,8 @@
 import mongoose, { Schema } from 'mongoose';
-import { System, SystemContent, SystemReference } from '../../schemas/dungeons&dragons5e/systemValidationSchema';
 import MongoModel from '../../models/MongoModel';
-import { Internacional } from '../../schemas/languagesWrapperSchema';
+import { SystemReferences, System, SystemContent } from '../../interfaces/DungeonsAndDragons5e';
 
-const systemReferenceMongooseSchema = new Schema<SystemReference>(
+const systemReferenceMongooseSchema = new Schema<SystemReferences>(
     {
         srd: { type: String, required: true },
         icon: { type: String, required: true },

@@ -1,8 +1,8 @@
 import mongoose, { Schema } from 'mongoose';
-import { UserDetail, UserGameInfo, UserSecretQuestion } from '../../schemas/user/userDetailsValidationSchema';
 import MongoModel from '../MongoModel';
+import { GameInfo, SecretQuestion, UserDetail } from '../../interfaces/User';
 
-const gameInfoMongooseSchema = new Schema<UserGameInfo>(
+const gameInfoMongooseSchema = new Schema<GameInfo>(
     {
         campaigns: { type: [String], required: true },
         characters: { type: [String], required: true },
@@ -10,7 +10,7 @@ const gameInfoMongooseSchema = new Schema<UserGameInfo>(
     }, { _id: false }
 )
 
-const secretQuestionMongooseSchema = new Schema<UserSecretQuestion>(
+const secretQuestionMongooseSchema = new Schema<SecretQuestion>(
     {
         question: { type: String, required: true },
         answer: { type: String, required: true },

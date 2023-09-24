@@ -1,7 +1,7 @@
 import mongoose, { Schema } from 'mongoose';
-import { Wiki, SubTopic } from '../../schemas/dungeons&dragons5e/wikisValidationSchema';
 import MongoModel from '../../models/MongoModel';
-import { Internacional } from '../../schemas/languagesWrapperSchema';
+import { SubTopic, Wiki } from '../../interfaces/DungeonsAndDragons5e';
+import { Internacional } from '../../interfaces/Internacional';
 
 const subTopicsMongooseSchema = new Schema<SubTopic>(
     {
