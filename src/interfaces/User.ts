@@ -36,6 +36,7 @@ export default interface User {
     nickname?: string;
     tag?: string;
     picture: string;
+    twoFactorSecret?: string;
     createdAt?: string;
     updatedAt?: string;
 }

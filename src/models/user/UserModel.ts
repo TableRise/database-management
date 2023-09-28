@@ -19,6 +19,7 @@ const userMongooseSchema = new Schema<User>(
         nickname: { type: String },
         tag: { type: String },
         picture: { type: String },
+        twoFactorSecret: { type: String },
         createdAt: { type: String, required: true },
         updatedAt: { type: String, required: true }
 
