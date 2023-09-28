@@ -1,11 +1,19 @@
 import mongoose, { Schema } from 'mongoose';
 import MongoModel from '../MongoModel';
-import User, { InProgress } from '../../interfaces/User';
+import User, { InProgress, TwoFactorSecret } from '../../interfaces/User';
 
 const inProgressMongooseSchema = new Schema<InProgress>(
     {
         status: { type: String },
         code: { type: Number }
+    },
+    { _id: false }
+);
+
+const twoFactorSecretMongooseSchema = new Schema<TwoFactorSecret>(
+    {
+        code: { type: String, required: true },
+        qrcode: { type: String }
     },
     { _id: false }
 )
@@ -19,7 +27,7 @@ const userMongooseSchema = new Schema<User>(
         nickname: { type: String },
         tag: { type: String },
         picture: { type: String },
-        twoFactorSecret: { type: String },
+        twoFactorSecret: { type: twoFactorSecretMongooseSchema },
         createdAt: { type: String, required: true },
         updatedAt: { type: String, required: true }
 

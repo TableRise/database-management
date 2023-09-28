@@ -27,6 +27,11 @@ export interface UserDetail {
     role: 'user' | 'admin';
 }
 
+export interface TwoFactorSecret {
+    code: string;
+    qrcode: string;
+}
+
 export default interface User {
     _id?: string;
     inProgress?: InProgress;
@@ -36,7 +41,7 @@ export default interface User {
     nickname?: string;
     tag?: string;
     picture: string;
-    twoFactorSecret?: string;
+    twoFactorSecret?: TwoFactorSecret;
     createdAt?: string;
     updatedAt?: string;
 }
