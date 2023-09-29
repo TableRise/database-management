@@ -1,6 +1,6 @@
 export interface InProgress {
     status: 'wait_to_confirm' | 'wait_to_complete';
-    code: number;
+    code: string;
 }
 
 export interface SecretQuestion {
