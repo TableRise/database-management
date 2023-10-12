@@ -12,8 +12,9 @@ const inProgressMongooseSchema = new Schema<InProgress>(
 
 const twoFactorSecretMongooseSchema = new Schema<TwoFactorSecret>(
   {
-    code: { type: String, required: true },
+    secret: { type: String },
     qrcode: { type: String },
+    active: { type: Boolean }
   },
   { _id: false }
 );

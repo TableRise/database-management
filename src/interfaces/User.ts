@@ -28,8 +28,9 @@ export interface UserDetail {
 }
 
 export interface TwoFactorSecret {
-    code: string;
+    secret: string;
     qrcode: string;
+    active: boolean;
 }
 
 export default interface User {
