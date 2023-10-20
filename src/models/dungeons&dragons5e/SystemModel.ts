@@ -27,8 +27,9 @@ const systemContentMongooseSchema = new Schema<SystemContent>(
     { versionKey: false, _id: false }
 );
 
-const systemMongooseSchema = new Schema<System>(
+const systemMongooseSchema = new Schema<System & { systemId: string }>(
     {
+        systemId: { type: String, required: true },
         name: { type: String, required: true },
         content: systemContentMongooseSchema,
         references: systemReferenceMongooseSchema,

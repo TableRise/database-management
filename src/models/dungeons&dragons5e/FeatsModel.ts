@@ -13,8 +13,9 @@ const schema = new Schema<Feat>(
     { versionKey: false, _id: false }
 );
 
-export const featsMongooseSchema = new Schema<Internacional<Feat>>(
+export const featsMongooseSchema = new Schema<Internacional<Feat > & { featId: string }>(
     {
+        featId: { type: String, required: true },
         active: { type: Boolean, required: true },
         en: schema,
         pt: schema,

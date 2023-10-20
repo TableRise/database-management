@@ -15,7 +15,7 @@ export interface GameInfo {
 }
 
 export interface UserDetail {
-    _id?: string;
+    userDetailId?: string;
     userId?: string;
     firstName: string;
     lastName: string;
@@ -34,7 +34,7 @@ export interface TwoFactorSecret {
 }
 
 export default interface User {
-    _id?: string;
+    userId?: string;
     inProgress?: InProgress;
     providerId?: string;
     email: string;

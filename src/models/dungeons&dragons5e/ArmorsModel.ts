@@ -25,8 +25,9 @@ const schema = new Schema<Armor>(
     { versionKey: false, _id: false }
 );
 
-export const armorsMongooseSchema = new Schema<Internacional<Armor>>(
+export const armorsMongooseSchema = new Schema<Internacional<Armor> & { armorId: string }>(
     {
+        armorId: { type: String, required: true },
         active: { type: Boolean, required: true },
         en: schema,
         pt: schema,

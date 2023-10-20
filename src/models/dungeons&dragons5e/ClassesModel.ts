@@ -161,8 +161,9 @@ const schema = new Schema<Class>(
     { versionKey: false, _id: false }
 );
 
-export const classMongooseSchema = new Schema<Internacional<Class>>(
+export const classMongooseSchema = new Schema<Internacional<Class > & { classId: string }>(
     {
+        classId: { type: String, required: true },
         active: { type: Boolean, required: true },
         en: schema,
         pt: schema,

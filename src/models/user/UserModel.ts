@@ -21,6 +21,7 @@ const twoFactorSecretMongooseSchema = new Schema<TwoFactorSecret>(
 
 const userMongooseSchema = new Schema<User>(
   {
+    userId: { type: String, required: true },
     inProgress: { type: inProgressMongooseSchema },
     providerId: { type: String },
     email: { type: String, required: true, unique: true },

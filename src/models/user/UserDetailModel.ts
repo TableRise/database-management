@@ -19,6 +19,7 @@ const secretQuestionMongooseSchema = new Schema<SecretQuestion>(
 
 const userDetailsMongooseSchema = new Schema<UserDetail>(
     {
+        userDetailId: { type: String, required: true },
         userId: { type: String, required: true },
         firstName: { type: String },
         lastName: { type: String },

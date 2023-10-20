@@ -34,8 +34,9 @@ const schema = new Schema<Background>(
     { versionKey: false, _id: false }
 );
 
-export const backgroundsMongooseSchema = new Schema<Internacional<Background>>(
+export const backgroundsMongooseSchema = new Schema<Internacional<Background > & { backgroundId: string }>(
     {
+        backgroundId: { type: String, required: true },
         active: { type: Boolean, required: true },
         en: schema,
         pt: schema,

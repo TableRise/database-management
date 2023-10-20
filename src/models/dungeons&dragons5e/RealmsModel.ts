@@ -12,8 +12,9 @@ const schema = new Schema<Realm>(
     { versionKey: false, _id: false }
 );
 
-export const realmsMongooseSchema = new Schema<Internacional<Realm>>(
+export const realmsMongooseSchema = new Schema<Internacional<Realm > & { realmId: string }>(
     {
+        realmId: { type: String, required: true },
         active: { type: Boolean, required: true },
         en: schema,
         pt: schema,

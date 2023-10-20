@@ -29,8 +29,9 @@ const schema = new Schema<Item>({
     tradeGoods: tradeGoodsSchema,
 });
 
-export const itemsMongooseSchema = new Schema<Internacional<Item>>(
+export const itemsMongooseSchema = new Schema<Internacional<Item > & { itemId: string }>(
     {
+        itemId: { type: String, required: true },
         active: { type: Boolean, required: true },
         en: schema,
         pt: schema,

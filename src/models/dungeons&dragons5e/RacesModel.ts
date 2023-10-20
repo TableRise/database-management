@@ -35,8 +35,9 @@ const schema = new Schema<Race>({
     weightMax: { type: Number, required: true },
 });
 
-export const racesMongooseSchema = new Schema<Internacional<Race>>(
+export const racesMongooseSchema = new Schema<Internacional<Race > & { raceId: string }>(
     {
+        raceId: { type: String, required: true },
         active: { type: Boolean, required: true },
         en: schema,
         pt: schema,

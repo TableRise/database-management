@@ -12,8 +12,9 @@ const schema = new Schema<MagicItem>(
     { versionKey: false, _id: false }
 );
 
-export const magicItemsMongooseSchema = new Schema<Internacional<MagicItem>>(
+export const magicItemsMongooseSchema = new Schema<Internacional<MagicItem > & { magicItemId: string }>(
     {
+        magicItemId: { type: String, required: true },
         active: { type: Boolean, required: true },
         en: schema,
         pt: schema,

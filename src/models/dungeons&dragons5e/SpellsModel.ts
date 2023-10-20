@@ -39,8 +39,9 @@ const schema = new Schema<Spell>(
     { versionKey: false, _id: false }
 );
 
-export const spellsMongooseSchema = new Schema<Internacional<Spell>>(
+export const spellsMongooseSchema = new Schema<Internacional<Spell > & { spellId: string }>(
     {
+        spellId: { type: String, required: true },
         active: { type: Boolean, required: true },
         en: schema,
         pt: schema,

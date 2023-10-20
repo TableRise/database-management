@@ -74,8 +74,9 @@ const schema = new Schema<Monster>(
     { versionKey: false, _id: false }
 );
 
-export const monstersMongooseSchema = new Schema<Internacional<Monster>>(
+export const monstersMongooseSchema = new Schema<Internacional<Monster > & { monsterId: string }>(
     {
+        monsterId: { type: String, required: true },
         active: { type: Boolean, required: true },
         en: schema,
         pt: schema,
