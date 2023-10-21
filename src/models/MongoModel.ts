@@ -12,8 +12,8 @@ abstract class MongoModel<T> implements ModelType<T> {
         return await this._model.find(query);
     }
 
-    public async findOne(_id: string): Promise<T | null> {
-        return await this._model.findOne({ _id });
+    public async findOne(query = {}): Promise<T | null> {
+        return await this._model.findOne(query);
     }
 
     public async update(query = {}, payload: T): Promise<T | null> {
