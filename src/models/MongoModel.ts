@@ -5,7 +5,7 @@ abstract class MongoModel<T> implements ModelType<T> {
     constructor(protected _model: Model<T>) {}
 
     public async create(payload: T): Promise<T> {
-        return await this._model.create({ ...payload });
+        return await this._model.create(payload);
     }
 
     public async findAll(query = {}): Promise<T[]> {
@@ -16,12 +16,12 @@ abstract class MongoModel<T> implements ModelType<T> {
         return await this._model.findOne({ _id });
     }
 
-    public async update(_id: string, payload: T): Promise<T | null> {
-        return await this._model.findByIdAndUpdate({ _id }, { ...payload } as UpdateQuery<T>, { new: true });
+    public async update(query = {}, payload: T): Promise<T | null> {
+        return await this._model.findOneAndUpdate(query, payload as UpdateQuery<T>, { new: true });
     }
 
-    public async delete(_id: string): Promise<T | null> {
-        return await this._model.findByIdAndDelete({ _id });
+    public async delete(query = {}): Promise<T | null> {
+        return await this._model.findOneAndDelete(query);
     }
 }
 
