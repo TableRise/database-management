@@ -15,7 +15,7 @@ const costMongooseSchema = new Schema<Cost>(
 const schema = new Schema<Weapon>(
     {
         name: { type: String, required: true },
-        description: { type: String, required: true },
+        description: { type: String },
         cost: costMongooseSchema,
         type: { type: String, required: true },
         weight: { type: Number, required: true },

@@ -22,7 +22,7 @@ const tradeGoodsSchema = new Schema<TradeGoods>({
 
 const schema = new Schema<Item>({
     name: { type: String, required: true },
-    description: { type: String, required: true },
+    description: { type: String },
     cost: costSchema,
     type: { type: String, required: true },
     weight: { type: Number, required: true },

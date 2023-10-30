@@ -8,7 +8,7 @@ const schema = new Schema<MagicItem>(
     {
         name: { type: String, required: true },
         characteristics: { type: [String], required: true },
-        description: { type: String, required: true },
+        description: { type: String },
     },
     { versionKey: false, _id: false }
 );

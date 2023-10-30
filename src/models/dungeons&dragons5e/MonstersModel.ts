@@ -48,7 +48,7 @@ const abilityScoreMongooseSchema = new Schema<AbilityScore>(
 const skillsMongooseSchema = new Schema<Skill>(
     {
         name: { type: String, required: true },
-        description: { type: String, required: true },
+        description: { type: String },
     },
     { versionKey: false, _id: false }
 );
@@ -56,7 +56,7 @@ const skillsMongooseSchema = new Schema<Skill>(
 const actionsMongooseSchema = new Schema<Action>(
     {
         name: { type: String, required: true },
-        description: { type: String, required: true },
+        description: { type: String },
         type: { type: String, required: true },
     },
     { versionKey: false, _id: false }

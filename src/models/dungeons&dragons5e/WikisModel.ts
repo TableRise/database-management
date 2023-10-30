@@ -7,7 +7,7 @@ import { Internacional } from '../../interfaces/Internacional';
 const subTopicsMongooseSchema = new Schema<SubTopic>(
     {
         subTitle: { type: String, required: true },
-        description: { type: String, required: true },
+        description: { type: String },
     },
     { versionKey: false, _id: false }
 );
@@ -15,7 +15,7 @@ const subTopicsMongooseSchema = new Schema<SubTopic>(
 const schema = new Schema<Wiki>(
     {
         title: { type: String, required: true },
-        description: { type: String, required: true },
+        description: { type: String },
         reference: { type: String, required: true },
         image: { type: String, required: true },
         subTopics: { type: [subTopicsMongooseSchema], required: true },

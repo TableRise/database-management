@@ -15,11 +15,11 @@ const costMongooseSchema = new Schema<Cost>(
 const schema = new Schema<Armor>(
     {
         name: { type: String, required: true },
-        description: { type: String, required: true },
+        description: { type: String },
         cost: costMongooseSchema,
         type: { type: String, required: true },
         weight: { type: Number, required: true },
-        armorClass: { type: Number, required: true },
+        armorClass: { type: String, required: true },
         requiredStrength: { type: Number, required: true },
         stealthPenalty: { type: Boolean, required: true },
     },

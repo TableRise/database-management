@@ -7,7 +7,7 @@ import { Realm } from '../../interfaces/DungeonsAndDragons5e';
 const schema = new Schema<Realm>(
     {
         name: { type: String, required: true },
-        description: { type: String, required: true },
+        description: { type: String },
         thumbnail: { type: String, required: true },
     },
     { versionKey: false, _id: false }

@@ -8,7 +8,7 @@ const schema = new Schema<Feat>(
     {
         name: { type: String, required: true },
         prerequisite: { type: String, required: true },
-        description: { type: String, required: true },
+        description: { type: String },
         benefits: { type: [String], required: true },
     },
     { versionKey: false, _id: false }

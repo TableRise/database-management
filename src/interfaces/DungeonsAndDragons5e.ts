@@ -10,7 +10,7 @@ export interface Armor {
     description: string;
     cost: Cost;
     weight: number;
-    armorClass: number;
+    armorClass: string;
     requiredStrength: number;
     stealthPenalty: boolean;
 }

@@ -11,19 +11,19 @@ const abilityScoreIncreaseSchema = new Schema<AbilityScoreIncrease>({
 
 const characteristicsSchema = new Schema<SubRaceCharacteristics>({
     name: { type: String, required: true },
-    description: { type: String, required: true },
+    description: { type: String },
 });
 
 const subRacesSchema = new Schema<SubRace>({
     name: { type: String, required: true },
-    description: { type: String, required: true },
+    description: { type: String },
     abilityScoreIncrease: abilityScoreIncreaseSchema,
     characteristics: { type: [characteristicsSchema], required: true },
 });
 
 const schema = new Schema<Race>({
     name: { type: String, required: true },
-    description: { type: String, required: true },
+    description: { type: String },
     abilityScoreIncrease: abilityScoreIncreaseSchema,
     ageMax: { type: Number, required: true },
     alignment: { type: [String], required: true },

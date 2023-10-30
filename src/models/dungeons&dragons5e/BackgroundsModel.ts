@@ -17,7 +17,7 @@ const suggestedSchema = new Schema<Suggested>(
 const characteristicsSchema = new Schema<Characteristics>(
     {
         name: { type: String, required: true },
-        description: { type: String, required: true },
+        description: { type: String },
         suggested: suggestedSchema,
     },
     { versionKey: false, _id: false }
@@ -26,7 +26,7 @@ const characteristicsSchema = new Schema<Characteristics>(
 const schema = new Schema<Background>(
     {
         name: { type: String, required: true },
-        description: { type: String, required: true },
+        description: { type: String },
         skillProficiencies: { type: [String], required: true },
         languages: { type: [String], required: true },
         equipment: { type: [String], required: true },

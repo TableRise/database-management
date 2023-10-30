@@ -25,7 +25,7 @@ const higherLevelsMongooseSchema = new Schema<HigherLevels>(
 const schema = new Schema<Spell>(
     {
         name: { type: String, required: true },
-        description: { type: String, required: true },
+        description: { type: String },
         type: { type: String, required: true },
         level: { type: Number, required: true },
         higherLevels: { type: [higherLevelsMongooseSchema], required: true },

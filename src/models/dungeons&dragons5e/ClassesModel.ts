@@ -144,7 +144,7 @@ const levelingSpecsMongooseSchema = new Schema<LevelingSpecs>(
 const characteristicsMongooseSchema = new Schema<ClassCharacteristics>(
     {
         title: { type: String, required: true },
-        description: { type: String, required: true },
+        description: { type: String },
     },
     { versionKey: false, _id: false }
 );
@@ -152,7 +152,7 @@ const characteristicsMongooseSchema = new Schema<ClassCharacteristics>(
 const schema = new Schema<Class>(
     {
         name: { type: String, required: true },
-        description: { type: String, required: true },
+        description: { type: String },
         hitPoints: hitPointsMongooseSchema,
         proficiencies: proficienciesMongooseSchema,
         equipment: [equipmentMongooseSchema],
