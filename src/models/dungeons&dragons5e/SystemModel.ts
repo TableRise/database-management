@@ -1,6 +1,7 @@
 import mongoose, { Schema } from 'mongoose';
 import MongoModel from '../../models/MongoModel';
 import { SystemReferences, System, SystemContent } from '../../interfaces/DungeonsAndDragons5e';
+import newUUID from '../../helpers/newUUID';
 
 const systemReferenceMongooseSchema = new Schema<SystemReferences>(
     {
@@ -29,7 +30,7 @@ const systemContentMongooseSchema = new Schema<SystemContent>(
 
 const systemMongooseSchema = new Schema<System & { systemId: string }>(
     {
-        systemId: { type: String, required: true },
+        systemId: { type: String, required: true, default: newUUID() },
         name: { type: String, required: true },
         content: systemContentMongooseSchema,
         references: systemReferenceMongooseSchema,

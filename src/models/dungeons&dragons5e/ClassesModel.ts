@@ -2,6 +2,7 @@ import mongoose, { Schema } from 'mongoose';
 import MongoModel from '../../models/MongoModel';
 import { HitPoints, Proficiencies, Equipment, CantripsKnown, SpellSlotsPerSpellLevel, SpellsKnown, KiPoints, MartialArts, UnarmoredMovement, SneakAttack, SorceryPoints, InvocationsKnown, Rages, RageDamage, LevelingSpecs, ClassCharacteristics, Class } from '../../interfaces/DungeonsAndDragons5e';
 import { Internacional } from '../../interfaces/Internacional';
+import newUUID from '../../helpers/newUUID';
 
 const hitPointsMongooseSchema = new Schema<HitPoints>(
     {
@@ -163,7 +164,7 @@ const schema = new Schema<Class>(
 
 export const classMongooseSchema = new Schema<Internacional<Class > & { classId: string }>(
     {
-        classId: { type: String, required: true },
+        classId: { type: String, required: true, default: newUUID() },
         active: { type: Boolean, required: true },
         en: schema,
         pt: schema,

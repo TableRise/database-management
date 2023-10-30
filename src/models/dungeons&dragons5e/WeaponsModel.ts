@@ -1,6 +1,7 @@
 import mongoose, { Schema } from 'mongoose';
 import MongoModel from '../../models/MongoModel';
 import { Cost, Weapon } from '../../interfaces/DungeonsAndDragons5e';
+import newUUID from '../../helpers/newUUID';
 import { Internacional } from '../../interfaces/Internacional';
 
 const costMongooseSchema = new Schema<Cost>(
@@ -26,7 +27,7 @@ const schema = new Schema<Weapon>(
 
 export const weaponsMongooseSchema = new Schema<Internacional<Weapon > & { weaponId: string }>(
     {
-        weaponId: { type: String, required: true },
+        weaponId: { type: String, required: true, default: newUUID() },
         active: { type: Boolean, required: true },
         en: schema,
         pt: schema,

@@ -2,6 +2,7 @@ import mongoose, { Schema } from 'mongoose';
 import MongoModel from '../../models/MongoModel';
 import { AbilityScoreIncrease, SubRace, Race, SubRaceCharacteristics } from '../../interfaces/DungeonsAndDragons5e';
 import { Internacional } from '../../interfaces/Internacional';
+import newUUID from '../../helpers/newUUID';
 
 const abilityScoreIncreaseSchema = new Schema<AbilityScoreIncrease>({
     name: { type: String, required: true },
@@ -37,7 +38,7 @@ const schema = new Schema<Race>({
 
 export const racesMongooseSchema = new Schema<Internacional<Race > & { raceId: string }>(
     {
-        raceId: { type: String, required: true },
+        raceId: { type: String, required: true, default: newUUID() },
         active: { type: Boolean, required: true },
         en: schema,
         pt: schema,

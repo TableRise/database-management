@@ -2,6 +2,7 @@ import mongoose, { Schema } from 'mongoose';
 import MongoModel from '../../models/MongoModel';
 import { MagicItem } from '../../interfaces/DungeonsAndDragons5e';
 import { Internacional } from '../../interfaces/Internacional';
+import newUUID from '../../helpers/newUUID';
 
 const schema = new Schema<MagicItem>(
     {
@@ -14,7 +15,7 @@ const schema = new Schema<MagicItem>(
 
 export const magicItemsMongooseSchema = new Schema<Internacional<MagicItem > & { magicItemId: string }>(
     {
-        magicItemId: { type: String, required: true },
+        magicItemId: { type: String, required: true, default: newUUID() },
         active: { type: Boolean, required: true },
         en: schema,
         pt: schema,

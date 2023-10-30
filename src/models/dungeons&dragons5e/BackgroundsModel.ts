@@ -2,6 +2,7 @@ import mongoose, { Schema } from 'mongoose';
 import MongoModel from '../../models/MongoModel';
 import { Suggested, Characteristics, Background } from '../../interfaces/DungeonsAndDragons5e';
 import { Internacional } from '../../interfaces/Internacional';
+import newUUID from '../../helpers/newUUID';
 
 const suggestedSchema = new Schema<Suggested>(
     {
@@ -36,7 +37,7 @@ const schema = new Schema<Background>(
 
 export const backgroundsMongooseSchema = new Schema<Internacional<Background > & { backgroundId: string }>(
     {
-        backgroundId: { type: String, required: true },
+        backgroundId: { type: String, required: true, default: newUUID() },
         active: { type: Boolean, required: true },
         en: schema,
         pt: schema,

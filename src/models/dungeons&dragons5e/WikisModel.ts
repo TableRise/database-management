@@ -1,6 +1,7 @@
 import mongoose, { Schema } from 'mongoose';
 import MongoModel from '../../models/MongoModel';
 import { SubTopic, Wiki } from '../../interfaces/DungeonsAndDragons5e';
+import newUUID from '../../helpers/newUUID';
 import { Internacional } from '../../interfaces/Internacional';
 
 const subTopicsMongooseSchema = new Schema<SubTopic>(
@@ -24,7 +25,7 @@ const schema = new Schema<Wiki>(
 
 export const wikisMongooseSchema = new Schema<Internacional<Wiki > & { wikiId: string }>(
     {
-        wikiId: { type: String, required: true },
+        wikiId: { type: String, required: true, default: newUUID() },
         active: { type: Boolean, required: true },
         en: schema,
         pt: schema,

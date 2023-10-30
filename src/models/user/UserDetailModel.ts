@@ -1,6 +1,7 @@
 import mongoose, { Schema } from 'mongoose';
 import MongoModel from '../MongoModel';
 import { GameInfo, SecretQuestion, UserDetail } from '../../interfaces/User';
+import newUUID from '../../helpers/newUUID';
 
 const gameInfoMongooseSchema = new Schema<GameInfo>(
     {
@@ -19,7 +20,7 @@ const secretQuestionMongooseSchema = new Schema<SecretQuestion>(
 
 const userDetailsMongooseSchema = new Schema<UserDetail>(
     {
-        userDetailId: { type: String, required: true },
+        userDetailId: { type: String, required: true, default: newUUID() },
         userId: { type: String, required: true },
         firstName: { type: String },
         lastName: { type: String },

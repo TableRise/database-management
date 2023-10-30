@@ -1,6 +1,7 @@
 import mongoose, { Schema } from 'mongoose';
 import MongoModel from '../MongoModel';
 import User, { InProgress, TwoFactorSecret } from '../../interfaces/User';
+import newUUID from '../../helpers/newUUID';
 
 const inProgressMongooseSchema = new Schema<InProgress>(
   {
@@ -21,7 +22,7 @@ const twoFactorSecretMongooseSchema = new Schema<TwoFactorSecret>(
 
 const userMongooseSchema = new Schema<User>(
   {
-    userId: { type: String, required: true },
+    userId: { type: String, required: true, default: newUUID() },
     inProgress: { type: inProgressMongooseSchema },
     providerId: { type: String },
     email: { type: String, required: true, unique: true },

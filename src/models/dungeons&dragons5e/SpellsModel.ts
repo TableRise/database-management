@@ -1,6 +1,7 @@
 import mongoose, { Schema } from 'mongoose';
 import MongoModel from '../../models/MongoModel';
 import { Damage, HigherLevels, Spell } from '../../interfaces/DungeonsAndDragons5e';
+import newUUID from '../../helpers/newUUID';
 import { Internacional } from '../../interfaces/Internacional';
 
 const damageMongooseSchema = new Schema<Damage>(
@@ -41,7 +42,7 @@ const schema = new Schema<Spell>(
 
 export const spellsMongooseSchema = new Schema<Internacional<Spell > & { spellId: string }>(
     {
-        spellId: { type: String, required: true },
+        spellId: { type: String, required: true, default: newUUID() },
         active: { type: Boolean, required: true },
         en: schema,
         pt: schema,

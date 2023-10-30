@@ -2,6 +2,7 @@ import mongoose, { Schema } from 'mongoose';
 import MongoModel from '../../models/MongoModel';
 import { God } from '../../interfaces/DungeonsAndDragons5e';
 import { Internacional } from '../../interfaces/Internacional';
+import newUUID from '../../helpers/newUUID';
 
 const schema = new Schema<God>(
     {
@@ -16,7 +17,7 @@ const schema = new Schema<God>(
 
 export const godsMongooseSchema = new Schema<Internacional<God > & { godId: string }>(
     {
-        godId: { type: String, required: true },
+        godId: { type: String, required: true, default: newUUID() },
         active: { type: Boolean, required: true },
         en: schema,
         pt: schema,
