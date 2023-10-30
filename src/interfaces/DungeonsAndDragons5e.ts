@@ -15,7 +15,7 @@ export interface Armor {
     stealthPenalty: boolean;
 }
 
-//Background entity
+// Background entity
 export interface Suggested {
     personalityTrait: string[];
     ideal: string[];
@@ -131,7 +131,7 @@ export interface LevelingSpecs {
     rageDamage: RageDamage;
 }
 
-export interface Characteristics {
+export interface ClassCharacteristics {
     title: string;
     description: string;
 }
@@ -143,7 +143,7 @@ export interface Class {
     proficiencies: Proficiencies;
     equipment: Equipment[];
     levelingSpecs: LevelingSpecs;
-    characteristics: Characteristics[];
+    characteristics: ClassCharacteristics[];
 }
 
 // Feat entity
@@ -175,11 +175,6 @@ export interface MountOrVehicle {
     carryingCapacity: string;
 }
 
-export interface Cost {
-    currency: string;
-    value: number;
-}
-
 export interface Item {
     name: string;
     description: string;
@@ -198,7 +193,7 @@ export interface MagicItem {
 }
 
 // Monster entity
-export interface HitPoints {
+export interface HitPointsStats {
     hitDice: string;
     default: number;
 }
@@ -210,7 +205,7 @@ export interface SavingThrow {
 
 export interface Stats {
     armorClass: number;
-    hitPoints: HitPoints;
+    hitPoints: HitPointsStats;
     speed: string;
     savingThrows: SavingThrow[];
     damageImmunities: string[];
@@ -254,7 +249,7 @@ export interface AbilityScoreIncrease {
     value: number;
 }
 
-export interface Characteristics {
+export interface SubRaceCharacteristics {
     name: string;
     description: string;
 }
@@ -263,7 +258,7 @@ export interface SubRace {
     name: string;
     description: string;
     abilityScoreIncrease: AbilityScoreIncrease;
-    characteristics: Characteristics[];
+    characteristics: SubRaceCharacteristics[];
 }
 
 export interface Race {
@@ -350,11 +345,6 @@ export interface SystemPayload {
 }
 
 // Weapon entity
-export interface Cost {
-    currency: string;
-    value: number;
-}
-
 export interface Weapon {
     name: string;
     description: string;

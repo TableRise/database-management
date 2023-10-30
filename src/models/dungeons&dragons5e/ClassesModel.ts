@@ -1,6 +1,6 @@
 import mongoose, { Schema } from 'mongoose';
 import MongoModel from '../../models/MongoModel';
-import { HitPoints, Proficiencies, Equipment, CantripsKnown, SpellSlotsPerSpellLevel, SpellsKnown, KiPoints, MartialArts, UnarmoredMovement, SneakAttack, SorceryPoints, InvocationsKnown, Rages, RageDamage, LevelingSpecs, Characteristics, Class } from '../../interfaces/DungeonsAndDragons5e';
+import { HitPoints, Proficiencies, Equipment, CantripsKnown, SpellSlotsPerSpellLevel, SpellsKnown, KiPoints, MartialArts, UnarmoredMovement, SneakAttack, SorceryPoints, InvocationsKnown, Rages, RageDamage, LevelingSpecs, ClassCharacteristics, Class } from '../../interfaces/DungeonsAndDragons5e';
 import { Internacional } from '../../interfaces/Internacional';
 
 const hitPointsMongooseSchema = new Schema<HitPoints>(
@@ -140,7 +140,7 @@ const levelingSpecsMongooseSchema = new Schema<LevelingSpecs>(
     { versionKey: false, _id: false }
 );
 
-const characteristicsMongooseSchema = new Schema<Characteristics>(
+const characteristicsMongooseSchema = new Schema<ClassCharacteristics>(
     {
         title: { type: String, required: true },
         description: { type: String, required: true },

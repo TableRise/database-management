@@ -1,9 +1,9 @@
 import mongoose, { Schema } from 'mongoose';
 import MongoModel from '../../models/MongoModel';
-import { HitPoints, Stats, AbilityScore, Monster, Action, SavingThrow, Skill } from '../../interfaces/DungeonsAndDragons5e';
+import { HitPointsStats, Stats, AbilityScore, Monster, Action, SavingThrow, Skill } from '../../interfaces/DungeonsAndDragons5e';
 import { Internacional } from '../../interfaces/Internacional';
 
-const hitPointsMongooseSchema = new Schema<HitPoints>(
+const hitPointsMongooseSchema = new Schema<HitPointsStats>(
     {
         hitDice: { type: String, required: true },
         default: { type: Number, required: true },

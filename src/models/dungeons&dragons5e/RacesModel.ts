@@ -1,6 +1,6 @@
 import mongoose, { Schema } from 'mongoose';
 import MongoModel from '../../models/MongoModel';
-import { AbilityScoreIncrease, SubRace, Race, Characteristics } from '../../interfaces/DungeonsAndDragons5e';
+import { AbilityScoreIncrease, SubRace, Race, SubRaceCharacteristics } from '../../interfaces/DungeonsAndDragons5e';
 import { Internacional } from '../../interfaces/Internacional';
 
 const abilityScoreIncreaseSchema = new Schema<AbilityScoreIncrease>({
@@ -8,7 +8,7 @@ const abilityScoreIncreaseSchema = new Schema<AbilityScoreIncrease>({
     value: { type: Number, required: true },
 });
 
-const characteristicsSchema = new Schema<Characteristics>({
+const characteristicsSchema = new Schema<SubRaceCharacteristics>({
     name: { type: String, required: true },
     description: { type: String, required: true },
 });
