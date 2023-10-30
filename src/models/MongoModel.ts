@@ -23,6 +23,10 @@ abstract class MongoModel<T> implements ModelType<T> {
     public async delete(query = {}): Promise<T | null> {
         return await this._model.findOneAndDelete(query);
     }
+
+    public async erase(): Promise<void> {
+        await this._model.deleteMany({});
+    }
 }
 
 export default MongoModel;
