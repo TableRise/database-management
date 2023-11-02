@@ -3,19 +3,20 @@ import mongoose from 'mongoose';
 import models from './src/models';
 import MongoModel from './src/models/MongoModel';
 import { DnDEntities, ModelEntity, UserEntities } from './src/types/DatabaseEntities';
+import { Envs } from './src/types/Envs';
 
 const path = require('path');
 
 export default class DatabaseManagement {
-    static connect(on: boolean = false): Promise<mongoose.Mongoose> {
+    static connect(on: boolean = false, testEnvs: Envs): Promise<mongoose.Mongoose> {
         if (on) {
             const tableriseEnvs = require(path.resolve('./tablerise.environment.js'));
 
-            const username = tableriseEnvs.database_username as string;
-            const password = tableriseEnvs.database_password as string;
-            const host = tableriseEnvs.database_host as string;
-            const database = tableriseEnvs.database_database as string;
-            const initialString = tableriseEnvs.database_initialString as string;
+            const username = tableriseEnvs.database_username || testEnvs.db_username;
+            const password = tableriseEnvs.database_password || testEnvs.db_password;
+            const host = tableriseEnvs.database_host || testEnvs.db_host;
+            const database = tableriseEnvs.database_database || testEnvs.db_database;
+            const initialString = tableriseEnvs.database_initialString || testEnvs.db_initialString;
 
             return mongoose.connect(`${initialString}://${username}:${password}@${host}/${database}`);
         }
