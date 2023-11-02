@@ -8,15 +8,15 @@ import { Envs } from './src/types/Envs';
 const path = require('path');
 
 export default class DatabaseManagement {
-    static connect(on: boolean = false, testEnvs: Envs = {} as Envs): Promise<mongoose.Mongoose> {
+    static connect(on: boolean = false, altEnvs: Envs = {} as Envs): Promise<mongoose.Mongoose> {
         if (on) {
             const tableriseEnvs = require(path.resolve('./tablerise.environment.js'));
 
-            const username = tableriseEnvs.database_username || testEnvs.db_username;
-            const password = tableriseEnvs.database_password || testEnvs.db_password;
-            const host = tableriseEnvs.database_host || testEnvs.db_host;
-            const database = tableriseEnvs.database_database || testEnvs.db_database;
-            const initialString = tableriseEnvs.database_initialString || testEnvs.db_initialString;
+            const username = altEnvs.db_username || tableriseEnvs.database_username;
+            const password = altEnvs.db_password || tableriseEnvs.database_password;
+            const host = altEnvs.db_host || tableriseEnvs.database_host;
+            const database = altEnvs.db_database || tableriseEnvs.database_database;
+            const initialString = altEnvs.db_initialString || tableriseEnvs.database_initialString;
 
             return mongoose.connect(`${initialString}://${username}:${password}@${host}/${database}`);
         }
