@@ -8,7 +8,7 @@ import { Envs } from './src/types/Envs';
 const path = require('path');
 
 export default class DatabaseManagement {
-    static connect(on: boolean = false, testEnvs: Envs): Promise<mongoose.Mongoose> {
+    static connect(on: boolean = false, testEnvs: Envs = {} as Envs): Promise<mongoose.Mongoose> {
         if (on) {
             const tableriseEnvs = require(path.resolve('./tablerise.environment.js'));
 
