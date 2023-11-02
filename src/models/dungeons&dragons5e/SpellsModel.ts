@@ -42,7 +42,7 @@ const schema = new Schema<Spell>(
 
 export const spellsMongooseSchema = new Schema<Internacional<Spell > & { spellId: string }>(
     {
-        spellId: { type: String, default: newUUID() },
+        spellId: newUUID(),
         active: { type: Boolean, required: true },
         en: schema,
         pt: schema,
