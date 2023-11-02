@@ -38,7 +38,7 @@ const schema = new Schema<Race>({
 
 export const racesMongooseSchema = new Schema<Internacional<Race > & { raceId: string }>(
     {
-        raceId: newUUID(),
+        raceId: { type: String, required: true, default: newUUID() },
         active: { type: Boolean, required: true },
         en: schema,
         pt: schema,

@@ -27,7 +27,7 @@ const schema = new Schema<Weapon>(
 
 export const weaponsMongooseSchema = new Schema<Internacional<Weapon > & { weaponId: string }>(
     {
-        weaponId: newUUID(),
+        weaponId: { type: String, required: true, default: newUUID() },
         active: { type: Boolean, required: true },
         en: schema,
         pt: schema,

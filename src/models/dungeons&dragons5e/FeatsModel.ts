@@ -16,7 +16,7 @@ const schema = new Schema<Feat>(
 
 export const featsMongooseSchema = new Schema<Internacional<Feat > & { featId: string }>(
     {
-        featId: newUUID(),
+        featId: { type: String, required: true, default: newUUID() },
         active: { type: Boolean, required: true },
         en: schema,
         pt: schema,

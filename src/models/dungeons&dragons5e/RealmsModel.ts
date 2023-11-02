@@ -15,7 +15,7 @@ const schema = new Schema<Realm>(
 
 export const realmsMongooseSchema = new Schema<Internacional<Realm > & { realmId: string }>(
     {
-        realmId: newUUID(),
+        realmId: { type: String, required: true, default: newUUID() },
         active: { type: Boolean, required: true },
         en: schema,
         pt: schema,

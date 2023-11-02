@@ -37,7 +37,7 @@ const schema = new Schema<Background>(
 
 export const backgroundsMongooseSchema = new Schema<Internacional<Background > & { backgroundId: string }>(
     {
-        backgroundId: newUUID(),
+        backgroundId: { type: String, required: true, default: newUUID() },
         active: { type: Boolean, required: true },
         en: schema,
         pt: schema,

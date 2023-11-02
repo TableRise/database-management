@@ -28,7 +28,7 @@ const schema = new Schema<Armor>(
 
 export const armorsMongooseSchema = new Schema<Internacional<Armor> & { armorId: string }>(
     {
-        armorId: newUUID(),
+        armorId: { type: String, required: true, default: newUUID() },
         active: { type: Boolean, required: true },
         en: schema,
         pt: schema,
