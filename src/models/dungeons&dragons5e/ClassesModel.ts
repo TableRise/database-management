@@ -164,7 +164,7 @@ const schema = new Schema<Class>(
 
 export const classMongooseSchema = new Schema<Internacional<Class > & { classId: string }>(
     {
-        classId: { type: String, required: true, default: newUUID() },
+        classId: { type: String, default: newUUID() },
         active: { type: Boolean, required: true },
         en: schema,
         pt: schema,

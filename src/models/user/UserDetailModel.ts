@@ -20,7 +20,7 @@ const secretQuestionMongooseSchema = new Schema<SecretQuestion>(
 
 const userDetailsMongooseSchema = new Schema<UserDetail>(
     {
-        userDetailId: { type: String, required: true, default: newUUID() },
+        userDetailId: { type: String, default: newUUID() },
         userId: { type: String, required: true },
         firstName: { type: String },
         lastName: { type: String },

@@ -17,7 +17,7 @@ const schema = new Schema<God>(
 
 export const godsMongooseSchema = new Schema<Internacional<God > & { godId: string }>(
     {
-        godId: { type: String, required: true, default: newUUID() },
+        godId: { type: String, default: newUUID() },
         active: { type: Boolean, required: true },
         en: schema,
         pt: schema,

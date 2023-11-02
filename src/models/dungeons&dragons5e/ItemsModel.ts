@@ -32,7 +32,7 @@ const schema = new Schema<Item>({
 
 export const itemsMongooseSchema = new Schema<Internacional<Item > & { itemId: string }>(
     {
-        itemId: { type: String, required: true, default: newUUID() },
+        itemId: { type: String, default: newUUID() },
         active: { type: Boolean, required: true },
         en: schema,
         pt: schema,

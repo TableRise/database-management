@@ -15,7 +15,7 @@ const schema = new Schema<MagicItem>(
 
 export const magicItemsMongooseSchema = new Schema<Internacional<MagicItem > & { magicItemId: string }>(
     {
-        magicItemId: { type: String, required: true, default: newUUID() },
+        magicItemId: { type: String, default: newUUID() },
         active: { type: Boolean, required: true },
         en: schema,
         pt: schema,

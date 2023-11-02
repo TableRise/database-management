@@ -77,7 +77,7 @@ const schema = new Schema<Monster>(
 
 export const monstersMongooseSchema = new Schema<Internacional<Monster > & { monsterId: string }>(
     {
-        monsterId: { type: String, required: true, default: newUUID() },
+        monsterId: { type: String, default: newUUID() },
         active: { type: Boolean, required: true },
         en: schema,
         pt: schema,
