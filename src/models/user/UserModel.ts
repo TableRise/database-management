@@ -24,7 +24,7 @@ const pictureMongooseSchema = new Schema<Picture>(
   {
     id: { type: String },
     link: { type: String },
-    uploadDate: { type: Number }
+    uploadDate: { type: Date }
   },
   { _id: false }
 )

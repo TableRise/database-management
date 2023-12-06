@@ -36,7 +36,7 @@ export interface TwoFactorSecret {
 export interface Picture {
     id: string;
     link: string;
-    uploadDate: number;
+    uploadDate: Date;
 }
 
 export default interface User {
