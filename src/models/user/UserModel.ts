@@ -1,6 +1,6 @@
 import mongoose, { Schema } from 'mongoose';
 import MongoModel from '../MongoModel';
-import User, { InProgress, TwoFactorSecret } from '../../interfaces/User';
+import User, { InProgress, Picture, TwoFactorSecret } from '../../interfaces/User';
 import newUUID from '../../helpers/newUUID';
 
 const inProgressMongooseSchema = new Schema<InProgress>(
@@ -20,6 +20,15 @@ const twoFactorSecretMongooseSchema = new Schema<TwoFactorSecret>(
   { _id: false }
 );
 
+const pictureMongooseSchema = new Schema<Picture>(
+  {
+    id: { type: String },
+    link: { type: String },
+    uploadDate: { type: Number }
+  },
+  { _id: false }
+)
+
 const userMongooseSchema = new Schema<User>(
   {
     userId: { type: String, required: true, default: newUUID() },
@@ -29,7 +38,7 @@ const userMongooseSchema = new Schema<User>(
     password: { type: String, required: true },
     nickname: { type: String },
     tag: { type: String },
-    picture: { type: String },
+    picture: { type: pictureMongooseSchema },
     twoFactorSecret: { type: twoFactorSecretMongooseSchema },
     createdAt: { type: String, required: true },
     updatedAt: { type: String, required: true },

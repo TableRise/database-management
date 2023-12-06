@@ -33,6 +33,12 @@ export interface TwoFactorSecret {
     active: boolean;
 }
 
+export interface Picture {
+    id: string;
+    link: string;
+    uploadDate: number;
+}
+
 export default interface User {
     userId?: string;
     inProgress?: InProgress;
@@ -41,7 +47,7 @@ export default interface User {
     password: string;
     nickname?: string;
     tag?: string;
-    picture: string;
+    picture?: Picture;
     twoFactorSecret?: TwoFactorSecret;
     createdAt?: string;
     updatedAt?: string;
