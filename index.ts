@@ -9,7 +9,7 @@ const path = require('path');
 
 export default class DatabaseManagement {
     static mongoose(altEnvs: MongooseEnvs = {} as MongooseEnvs) {
-        const tableriseEnvs = require(path.resolve('./src/infra/tablerise.environment.js'));
+        const tableriseEnvs = require(path.resolve('./tablerise.environment.js'));
 
         const username = altEnvs.db_username || tableriseEnvs.database_username;
         const password = altEnvs.db_password || tableriseEnvs.database_password;
@@ -21,7 +21,7 @@ export default class DatabaseManagement {
     }
 
     static redis(altEnvs: RedisEnvs = {} as RedisEnvs) {
-        const tableriseEnvs = require(path.resolve('./src/infra/tablerise.environment.js'));
+        const tableriseEnvs = require(path.resolve('./tablerise.environment.js'));
 
         const host = altEnvs.redis_host || tableriseEnvs.redis_host;
         const port = altEnvs.redis_port || tableriseEnvs.redis_port;
