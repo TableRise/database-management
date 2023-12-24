@@ -27,7 +27,11 @@ export default class DatabaseManagement {
         const port = altEnvs.redis_port || tableriseEnvs.redis_port;
         const password = altEnvs.redis_password || tableriseEnvs.redis_password;
 
-        const client = redis.createClient({url: `rediss://default:${password}@${host}:${port}`})
+        const credentials = tableriseEnvs.node_env === 'production'
+            ? { url: `rediss://default:${password}@${host}:${port}` }
+            : { password, socket: { host, port } }
+
+        const client = redis.createClient(credentials)
 
         client.connect()
 
