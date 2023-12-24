@@ -40,7 +40,7 @@ export default class DatabaseManagement {
         return client;
     }
 
-    static connect(on: boolean = false, db: 'mongoose' | 'redis', altEnvs: MongooseEnvs & RedisEnvs = {} as MongooseEnvs & RedisEnvs): Promise<unknown> | unknown {
+    static connect(on: boolean = false, db: 'mongoose' | 'redis', altEnvs: MongooseEnvs & RedisEnvs = {} as MongooseEnvs & RedisEnvs): Promise<any> | any {
         if (on) return DatabaseManagement[db](altEnvs);
     }
 
