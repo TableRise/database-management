@@ -21,7 +21,7 @@ export interface Character {
   updated_at: string;
 }
 
-export interface Lore {
+export interface Lores {
   player_characters: Character[];
   dungeon_master_characters: Character[];
   environments: Environment[];
@@ -34,8 +34,6 @@ export interface Announcement {
   content: string;
 }
 
-//Verificar qual as opções do campo visibility
-//troquei o campo announcements de objeto para array de objetos
 export interface Infos {
   campaign_age: string;
   match_dates: string[];
@@ -69,7 +67,7 @@ export interface Avatar {
   image: string;
   position: Position;
   size: Size;
-  status: 'dead' | 'alive' | 'viewer';
+  status: 'alive' | 'dead' | 'viewer';
 }
 
 export interface MatchData {
@@ -80,14 +78,12 @@ export interface MatchData {
   logs: Log[];
 }
 
-//Verificar qual as opções do campo role
 export interface Player {
   user_id: string;
   character_id: string[];
-  role: 'adm' | 'player' | 'dungeon master';
+  role: 'admin_player' | 'dungeon_master' | 'player';
 }
 
-//troquei o campo campaign_players de objeto para array de objetos
 export default interface Campaign {
   campaign_id?: string;
   title: string;
@@ -96,7 +92,7 @@ export default interface Campaign {
   campaign_players: Player[];
   match_data: MatchData;
   infos: Infos;
-  lore: Lore;
+  lores: Lores;
   created_at: string;
   updated_at: string;
 }
