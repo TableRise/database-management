@@ -34,6 +34,8 @@ export interface Announcement {
   content: string;
 }
 
+//Verificar qual as opções do campo visibility
+//troquei o campo announcements de objeto para array de objetos
 export interface Infos {
   campaign_age: string;
   match_dates: string[];
@@ -78,12 +80,14 @@ export interface MatchData {
   logs: Log[];
 }
 
+//Verificar qual as opções do campo role
 export interface Player {
   user_id: string;
   character_id: string[];
   role: 'adm' | 'player' | 'dungeon master';
 }
 
+//troquei o campo campaign_players de objeto para array de objetos
 export default interface Campaign {
   campaign_id?: string;
   title: string;
