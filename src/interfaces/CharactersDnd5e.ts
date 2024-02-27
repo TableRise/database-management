@@ -1,16 +1,16 @@
 export interface charactersDnd5e {
-    characterID: string;
-    campaignID: string;
+    character_id: string;
+    campaign_id: string;
     author: Author;
     data: Data;
     npc: boolean;
     picture: string;
-    createdAt: string;
-    updatedAt: string;
+    created_at: string;
+    updated_at: string;
 }
 
 export interface Author {
-    userId: string;
+    user_id: string;
     nickname: string;
     fullname: string;
 }
@@ -23,8 +23,8 @@ export interface Data {
     money: Money;
     features: [string];
     spells: Spells;
-    createdAt: string;
-    updatedAt: string;
+    created_at: string;
+    updated_at: string;
 }
 
 export interface Profile {
@@ -38,7 +38,7 @@ export interface Profile {
 
 export interface Attack {
     name: string;
-    atkBonus: number;
+    atk_bonus: number;
     damage: Damage;
 }
 
@@ -70,9 +70,9 @@ export interface Spells {
 }
 
 export interface SpellLv {
-    spellIds: [string];
-    slotsTotal: number;
-    slorsExpanded: number;
+    spell_ids: [string];
+    slots_total: number;
+    slots_expended: number;
 }
 
 export interface Characteristics {
@@ -83,7 +83,7 @@ export interface Characteristics {
     bonds: string;
     flaws: string;
     appearence: Appearence;
-    alliesAndorgs: AlliesAndOrgs;
+    allies_and_orgs: AlliesAndOrgs;
     other: Other;
     treasure: [string];
 }
@@ -107,32 +107,32 @@ export interface AlliesAndOrgs {
 export interface Other {
     languages: [string];
     proficiences: string;
-    extraCharacteristics: string;
+    extra_characteristics: string;
 }
 
 export interface Stats {
-    abilityScores: AbilityScore;
+    ability_scores: AbilityScore;
     skills: Skills;
-    proficiencyBonus: number;
+    proficiency_bonus: number;
     inspiration: number;
-    passiveWisdom: number;
+    passive_wisdom: number;
     speed: number;
     initiative: number;
-    armorClass: number;
+    armor_class: number;
     hitPoints: HitPoints;
     death_saves: DeathSaves;
-    spellCasting: SpellCasting;
+    spell_casting: SpellCasting;
 }
 
 export interface Skills {
-    xDinamyc: number;
+    x_dinamyc: number;
 }
 
 export interface HitPoints {
     points: number;
-    currentPoints: number;
-    tempPoints: number;
-    dicePoints: number;
+    current_points: number;
+    temp_points: number;
+    dice_points: number;
 }
 
 export interface DeathSaves {
@@ -143,8 +143,8 @@ export interface DeathSaves {
 export interface SpellCasting {
     class: string;
     ability: string;
-    saveDc: number;
-    attackBonus: number;
+    save_dc: number;
+    attack_bonus: number;
 }
 
 export interface AbilityScore {
