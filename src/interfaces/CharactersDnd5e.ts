@@ -1,6 +1,13 @@
+export interface ImageObject {
+    id: string;
+    link: string;
+    uploadDate: Date;
+}
+
 export interface charactersDnd5e {
-    character_id: string;
-    campaign_id: string;
+    character_id?: string;
+    campaign_id?: string;
+    match_id?: string;
     author: Author;
     data: Data;
     npc: boolean;
@@ -18,7 +25,7 @@ export interface Author {
 export interface Data {
     profile: Profile;
     stats: Stats;
-    attacks: Attack;
+    attacks: Attack[];
     equipments: [string];
     money: Money;
     features: [string];
@@ -39,7 +46,7 @@ export interface Profile {
 export interface Attack {
     name: string;
     atk_bonus: number;
-    damage: Damage;
+    damage: Damage[];
 }
 
 export interface Damage {
@@ -58,18 +65,18 @@ export interface Money {
 
 export interface Spells {
     cantrips: [string];
-    1: SpellLv;
-    2: SpellLv;
-    3: SpellLv;
-    4: SpellLv;
-    5: SpellLv;
-    6: SpellLv;
-    7: SpellLv;
-    8: SpellLv;
-    9: SpellLv;
+    1: SpellLevel;
+    2: SpellLevel;
+    3: SpellLevel;
+    4: SpellLevel;
+    5: SpellLevel;
+    6: SpellLevel;
+    7: SpellLevel;
+    8: SpellLevel;
+    9: SpellLevel;
 }
 
-export interface SpellLv {
+export interface SpellLevel {
     spell_ids: [string];
     slots_total: number;
     slots_expended: number;
@@ -79,7 +86,7 @@ export interface Characteristics {
     alignment: string;
     backstory: string;
     personality_traits: string;
-    ideal: string;
+    ideals: string;
     bonds: string;
     flaws: string;
     appearence: Appearence;
@@ -95,11 +102,11 @@ export interface Appearence {
     height: string;
     skin: string;
     hair: string;
-    picture: string;
+    picture: ImageObject;
 }
 
 export interface AlliesAndOrgs {
-    orgName: string;
+    org_name: string;
     symbol: string;
     content: string;
 }
@@ -111,7 +118,7 @@ export interface Other {
 }
 
 export interface Stats {
-    ability_scores: AbilityScore;
+    ability_scores: AbilityScore[];
     skills: Skills;
     proficiency_bonus: number;
     inspiration: number;
@@ -119,14 +126,12 @@ export interface Stats {
     speed: number;
     initiative: number;
     armor_class: number;
-    hitPoints: HitPoints;
+    hit_points: HitPoints;
     death_saves: DeathSaves;
     spell_casting: SpellCasting;
 }
 
-export interface Skills {
-    x_dinamyc: number;
-}
+export type Skills = Record<string, number>
 
 export interface HitPoints {
     points: number;

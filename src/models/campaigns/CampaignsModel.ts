@@ -2,8 +2,9 @@ import mongoose, { Schema } from 'mongoose';
 import Campaign, {
   Announcement,
   Avatar,
-  Character,
+  CharacterLore,
   Environment,
+  ImageObject,
   Infos,
   Log,
   Lores,
@@ -17,11 +18,20 @@ import Campaign, {
 import newUUID from '../../helpers/newUUID';
 import MongoModel from '../MongoModel';
 
+const imageObjectMongooseSchema = new Schema<ImageObject>(
+  {
+    id: { type: String },
+    link: { type: String },
+    uploadDate: { type: Date }
+  },
+  { _id: false }
+)
+
 const mainStoryMongooseSchema = new Schema<MainStory>(
   {
     title: { type: String, required: true },
     lore: { type: String, required: true },
-    image: { type: String, required: true },
+    image: { type: imageObjectMongooseSchema, required: true },
     created_at: { type: String, required: true },
     updated_at: { type: String, required: true },
   },
@@ -32,14 +42,14 @@ const environmentMongooseSchema = new Schema<Environment>(
   {
     title: { type: String, required: true },
     lore: { type: String, required: true },
-    environment_image: { type: String, required: true },
+    environment_image: { type: imageObjectMongooseSchema, required: true },
     created_at: { type: String, required: true },
     updated_at: { type: String, required: true },
   },
   { _id: false }
 );
 
-const characterMongooseSchema = new Schema<Character>(
+const characterMongooseSchema = new Schema<CharacterLore>(
   {
     character_id: { type: String, required: true },
     lore: { type: String, required: true },
@@ -114,7 +124,7 @@ const avatarMongooseSchema = new Schema<Avatar>(
   {
     avatar_id: { type: String, required: true },
     user_id: { type: String, required: true },
-    image: { type: String, required: true },
+    picture: { type: imageObjectMongooseSchema, required: true },
     position: { type: positionMongooseSchema, required: true },
     size: { type: sizeMongooseSchema, required: true },
     status: { type: String, required: true },
@@ -127,7 +137,7 @@ const matchDataMongooseSchema = new Schema<MatchData>(
     match_id: { type: String, required: true },
     avatars: { type: [avatarMongooseSchema], required: true },
     music: { type: [musicMongooseSchema], required: true },
-    map_image: { type: [String], required: true },
+    map_image: { type: [imageObjectMongooseSchema], required: true },
     logs: { type: [logMongooseSchema], required: true },
   },
   { _id: false }
@@ -146,7 +156,7 @@ const campaignMongooseSchema = new Schema<Campaign>(
   {
     campaign_id: { type: String, required: true, default: newUUID() },
     title: { type: String, required: true },
-    cover: { type: String, required: true },
+    cover: { type: imageObjectMongooseSchema, required: true },
     description: { type: String, required: true },
     campaign_players: { type: [playerMongooseSchema], required: true },
     match_data: { type: matchDataMongooseSchema, required: true },

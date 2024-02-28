@@ -1,7 +1,13 @@
+export interface ImageObject {
+  id: string;
+  link: string;
+  uploadDate: Date;
+}
+
 export interface MainStory {
   title: string;
   lore: string;
-  image: string;
+  image: ImageObject;
   created_at: string;
   updated_at: string;
 }
@@ -9,12 +15,12 @@ export interface MainStory {
 export interface Environment {
   title: string;
   lore: string;
-  environment_image: string;
+  environment_image: ImageObject;
   created_at: string;
   updated_at: string;
 }
 
-export interface Character {
+export interface CharacterLore {
   character_id: string;
   lore: string;
   created_at: string;
@@ -22,8 +28,8 @@ export interface Character {
 }
 
 export interface Lores {
-  player_characters: Character[];
-  dungeon_master_characters: Character[];
+  player_characters: CharacterLore[];
+  dungeon_master_characters: CharacterLore[];
   environments: Environment[];
   main_history: MainStory[];
 }
@@ -64,7 +70,7 @@ export interface Position {
 export interface Avatar {
   avatar_id: string;
   user_id: string;
-  image: string;
+  picture: ImageObject;
   position: Position;
   size: Size;
   status: 'alive' | 'dead' | 'viewer';
@@ -74,7 +80,7 @@ export interface MatchData {
   match_id: string;
   avatars: Avatar[];
   music: Music[];
-  map_image: string[];
+  map_image: ImageObject[];
   logs: Log[];
 }
 
@@ -87,7 +93,7 @@ export interface Player {
 export default interface Campaign {
   campaign_id?: string;
   title: string;
-  cover: string;
+  cover: ImageObject;
   description: string;
   campaign_players: Player[];
   match_data: MatchData;
