@@ -4,20 +4,20 @@ export interface ImageObject {
     uploadDate: Date;
 }
 
-export interface charactersDnd5e {
-    character_id?: string;
-    campaign_id?: string;
-    match_id?: string;
+export interface CharactersDnd5e {
+    characterId?: string;
+    campaignId?: string;
+    matchId?: string;
     author: Author;
     data: Data;
     npc: boolean;
     picture: string;
-    created_at: string;
-    updated_at: string;
+    createdAt: string;
+    updatedAt: string;
 }
 
 export interface Author {
-    user_id: string;
+    userId: string;
     nickname: string;
     fullname: string;
 }
@@ -26,12 +26,12 @@ export interface Data {
     profile: Profile;
     stats: Stats;
     attacks: Attack[];
-    equipments: [string];
+    equipments: string[];
     money: Money;
-    features: [string];
+    features: string[];
     spells: Spells;
-    created_at: string;
-    updated_at: string;
+    createdAt: string;
+    updatedAt: string;
 }
 
 export interface Profile {
@@ -45,7 +45,7 @@ export interface Profile {
 
 export interface Attack {
     name: string;
-    atk_bonus: number;
+    atkBonus: number;
     damage: Damage[];
 }
 
@@ -64,7 +64,7 @@ export interface Money {
 }
 
 export interface Spells {
-    cantrips: [string];
+    cantrips: string[];
     1: SpellLevel;
     2: SpellLevel;
     3: SpellLevel;
@@ -77,25 +77,25 @@ export interface Spells {
 }
 
 export interface SpellLevel {
-    spell_ids: [string];
-    slots_total: number;
-    slots_expended: number;
+    spellIds: string[];
+    slotsTotal: number;
+    slotsExpended: number;
 }
 
 export interface Characteristics {
     alignment: string;
     backstory: string;
-    personality_traits: string;
+    personalityTraits: string;
     ideals: string;
     bonds: string;
     flaws: string;
-    appearence: Appearence;
-    allies_and_orgs: AlliesAndOrgs;
+    appearance: Appearance;
+    alliesAndOrgs: AlliesAndOrgs;
     other: Other;
-    treasure: [string];
+    treasure: string[];
 }
 
-export interface Appearence {
+export interface Appearance {
     eyes: string;
     age: string;
     weight: string;
@@ -106,50 +106,48 @@ export interface Appearence {
 }
 
 export interface AlliesAndOrgs {
-    org_name: string;
+    orgName: string;
     symbol: string;
     content: string;
 }
 
 export interface Other {
-    languages: [string];
-    proficiences: string;
-    extra_characteristics: string;
+    languages: string[];
+    proficiencies: string;
+    extraCharacteristics: string;
 }
 
 export interface Stats {
-    ability_scores: AbilityScore[];
-    skills: Skills;
-    proficiency_bonus: number;
+    abilityScores: AbilityScore[];
+    skills: Record<string, number>;
+    proficiencyBonus: number;
     inspiration: number;
-    passive_wisdom: number;
+    passiveWisdom: number;
     speed: number;
     initiative: number;
-    armor_class: number;
-    hit_points: HitPoints;
-    death_saves: DeathSaves;
-    spell_casting: SpellCasting;
+    armorClass: number;
+    hitPoints: HitPoints;
+    deathSaves: DeathSaves;
+    spellCasting: SpellCasting;
 }
-
-export type Skills = Record<string, number>
 
 export interface HitPoints {
     points: number;
-    current_points: number;
-    temp_points: number;
-    dice_points: number;
+    currentPoints: number;
+    tempPoints: number;
+    dicePoints: number;
 }
 
 export interface DeathSaves {
-    sucess: number;
+    success: number;
     failures: number;
 }
 
 export interface SpellCasting {
     class: string;
     ability: string;
-    save_dc: number;
-    attack_bonus: number;
+    saveDc: number;
+    attackBonus: number;
 }
 
 export interface AbilityScore {

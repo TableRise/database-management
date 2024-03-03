@@ -32,8 +32,8 @@ const mainStoryMongooseSchema = new Schema<MainStory>(
     title: { type: String, required: true },
     lore: { type: String, required: true },
     image: { type: imageObjectMongooseSchema, required: true },
-    created_at: { type: String, required: true },
-    updated_at: { type: String, required: true },
+    createdAt: { type: String, required: true },
+    updatedAt: { type: String, required: true },
   },
   { _id: false }
 );
@@ -42,29 +42,29 @@ const environmentMongooseSchema = new Schema<Environment>(
   {
     title: { type: String, required: true },
     lore: { type: String, required: true },
-    environment_image: { type: imageObjectMongooseSchema, required: true },
-    created_at: { type: String, required: true },
-    updated_at: { type: String, required: true },
+    environmentImage: { type: imageObjectMongooseSchema, required: true },
+    createdAt: { type: String, required: true },
+    updatedAt: { type: String, required: true },
   },
   { _id: false }
 );
 
 const characterMongooseSchema = new Schema<CharacterLore>(
   {
-    character_id: { type: String, required: true },
+    characterId: { type: String, required: true },
     lore: { type: String, required: true },
-    created_at: { type: String, required: true },
-    updated_at: { type: String, required: true },
+    createdAt: { type: String, required: true },
+    updatedAt: { type: String, required: true },
   },
   { _id: false }
 );
 
 const loresMongooseSchema = new Schema<Lores>(
   {
-    player_characters: { type: [characterMongooseSchema], required: true },
-    dungeon_master_characters: { type: [characterMongooseSchema], required: true },
+    playerCharacters: { type: [characterMongooseSchema], required: true },
+    dungeonMasterCharacters: { type: [characterMongooseSchema], required: true },
     environments: { type: [environmentMongooseSchema], required: true },
-    main_history: { type: [mainStoryMongooseSchema], required: true },
+    mainHistory: { type: [mainStoryMongooseSchema], required: true },
   },
   { _id: false }
 );
@@ -80,8 +80,8 @@ const announcementMongooseSchema = new Schema<Announcement>(
 
 const infosMongooseSchema = new Schema<Infos>(
   {
-    campaign_age: { type: String, required: true },
-    match_dates: { type: [String], required: true },
+    campaignAge: { type: String, required: true },
+    matchDates: { type: [String], required: true },
     announcements: { type: [announcementMongooseSchema], required: true },
     visibility: { type: String, required: true },
   },
@@ -90,7 +90,7 @@ const infosMongooseSchema = new Schema<Infos>(
 
 const logMongooseSchema = new Schema<Log>(
   {
-    logged_at: { type: String, required: true },
+    loggedAt: { type: String, required: true },
     content: { type: String, required: true },
   },
   { _id: false }
@@ -99,7 +99,7 @@ const logMongooseSchema = new Schema<Log>(
 const musicMongooseSchema = new Schema<Music>(
   {
     title: { type: String, required: true },
-    youtube_link: { type: String, required: true },
+    youtubeLink: { type: String, required: true },
   },
   { _id: false }
 );
@@ -122,8 +122,8 @@ const positionMongooseSchema = new Schema<Position>(
 
 const avatarMongooseSchema = new Schema<Avatar>(
   {
-    avatar_id: { type: String, required: true },
-    user_id: { type: String, required: true },
+    avatarId: { type: String, required: true },
+    userId: { type: String, required: true },
     picture: { type: imageObjectMongooseSchema, required: true },
     position: { type: positionMongooseSchema, required: true },
     size: { type: sizeMongooseSchema, required: true },
@@ -134,10 +134,10 @@ const avatarMongooseSchema = new Schema<Avatar>(
 
 const matchDataMongooseSchema = new Schema<MatchData>(
   {
-    match_id: { type: String, required: true },
+    matchId: { type: String, required: true },
     avatars: { type: [avatarMongooseSchema], required: true },
     music: { type: [musicMongooseSchema], required: true },
-    map_image: { type: [imageObjectMongooseSchema], required: true },
+    mapImages: { type: [imageObjectMongooseSchema], required: true },
     logs: { type: [logMongooseSchema], required: true },
   },
   { _id: false }
@@ -145,8 +145,8 @@ const matchDataMongooseSchema = new Schema<MatchData>(
 
 const playerMongooseSchema = new Schema<Player>(
   {
-    user_id: { type: String, required: true },
-    character_id: { type: [String], required: true },
+    userId: { type: String, required: true },
+    characterIds: { type: [String], required: true },
     role: { type: String, required: true },
   },
   { _id: false }
@@ -154,16 +154,16 @@ const playerMongooseSchema = new Schema<Player>(
 
 const campaignMongooseSchema = new Schema<Campaign>(
   {
-    campaign_id: { type: String, required: true, default: newUUID() },
+    campaignId: { type: String, required: true, default: newUUID() },
     title: { type: String, required: true },
     cover: { type: imageObjectMongooseSchema, required: true },
     description: { type: String, required: true },
-    campaign_players: { type: [playerMongooseSchema], required: true },
-    match_data: { type: matchDataMongooseSchema, required: true },
+    campaignPlayers: { type: [playerMongooseSchema], required: true },
+    matchData: { type: matchDataMongooseSchema, required: true },
     infos: { type: infosMongooseSchema, required: true },
     lores: { type: loresMongooseSchema, required: true },
-    created_at: { type: String, required: true },
-    updated_at: { type: String, required: true },
+    createdAt: { type: String, required: true },
+    updatedAt: { type: String, required: true },
   },
   { versionKey: false }
 );

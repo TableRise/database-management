@@ -8,30 +8,30 @@ export interface MainStory {
   title: string;
   lore: string;
   image: ImageObject;
-  created_at: string;
-  updated_at: string;
+  createdAt: string;
+  updatedAt: string;
 }
 
 export interface Environment {
   title: string;
   lore: string;
-  environment_image: ImageObject;
-  created_at: string;
-  updated_at: string;
+  environmentImage: ImageObject;
+  createdAt: string;
+  updatedAt: string;
 }
 
 export interface CharacterLore {
-  character_id: string;
+  characterId: string;
   lore: string;
-  created_at: string;
-  updated_at: string;
+  createdAt: string;
+  updatedAt: string;
 }
 
 export interface Lores {
-  player_characters: CharacterLore[];
-  dungeon_master_characters: CharacterLore[];
+  playerCharacters: CharacterLore[];
+  dungeonMasterCharacters: CharacterLore[];
   environments: Environment[];
-  main_history: MainStory[];
+  mainHistory: MainStory[];
 }
 
 export interface Announcement {
@@ -41,20 +41,20 @@ export interface Announcement {
 }
 
 export interface Infos {
-  campaign_age: string;
-  match_dates: string[];
+  campaignAge: string;
+  matchDates: string[];
   announcements: Announcement[];
   visibility: 'hidden' | 'visible';
 }
 
 export interface Log {
-  logged_at: string;
+  loggedAt: string;
   content: string;
 }
 
 export interface Music {
   title: string;
-  youtube_link: string;
+  youtubeLink: string;
 }
 
 export interface Size {
@@ -68,8 +68,8 @@ export interface Position {
 }
 
 export interface Avatar {
-  avatar_id: string;
-  user_id: string;
+  avatarId: string;
+  userId: string;
   picture: ImageObject;
   position: Position;
   size: Size;
@@ -77,28 +77,28 @@ export interface Avatar {
 }
 
 export interface MatchData {
-  match_id: string;
+  matchId: string;
   avatars: Avatar[];
   music: Music[];
-  map_image: ImageObject[];
+  mapImages: ImageObject[];
   logs: Log[];
 }
 
 export interface Player {
-  user_id: string;
-  character_id: string[];
+  userId: string;
+  characterIds: string[];
   role: 'admin_player' | 'dungeon_master' | 'player';
 }
 
 export default interface Campaign {
-  campaign_id?: string;
+  campaignId?: string;
   title: string;
   cover: ImageObject;
   description: string;
-  campaign_players: Player[];
-  match_data: MatchData;
+  campaignPlayers: Player[];
+  matchData: MatchData;
   infos: Infos;
   lores: Lores;
-  created_at: string;
-  updated_at: string;
+  createdAt: string;
+  updatedAt: string;
 }
