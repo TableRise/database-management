@@ -5,7 +5,7 @@ export interface ImageObject {
 }
 
 export interface CharactersDnd5e {
-    characterId?: string;
+    characterId: string;
     campaignId?: string;
     matchId?: string;
     author: Author;
