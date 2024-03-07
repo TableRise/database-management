@@ -195,7 +195,7 @@ const spellsMongooseSchema = new Schema<Spells>(
 
 const dataMongooseSchema = new Schema<Data>(
   {
-    profile: { type: profileMongooseSchema, required:true },
+    profile: { type: profileMongooseSchema },
     stats: { type: statsMongooseSchema, required:true },
     attacks: { type: [attackMongooseSchema], required: true },
     equipments: { type: [String], required: true },
