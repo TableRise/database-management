@@ -212,12 +212,12 @@ const dataMongooseSchema = new Schema<Data>(
 const charactersDnd5eMongooseSchema = new Schema<CharactersDnd5e>(
     {
       characterId: { type: String, required: true, default: newUUID() },
-      campaignId: { type: String },
-      matchId: { type: String },
-      author: { type: authorMongooseSchema, required: true },
-      data: { type: dataMongooseSchema, required: true },
-      npc: {type: Boolean, required: true },
-      picture: { type: String, required: true},
+      campaignId: { type: String, required: true },
+      matchId: { type: String, required: true },
+      author: { type: authorMongooseSchema },
+      data: { type: dataMongooseSchema },
+      npc: {type: Boolean },
+      picture: { type: String },
       createdAt: { type: String, required: true },
       updatedAt: { type: String, required: true },
     },
