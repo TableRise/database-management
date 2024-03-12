@@ -94,6 +94,8 @@ export default interface Campaign {
   campaignId?: string;
   title: string;
   cover: ImageObject;
+  ageRestriction: number;
+  system: 'd&d5e' | 'other';
   description: string;
   campaignPlayers: Player[];
   matchData: MatchData;
