@@ -22,7 +22,7 @@ const imageObjectMongooseSchema = new Schema<ImageObject>(
   {
     id: { type: String },
     link: { type: String },
-    uploadDate: { type: Date },
+    uploadDate: { type: String },
   },
   { _id: false }
 );
@@ -139,7 +139,7 @@ const matchDataMongooseSchema = new Schema<MatchData>(
   {
     matchId: { type: String, required: true },
     avatars: { type: [avatarMongooseSchema], required: true },
-    music: { type: [musicMongooseSchema], required: true },
+    musics: { type: [musicMongooseSchema], required: true },
     mapImages: { type: [imageObjectMongooseSchema], required: true },
     logs: { type: [logMongooseSchema], required: true },
   },

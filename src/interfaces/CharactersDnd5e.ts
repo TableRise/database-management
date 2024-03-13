@@ -1,7 +1,7 @@
 export interface ImageObject {
     id: string;
     link: string;
-    uploadDate: Date;
+    uploadDate: string;
 }
 
 export interface CharactersDnd5e {

@@ -1,7 +1,7 @@
 export interface ImageObject {
   id: string;
   link: string;
-  uploadDate: Date;
+  uploadDate: string;
 }
 
 export interface MainStory {
@@ -79,7 +79,7 @@ export interface Avatar {
 export interface MatchData {
   matchId: string;
   avatars: Avatar[];
-  music: Music[];
+  musics: Music[];
   mapImages: ImageObject[];
   logs: Log[];
 }
