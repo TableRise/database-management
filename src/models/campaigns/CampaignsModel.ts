@@ -22,10 +22,10 @@ const imageObjectMongooseSchema = new Schema<ImageObject>(
   {
     id: { type: String },
     link: { type: String },
-    uploadDate: { type: Date }
+    uploadDate: { type: Date },
   },
   { _id: false }
-)
+);
 
 const mainStoryMongooseSchema = new Schema<MainStory>(
   {
@@ -62,7 +62,10 @@ const characterMongooseSchema = new Schema<CharacterLore>(
 const loresMongooseSchema = new Schema<Lores>(
   {
     playerCharacters: { type: [characterMongooseSchema], required: true },
-    dungeonMasterCharacters: { type: [characterMongooseSchema], required: true },
+    dungeonMasterCharacters: {
+      type: [characterMongooseSchema],
+      required: true,
+    },
     environments: { type: [environmentMongooseSchema], required: true },
     mainHistory: { type: [mainStoryMongooseSchema], required: true },
   },
@@ -155,9 +158,10 @@ const playerMongooseSchema = new Schema<Player>(
 const campaignMongooseSchema = new Schema<Campaign>(
   {
     campaignId: { type: String, required: true, default: newUUID() },
-    title: { type: String, required: true },
     cover: { type: imageObjectMongooseSchema },
     description: { type: String },
+    ageRestriction: { type: Number, required: true },
+    system: { type: String, required: true },
     campaignPlayers: { type: [playerMongooseSchema] },
     matchData: { type: matchDataMongooseSchema },
     infos: { type: infosMongooseSchema },
@@ -174,7 +178,9 @@ const connection = mongoose.connection.useDb('campaign', {
 });
 
 export default class CampaignsModel extends MongoModel<Campaign> {
-  constructor(public model = connection.model('campaign', campaignMongooseSchema)) {
+  constructor(
+    public model = connection.model('campaign', campaignMongooseSchema)
+  ) {
     super(model);
   }
 }
