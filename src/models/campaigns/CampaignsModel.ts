@@ -158,6 +158,7 @@ const playerMongooseSchema = new Schema<Player>(
 const campaignMongooseSchema = new Schema<Campaign>(
   {
     campaignId: { type: String, required: true, default: newUUID() },
+    title: { type: String, required: true },
     cover: { type: imageObjectMongooseSchema },
     description: { type: String },
     ageRestriction: { type: Number, required: true },
