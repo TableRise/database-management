@@ -1,6 +1,6 @@
 {
   "name": "@tablerise/database-management",
-  "version": "4.5.2",
+  "version": "4.5.3",
   "description": "A library to manage the project database",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
