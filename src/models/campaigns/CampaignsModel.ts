@@ -1,4 +1,4 @@
-import mongoose, { Schema } from 'mongoose';
+import mongoose, { Schema } from 'mongoose'
 import Campaign, {
   Announcement,
   Avatar,
@@ -14,9 +14,9 @@ import Campaign, {
   Player,
   Position,
   Size,
-} from '../../interfaces/Campaigns';
-import newUUID from '../../helpers/newUUID';
-import MongoModel from '../MongoModel';
+} from '../../interfaces/Campaigns'
+import newUUID from '../../helpers/newUUID'
+import MongoModel from '../MongoModel'
 
 const imageObjectMongooseSchema = new Schema<ImageObject>(
   {
@@ -25,7 +25,7 @@ const imageObjectMongooseSchema = new Schema<ImageObject>(
     uploadDate: { type: String },
   },
   { _id: false }
-);
+)
 
 const mainStoryMongooseSchema = new Schema<MainStory>(
   {
@@ -36,7 +36,7 @@ const mainStoryMongooseSchema = new Schema<MainStory>(
     updatedAt: { type: String, required: true },
   },
   { _id: false }
-);
+)
 
 const environmentMongooseSchema = new Schema<Environment>(
   {
@@ -47,7 +47,7 @@ const environmentMongooseSchema = new Schema<Environment>(
     updatedAt: { type: String, required: true },
   },
   { _id: false }
-);
+)
 
 const characterMongooseSchema = new Schema<CharacterLore>(
   {
@@ -57,7 +57,7 @@ const characterMongooseSchema = new Schema<CharacterLore>(
     updatedAt: { type: String, required: true },
   },
   { _id: false }
-);
+)
 
 const loresMongooseSchema = new Schema<Lores>(
   {
@@ -70,7 +70,7 @@ const loresMongooseSchema = new Schema<Lores>(
     mainHistory: { type: [mainStoryMongooseSchema], required: true },
   },
   { _id: false }
-);
+)
 
 const announcementMongooseSchema = new Schema<Announcement>(
   {
@@ -79,7 +79,7 @@ const announcementMongooseSchema = new Schema<Announcement>(
     content: { type: String, required: true },
   },
   { _id: false }
-);
+)
 
 const infosMongooseSchema = new Schema<Infos>(
   {
@@ -89,7 +89,7 @@ const infosMongooseSchema = new Schema<Infos>(
     visibility: { type: String, required: true },
   },
   { _id: false }
-);
+)
 
 const logMongooseSchema = new Schema<Log>(
   {
@@ -97,7 +97,7 @@ const logMongooseSchema = new Schema<Log>(
     content: { type: String, required: true },
   },
   { _id: false }
-);
+)
 
 const musicMongooseSchema = new Schema<Music>(
   {
@@ -105,7 +105,7 @@ const musicMongooseSchema = new Schema<Music>(
     youtubeLink: { type: String, required: true },
   },
   { _id: false }
-);
+)
 
 const sizeMongooseSchema = new Schema<Size>(
   {
@@ -113,7 +113,7 @@ const sizeMongooseSchema = new Schema<Size>(
     height: { type: Number, required: true },
   },
   { _id: false }
-);
+)
 
 const positionMongooseSchema = new Schema<Position>(
   {
@@ -121,7 +121,7 @@ const positionMongooseSchema = new Schema<Position>(
     y: { type: Number, required: true },
   },
   { _id: false }
-);
+)
 
 const avatarMongooseSchema = new Schema<Avatar>(
   {
@@ -133,7 +133,7 @@ const avatarMongooseSchema = new Schema<Avatar>(
     status: { type: String, required: true },
   },
   { _id: false }
-);
+)
 
 const matchDataMongooseSchema = new Schema<MatchData>(
   {
@@ -144,16 +144,17 @@ const matchDataMongooseSchema = new Schema<MatchData>(
     logs: { type: [logMongooseSchema], required: true },
   },
   { _id: false }
-);
+)
 
 const playerMongooseSchema = new Schema<Player>(
   {
     userId: { type: String, required: true },
     characterIds: { type: [String], required: true },
     role: { type: String, required: true },
+    status: { type: String, required: true },
   },
   { _id: false }
-);
+)
 
 const campaignMongooseSchema = new Schema<Campaign>(
   {
@@ -171,17 +172,15 @@ const campaignMongooseSchema = new Schema<Campaign>(
     updatedAt: { type: String, required: true },
   },
   { versionKey: false }
-);
+)
 
 const connection = mongoose.connection.useDb('campaign', {
   noListener: true,
   useCache: true,
-});
+})
 
 export default class CampaignsModel extends MongoModel<Campaign> {
-  constructor(
-    public model = connection.model('campaign', campaignMongooseSchema)
-  ) {
-    super(model);
+  constructor(public model = connection.model('campaign', campaignMongooseSchema)) {
+    super(model)
   }
 }

@@ -88,6 +88,7 @@ export interface Player {
   userId: string;
   characterIds: string[];
   role: 'admin_player' | 'dungeon_master' | 'player';
+  status: 'pending' | 'active' | 'inactive' | 'banned';
 }
 
 export default interface Campaign {
