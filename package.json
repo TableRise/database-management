@@ -1,6 +1,6 @@
 {
   "name": "@tablerise/database-management",
-  "version": "4.5.3",
+  "version": "4.5.5",
   "description": "A library to manage the project database",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -24,8 +24,8 @@
     "registry": "https://npm.pkg.github.com/"
   },
   "dependencies": {
-    "mongoose": "7.4.3",
-    "redis": "^4.6.12",
+    "mongoose": "7.6.12",
+    "redis": "4.6.12",
     "uuid": "9.0.1"
   },
   "devDependencies": {
