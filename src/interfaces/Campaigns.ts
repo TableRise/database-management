@@ -91,6 +91,18 @@ export interface Player {
   status: 'pending' | 'active' | 'inactive' | 'banned';
 }
 
+export interface CharactersCampaing {
+  imageId: string;
+  name: string;
+  link: string;
+  uploadDate: string;
+}
+
+export interface ImageCampaing {
+  maps: ImageObject[];
+  characters: CharactersCampaing;
+}
+
 export default interface Campaign {
   campaignId?: string;
   title: string;
@@ -102,6 +114,7 @@ export default interface Campaign {
   matchData: MatchData;
   infos: Infos;
   lores: Lores;
+  images: ImageCampaing;
   createdAt: string;
   updatedAt: string;
 }
