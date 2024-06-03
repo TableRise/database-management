@@ -3,7 +3,9 @@ import Campaign, {
   Announcement,
   Avatar,
   CharacterLore,
+  CharactersCampaign,
   Environment,
+  ImageCampaign,
   ImageObject,
   Infos,
   Log,
@@ -156,6 +158,24 @@ const playerMongooseSchema = new Schema<Player>(
   { _id: false }
 )
 
+const CharactersCampaignSchema = new Schema<CharactersCampaign>(
+  {
+    imageId: { type: String, required: true },
+    name: { type: String, required: true },
+    link: { type: String, required: true},
+    uploadDate: { type: String, required: true },
+  },
+  { _id: false }
+)
+
+const imagesCampaignSchema = new Schema<ImageCampaign>(
+  {
+    maps: { type: [imageObjectMongooseSchema], required: true },
+    characters: { type: [CharactersCampaignSchema], required: true },
+  },
+  { _id: false }
+)
+
 const campaignMongooseSchema = new Schema<Campaign>(
   {
     campaignId: { type: String, required: true, default: newUUID() },
@@ -168,6 +188,7 @@ const campaignMongooseSchema = new Schema<Campaign>(
     matchData: { type: matchDataMongooseSchema },
     infos: { type: infosMongooseSchema },
     lores: { type: loresMongooseSchema },
+    images: { type: imagesCampaignSchema },
     createdAt: { type: String, required: true },
     updatedAt: { type: String, required: true },
   },
