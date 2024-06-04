@@ -3,9 +3,9 @@ import Campaign, {
   Announcement,
   Avatar,
   CharacterLore,
-  CharactersCampaing,
+  CharactersCampaign,
   Environment,
-  ImageCampaing,
+  ImageCampaign,
   ImageObject,
   Infos,
   Log,
@@ -158,7 +158,7 @@ const playerMongooseSchema = new Schema<Player>(
   { _id: false }
 )
 
-const CharactersCampaingSchema = new Schema<CharactersCampaing>(
+const CharactersCampaignSchema = new Schema<CharactersCampaign>(
   {
     imageId: { type: String, required: true },
     name: { type: String, required: true },
@@ -168,10 +168,10 @@ const CharactersCampaingSchema = new Schema<CharactersCampaing>(
   { _id: false }
 )
 
-const imagesCampaignSchema = new Schema<ImageCampaing>(
+const imagesCampaignSchema = new Schema<ImageCampaign>(
   {
     maps: { type: [imageObjectMongooseSchema], required: true },
-    characters: { type: CharactersCampaingSchema, required: true },
+    characters: { type: [CharactersCampaignSchema], required: true },
   },
   { _id: false }
 )
