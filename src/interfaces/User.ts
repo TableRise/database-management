@@ -1,5 +1,5 @@
 export interface InProgress {
-    status: 'wait_to_confirm' | 'wait_to_complete';
+    status: 'done' | 'wait_to_complete' |'wait_to_confirm' | 'wait_to_delete' | 'wait_to_verify';
     code: string;
 }
 
