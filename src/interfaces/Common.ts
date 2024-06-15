@@ -10,6 +10,6 @@ export interface ImageObject {
     uploadDate: string;
     thumbSizeUrl?: string;
     mediumSizeUrl?: string;
-    deleterUrl: string;
+    deleteUrl: string;
     request: ImgaeObjectRequest;
 }

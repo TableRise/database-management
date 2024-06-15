@@ -27,7 +27,7 @@ const imageObjectMongooseSchema = new Schema<ImageObject>(
     uploadDate: { type: String },
     thumbSizeUrl: { type: String },
     mediumSizeUrl: { type: String },
-    deleterUrl: { type: String },
+    deleteUrl: { type: String },
     request: {
       success: { type: Boolean },
       status: { type: Number }
