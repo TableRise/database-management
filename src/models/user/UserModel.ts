@@ -1,7 +1,8 @@
 import mongoose, { Schema } from 'mongoose';
 import MongoModel from '../MongoModel';
-import User, { InProgress, Picture, TwoFactorSecret } from '../../interfaces/User';
+import User, { InProgress, TwoFactorSecret } from '../../interfaces/User';
 import newUUID from '../../helpers/newUUID';
+import { ImageObject } from '../../interfaces/Common';
 
 const inProgressMongooseSchema = new Schema<InProgress>(
   {
@@ -20,11 +21,19 @@ const twoFactorSecretMongooseSchema = new Schema<TwoFactorSecret>(
   { _id: false }
 );
 
-const pictureMongooseSchema = new Schema<Picture>(
+const pictureMongooseSchema = new Schema<ImageObject>(
   {
     id: { type: String },
+    title: { type: String },
     link: { type: String },
-    uploadDate: { type: Date }
+    uploadDate: { type: String },
+    thumbSizeUrl: { type: String },
+    mediumSizeUrl: { type: String },
+    deleterUrl: { type: String },
+    request: {
+      success: { type: Boolean },
+      status: { type: Number }
+    }
   },
   { _id: false }
 )

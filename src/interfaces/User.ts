@@ -1,3 +1,5 @@
+import { ImageObject } from "./Common";
+
 export interface InProgress {
     status: 'done' | 'wait_to_complete' |'wait_to_confirm' | 'wait_to_delete' | 'wait_to_verify';
     code: string;
@@ -33,12 +35,6 @@ export interface TwoFactorSecret {
     active: boolean;
 }
 
-export interface Picture {
-    id: string;
-    link: string;
-    uploadDate: Date;
-}
-
 export default interface User {
     userId?: string;
     inProgress?: InProgress;
@@ -47,7 +43,7 @@ export default interface User {
     password: string;
     nickname?: string;
     tag?: string;
-    picture?: Picture;
+    picture?: ImageObject;
     twoFactorSecret?: TwoFactorSecret;
     createdAt?: string;
     updatedAt?: string;

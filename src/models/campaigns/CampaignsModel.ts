@@ -3,10 +3,8 @@ import Campaign, {
   Announcement,
   Avatar,
   CharacterLore,
-  CharactersCampaign,
   Environment,
   ImageCampaign,
-  ImageObject,
   Infos,
   Log,
   Lores,
@@ -19,12 +17,21 @@ import Campaign, {
 } from '../../interfaces/Campaigns'
 import newUUID from '../../helpers/newUUID'
 import MongoModel from '../MongoModel'
+import { ImageObject } from '../../interfaces/Common'
 
 const imageObjectMongooseSchema = new Schema<ImageObject>(
   {
     id: { type: String },
+    title: { type: String },
     link: { type: String },
     uploadDate: { type: String },
+    thumbSizeUrl: { type: String },
+    mediumSizeUrl: { type: String },
+    deleterUrl: { type: String },
+    request: {
+      success: { type: Boolean },
+      status: { type: Number }
+    }
   },
   { _id: false }
 )
@@ -158,20 +165,10 @@ const playerMongooseSchema = new Schema<Player>(
   { _id: false }
 )
 
-const CharactersCampaignSchema = new Schema<CharactersCampaign>(
-  {
-    imageId: { type: String, required: true },
-    name: { type: String, required: true },
-    link: { type: String, required: true},
-    uploadDate: { type: String, required: true },
-  },
-  { _id: false }
-)
-
 const imagesCampaignSchema = new Schema<ImageCampaign>(
   {
     maps: { type: [imageObjectMongooseSchema], required: true },
-    characters: { type: [CharactersCampaignSchema], required: true },
+    characters: { type: [imageObjectMongooseSchema], required: true },
   },
   { _id: false }
 )

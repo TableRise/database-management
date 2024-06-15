@@ -1,8 +1,4 @@
-export interface ImageObject {
-    id: string;
-    link: string;
-    uploadDate: string;
-}
+import { ImageObject } from "./Common";
 
 export interface CharactersDnd5e {
     characterId: string;
