@@ -1,16 +1,24 @@
 import mongoose, { Schema } from 'mongoose';
 import newUUID from '../../helpers/newUUID';
 import MongoModel from '../MongoModel';
-import { AbilityScore, AlliesAndOrgs, Appearance, Attack, Author, Characteristics, CharactersDnd5e, Damage, Data, DeathSaves, HitPoints, ImageObject, Money, Other, Profile, SpellCasting, SpellLevel, Spells, Stats } from '../../interfaces/CharactersDnd5e';
+import { AbilityScore, AlliesAndOrgs, Appearance, Attack, Author, Characteristics, CharactersDnd5e, Damage, Data, DeathSaves, HitPoints, Money, Other, Profile, SpellCasting, SpellLevel, Spells, Stats } from '../../interfaces/CharactersDnd5e';
+import { ImageObject } from '../../interfaces/Common';
 
 
 const imageObjectMongooseSchema = new Schema<ImageObject>(
     {
         id: { type: String },
+        title: { type: String },
         link: { type: String },
-        uploadDate: { type: String }
-    },
-    { _id: false }
+        uploadDate: { type: String },
+        thumbSizeUrl: { type: String },
+        mediumSizeUrl: { type: String },
+        deleterUrl: { type: String },
+        request: {
+            success: { type: Boolean },
+            status: { type: Number }
+        }
+    }
 )
 
 
