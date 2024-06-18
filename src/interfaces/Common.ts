@@ -1,4 +1,4 @@
-interface ImgaeObjectRequest {
+interface ImageObjectRequest {
     success: boolean;
     status: number;
 }
@@ -11,5 +11,5 @@ export interface ImageObject {
     thumbSizeUrl?: string;
     mediumSizeUrl?: string;
     deleteUrl: string;
-    request: ImgaeObjectRequest;
+    request: ImageObjectRequest;
 }
