@@ -40,6 +40,7 @@ const schema = new Schema<Race>({
   characteristics: { type: [characteristicsSchema], required: true },
   weightMax: { type: Number, required: true },
   size: { type: String, required: true },
+  tale: { type: String, required: true },
 });
 
 export const racesMongooseSchema = new Schema<
