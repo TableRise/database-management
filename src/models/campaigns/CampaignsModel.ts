@@ -148,8 +148,10 @@ const matchDataMongooseSchema = new Schema<MatchData>(
   {
     matchId: { type: String, required: true },
     avatars: { type: [avatarMongooseSchema], required: true },
+    avatarsInGame: { type: [avatarMongooseSchema] },
     musics: { type: [musicMongooseSchema], required: true },
     mapImages: { type: [imageObjectMongooseSchema], required: true },
+    actualMapImage: { type: imageObjectMongooseSchema },
     logs: { type: [logMongooseSchema], required: true },
   },
   { _id: false }

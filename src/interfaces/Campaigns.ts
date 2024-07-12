@@ -75,8 +75,10 @@ export interface Avatar {
 export interface MatchData {
   matchId: string;
   avatars: Avatar[];
+  avatarsInGame?: Avatar[];
   musics: Music[];
   mapImages: ImageObject[];
+  actualMapImage?: ImageObject;
   logs: Log[];
 }
 
