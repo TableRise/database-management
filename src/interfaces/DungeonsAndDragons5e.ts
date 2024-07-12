@@ -275,6 +275,7 @@ export interface Race {
   characteristics: Characteristics[];
   weightMax: number;
   size: string;
+  tale: string;
 }
 
 // Realm entity
