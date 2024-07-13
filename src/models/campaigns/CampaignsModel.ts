@@ -148,10 +148,17 @@ const matchDataMongooseSchema = new Schema<MatchData>(
   {
     matchId: { type: String, required: true },
     avatars: { type: [avatarMongooseSchema], required: true },
-    avatarsInGame: { type: [avatarMongooseSchema] },
+    avatarsInGame: { type: [avatarMongooseSchema], required: true, default: [] },
     musics: { type: [musicMongooseSchema], required: true },
     mapImages: { type: [imageObjectMongooseSchema], required: true },
-    actualMapImage: { type: imageObjectMongooseSchema },
+    actualMapImage: { type: imageObjectMongooseSchema, required: true, default: {
+      id: '',
+      title: '',
+      link: '',
+      uploadDate: '',
+      deleteUrl: '',
+      request: { success: true, status: 200 }
+    }},
     logs: { type: [logMongooseSchema], required: true },
   },
   { _id: false }
