@@ -136,6 +136,11 @@ export interface ClassCharacteristics {
   description: string;
 }
 
+export interface SubClass {
+  title: string;
+  description: string;
+  characteristics: ClassCharacteristics[];
+}
 export interface Class {
   name: string;
   description: string;
@@ -144,6 +149,7 @@ export interface Class {
   equipment: Equipment[];
   levelingSpecs: LevelingSpecs;
   characteristics: ClassCharacteristics[];
+  subClass: SubClass; 
 }
 
 // Feat entity
