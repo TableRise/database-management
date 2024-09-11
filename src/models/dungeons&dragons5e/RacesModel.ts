@@ -29,7 +29,7 @@ const subRacesSchema = new Schema<SubRace>({
 const schema = new Schema<Race>({
   name: { type: String, required: true },
   description: { type: String },
-  abilityScoreIncrease: abilityScoreIncreaseSchema,
+  abilityScoreIncrease: { type: [abilityScoreIncreaseSchema], required: true },
   ageMax: { type: Number, required: true },
   alignment: { type: [String], required: true },
   heightMax: { type: Number, required: true },
