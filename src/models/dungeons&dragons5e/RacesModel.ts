@@ -22,7 +22,7 @@ const characteristicsSchema = new Schema<SubRaceCharacteristics>({
 const subRacesSchema = new Schema<SubRace>({
   name: { type: String, required: true },
   description: { type: String },
-  abilityScoreIncrease: abilityScoreIncreaseSchema,
+  abilityScoreIncrease: { type: [abilityScoreIncreaseSchema], required:true},
   characteristics: { type: [characteristicsSchema], required: true },
 });
 
