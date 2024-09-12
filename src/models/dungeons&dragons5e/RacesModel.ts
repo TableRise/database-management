@@ -9,14 +9,15 @@ import {
 import { Internacional } from '../../interfaces/Internacional';
 import newUUID from '../../helpers/newUUID';
 
-const abilityScoreIncreaseSchema = new Schema<AbilityScoreIncrease>({
-  name: { type: String, required: true },
-  value: { type: Number, required: true },
-});
 
 const characteristicsSchema = new Schema<SubRaceCharacteristics>({
   name: { type: String, required: true },
   description: { type: String },
+});
+
+const abilityScoreIncreaseSchema = new Schema<AbilityScoreIncrease>({
+  name: { type: String, required: true },
+  value: { type: Number, required: true },
 });
 
 const subRacesSchema = new Schema<SubRace>({
