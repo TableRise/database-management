@@ -1,6 +1,6 @@
 import mongoose, { Schema } from 'mongoose';
 import MongoModel from '../../models/MongoModel';
-import { HitPoints, Proficiencies, Equipment, CantripsKnown, SpellSlotsPerSpellLevel, SpellsKnown, KiPoints, MartialArts, UnarmoredMovement, SneakAttack, SorceryPoints, InvocationsKnown, Rages, RageDamage, LevelingSpecs, ClassCharacteristics, Class } from '../../interfaces/DungeonsAndDragons5e';
+import { HitPoints, Proficiencies, Equipment, CantripsKnown, SpellSlotsPerSpellLevel, SpellsKnown, KiPoints, MartialArts, UnarmoredMovement, SneakAttack, SorceryPoints, InvocationsKnown, Rages, RageDamage, LevelingSpecs, ClassCharacteristics, Class, SubClass } from '../../interfaces/DungeonsAndDragons5e';
 import { Internacional } from '../../interfaces/Internacional';
 import newUUID from '../../helpers/newUUID';
 
@@ -149,6 +149,15 @@ const characteristicsMongooseSchema = new Schema<ClassCharacteristics>(
     { versionKey: false, _id: false }
 );
 
+const subClassMoongoseSchema = new Schema<SubClass>(
+    {
+        title: { type: String, required: true },
+        description: { type: String },
+        characteristics: [characteristicsMongooseSchema]
+    },
+    { versionKey: false, _id: false }
+)
+
 const schema = new Schema<Class>(
     {
         name: { type: String, required: true },
@@ -158,6 +167,7 @@ const schema = new Schema<Class>(
         equipment: [equipmentMongooseSchema],
         levelingSpecs: levelingSpecsMongooseSchema,
         characteristics: [characteristicsMongooseSchema],
+        subClass: [subClassMoongoseSchema]
     },
     { versionKey: false, _id: false }
 );

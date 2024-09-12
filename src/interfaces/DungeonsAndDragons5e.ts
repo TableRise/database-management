@@ -136,6 +136,11 @@ export interface ClassCharacteristics {
   description: string;
 }
 
+export interface SubClass {
+  title: string;
+  description: string;
+  characteristics: ClassCharacteristics[];
+}
 export interface Class {
   name: string;
   description: string;
@@ -144,6 +149,7 @@ export interface Class {
   equipment: Equipment[];
   levelingSpecs: LevelingSpecs;
   characteristics: ClassCharacteristics[];
+  subClass: SubClass[]; 
 }
 
 // Feat entity
@@ -257,14 +263,14 @@ export interface SubRaceCharacteristics {
 export interface SubRace {
   name: string;
   description: string;
-  abilityScoreIncrease: AbilityScoreIncrease;
+  abilityScoreIncrease: AbilityScoreIncrease[];
   characteristics: SubRaceCharacteristics[];
 }
 
 export interface Race {
   name: string;
   description: string;
-  abilityScoreIncrease: AbilityScoreIncrease;
+  abilityScoreIncrease: AbilityScoreIncrease[];
   ageMax: number;
   alignment: string[];
   heightMax: number;
