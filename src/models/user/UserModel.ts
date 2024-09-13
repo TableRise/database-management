@@ -16,7 +16,7 @@ const twoFactorSecretMongooseSchema = new Schema<TwoFactorSecret>(
   {
     secret: { type: String },
     qrcode: { type: String },
-    active: { type: Boolean }
+    active: { type: Boolean },
   },
   { _id: false }
 );
@@ -32,11 +32,11 @@ const pictureMongooseSchema = new Schema<ImageObject>(
     deleteUrl: { type: String },
     request: {
       success: { type: Boolean },
-      status: { type: Number }
-    }
+      status: { type: Number },
+    },
   },
   { _id: false }
-)
+);
 
 const userMongooseSchema = new Schema<User>(
   {
@@ -45,7 +45,7 @@ const userMongooseSchema = new Schema<User>(
     providerId: { type: String },
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
-    nickname: { type: String },
+    nickname: { type: String, required: true, unique: true },
     tag: { type: String },
     picture: { type: pictureMongooseSchema },
     twoFactorSecret: { type: twoFactorSecretMongooseSchema },
