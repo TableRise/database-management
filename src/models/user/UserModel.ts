@@ -45,7 +45,7 @@ const userMongooseSchema = new Schema<User>(
     providerId: { type: String },
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
-    nickname: { type: String, required: true, unique: true },
+    nickname: { type: String },
     tag: { type: String },
     picture: { type: pictureMongooseSchema },
     twoFactorSecret: { type: twoFactorSecretMongooseSchema },
