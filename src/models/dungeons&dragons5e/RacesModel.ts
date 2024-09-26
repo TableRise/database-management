@@ -1,6 +1,7 @@
 import mongoose, { Schema } from 'mongoose';
 import MongoModel from '../../models/MongoModel';
 import {
+  AbilityScoreIncrease,
   SubRace,
   Race,
   SubRaceCharacteristics,
@@ -8,20 +9,28 @@ import {
 import { Internacional } from '../../interfaces/Internacional';
 import newUUID from '../../helpers/newUUID';
 
+
 const characteristicsSchema = new Schema<SubRaceCharacteristics>({
   name: { type: String, required: true },
   description: { type: String },
 });
 
+const abilityScoreIncreaseSchema = new Schema<AbilityScoreIncrease>({
+  name: { type: String, required: true },
+  value: { type: Number, required: true },
+});
+
 const subRacesSchema = new Schema<SubRace>({
   name: { type: String, required: true },
   description: { type: String },
-  characteristics: { type: [characteristicsSchema] },
+  abilityScoreIncrease: { type: [abilityScoreIncreaseSchema], required: true },
+  characteristics: { type: [characteristicsSchema], required: true },
 });
 
 const schema = new Schema<Race>({
   name: { type: String, required: true },
   description: { type: String },
+  abilityScoreIncrease: { type: [abilityScoreIncreaseSchema], required: true },
   ageMax: { type: Number, required: true },
   alignment: { type: [String], required: true },
   heightMax: { type: Number, required: true },
