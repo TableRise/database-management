@@ -23,8 +23,8 @@ const abilityScoreIncreaseSchema = new Schema<AbilityScoreIncrease>({
 const subRacesSchema = new Schema<SubRace>({
   name: { type: String, required: true },
   description: { type: String },
-  abilityScoreIncrease: { type: [abilityScoreIncreaseSchema], required:true},
-  characteristics: { type: [characteristicsSchema], required: true },
+  abilityScoreIncrease: { type: [abilityScoreIncreaseSchema] },
+  characteristics: { type: [characteristicsSchema] },
 });
 
 const schema = new Schema<Race>({
