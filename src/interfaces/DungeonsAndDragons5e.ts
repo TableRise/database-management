@@ -255,7 +255,7 @@ export interface AbilityScoreIncrease {
   value: number;
 }
 
-export interface SubRaceCharacteristics {
+export interface RaceCharacteristics {
   name: string;
   description: string;
 }
@@ -264,7 +264,7 @@ export interface SubRace {
   name: string;
   description: string;
   abilityScoreIncrease: AbilityScoreIncrease[];
-  characteristics: SubRaceCharacteristics[];
+  characteristics: RaceCharacteristics[];
 }
 
 export interface Race {
@@ -278,7 +278,7 @@ export interface Race {
   language: string[];
   subRaces: SubRace[];
   skillProficiencies: string[];
-  characteristics: Characteristics[];
+  characteristics: RaceCharacteristics[];
   weightMax: number;
   size: string;
   tale: string;

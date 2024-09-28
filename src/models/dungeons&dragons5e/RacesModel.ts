@@ -4,27 +4,38 @@ import {
   AbilityScoreIncrease,
   SubRace,
   Race,
-  SubRaceCharacteristics,
+  RaceCharacteristics,
 } from '../../interfaces/DungeonsAndDragons5e';
 import { Internacional } from '../../interfaces/Internacional';
 import newUUID from '../../helpers/newUUID';
 
-
-const characteristicsSchema = new Schema<SubRaceCharacteristics>({
-  name: { type: String, required: true },
+const characteristicsSchema = new Schema<RaceCharacteristics>({
+  name: { type: String },
   description: { type: String },
+},
+{ 
+  versionKey: false, 
+  _id: false 
 });
 
 const abilityScoreIncreaseSchema = new Schema<AbilityScoreIncrease>({
-  name: { type: String, required: true },
-  value: { type: Number, required: true },
+  name: { type: String },
+  value: { type: Number },
+},
+{ 
+  versionKey: false, 
+  _id: false 
 });
 
 const subRacesSchema = new Schema<SubRace>({
   name: { type: String, required: true },
   description: { type: String },
-  abilityScoreIncrease: { type: [abilityScoreIncreaseSchema], required: true },
-  characteristics: { type: [characteristicsSchema], required: true },
+  abilityScoreIncrease: { type: [abilityScoreIncreaseSchema] },
+  characteristics: { type: [characteristicsSchema] },
+},
+{ 
+  versionKey: false, 
+  _id: false 
 });
 
 const schema = new Schema<Race>({
@@ -42,6 +53,10 @@ const schema = new Schema<Race>({
   weightMax: { type: Number, required: true },
   size: { type: String, required: true },
   tale: { type: String, required: true },
+},
+{ 
+  versionKey: false, 
+  _id: false 
 });
 
 export const racesMongooseSchema = new Schema<
