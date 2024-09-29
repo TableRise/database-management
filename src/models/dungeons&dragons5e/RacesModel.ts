@@ -4,44 +4,59 @@ import {
   AbilityScoreIncrease,
   SubRace,
   Race,
-  SubRaceCharacteristics,
+  RaceCharacteristics,
 } from '../../interfaces/DungeonsAndDragons5e';
 import { Internacional } from '../../interfaces/Internacional';
 import newUUID from '../../helpers/newUUID';
 
-
-const characteristicsSchema = new Schema<SubRaceCharacteristics>({
-  name: { type: String, required: true },
+const characteristicsSchema = new Schema<RaceCharacteristics>({
+  name: { type: String },
   description: { type: String },
+},
+{ 
+  versionKey: false, 
+  _id: false 
 });
 
 const abilityScoreIncreaseSchema = new Schema<AbilityScoreIncrease>({
-  name: { type: String, required: true },
-  value: { type: Number, required: true },
+  name: { type: String },
+  value: { type: Number },
+},
+{ 
+  versionKey: false, 
+  _id: false 
 });
 
 const subRacesSchema = new Schema<SubRace>({
   name: { type: String, required: true },
   description: { type: String },
-  abilityScoreIncrease: { type: [abilityScoreIncreaseSchema], required: true },
-  characteristics: { type: [characteristicsSchema], required: true },
+  abilityScoreIncrease: { type: [abilityScoreIncreaseSchema] },
+  characteristics: { type: [characteristicsSchema] },
+},
+{ 
+  versionKey: false, 
+  _id: false 
 });
 
 const schema = new Schema<Race>({
   name: { type: String, required: true },
   description: { type: String },
   abilityScoreIncrease: { type: [abilityScoreIncreaseSchema], required: true },
-  ageMax: { type: Number, required: true },
+  ageMax: { type: Number },
+  heightMax: { type: Number },
   alignment: { type: [String], required: true },
-  heightMax: { type: Number, required: true },
   speed: { type: [String, Number], required: true },
   language: { type: [String], required: true },
   subRaces: { type: [subRacesSchema], required: true },
   skillProficiencies: { type: [String], required: true },
   characteristics: { type: [characteristicsSchema], required: true },
-  weightMax: { type: Number, required: true },
+  weightMax: { type: Number },
   size: { type: String, required: true },
   tale: { type: String, required: true },
+},
+{ 
+  versionKey: false, 
+  _id: false 
 });
 
 export const racesMongooseSchema = new Schema<
