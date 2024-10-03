@@ -11,6 +11,7 @@ import newUUID from '../../helpers/newUUID';
 
 const characteristicsSchema = new Schema<RaceCharacteristics>(
     {
+        original: { type: Boolean, default: true }, 
         name: { type: String },
         description: { type: String },
     },
@@ -19,6 +20,7 @@ const characteristicsSchema = new Schema<RaceCharacteristics>(
 
 const abilityScoreIncreaseSchema = new Schema<AbilityScoreIncrease>(
     {
+        original: { type: Boolean, default: true }, 
         name: { type: String },
         value: { type: Number },
     },
@@ -27,6 +29,7 @@ const abilityScoreIncreaseSchema = new Schema<AbilityScoreIncrease>(
 
 const subRacesSchema = new Schema<SubRace>(
     {
+        original: { type: Boolean, default: true }, 
         name: { type: String, required: true },
         description: { type: String },
         abilityScoreIncrease: { type: [abilityScoreIncreaseSchema] },
@@ -37,6 +40,7 @@ const subRacesSchema = new Schema<SubRace>(
 
 const schema = new Schema<Race>(
     {
+        original: { type: Boolean, default: true }, 
         name: { type: String, required: true },
         description: { type: String },
         abilityScoreIncrease: { type: [abilityScoreIncreaseSchema] },

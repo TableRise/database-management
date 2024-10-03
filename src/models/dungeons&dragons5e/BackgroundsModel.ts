@@ -6,6 +6,7 @@ import newUUID from '../../helpers/newUUID';
 
 const suggestedSchema = new Schema<Suggested>(
     {
+        original: { type: Boolean, default: true },
         personalityTrait: { type: [String], required: true },
         ideal: { type: [String], required: true },
         bond: { type: [String], required: true },
@@ -16,6 +17,7 @@ const suggestedSchema = new Schema<Suggested>(
 
 const characteristicsSchema = new Schema<Characteristics>(
     {
+        original: { type: Boolean, default: true },
         name: { type: String, required: true },
         description: { type: String },
         suggested: suggestedSchema,
@@ -25,6 +27,7 @@ const characteristicsSchema = new Schema<Characteristics>(
 
 const schema = new Schema<Background>(
     {
+        original: { type: Boolean, default: true },
         name: { type: String, required: true },
         description: { type: String },
         skillProficiencies: { type: [String], required: true },
