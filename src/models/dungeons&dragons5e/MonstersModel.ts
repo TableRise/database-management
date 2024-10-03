@@ -6,6 +6,7 @@ import newUUID from '../../helpers/newUUID';
 
 const hitPointsMongooseSchema = new Schema<HitPointsStats>(
     {
+        original: { type: Boolean, default: true }, 
         hitDice: { type: String, required: true },
         default: { type: Number, required: true },
     },
@@ -14,6 +15,7 @@ const hitPointsMongooseSchema = new Schema<HitPointsStats>(
 
 const savingThrowsMongooseSchema = new Schema<SavingThrow>(
     {
+        original: { type: Boolean, default: true }, 
         name: { type: String, required: true },
         value: { type: Number, required: true },
     },
@@ -22,6 +24,7 @@ const savingThrowsMongooseSchema = new Schema<SavingThrow>(
 
 const statsMongooseSchema = new Schema<Stats>(
     {
+        original: { type: Boolean, default: true }, 
         armorClass: { type: Number, required: true },
         hitPoints: { type: hitPointsMongooseSchema, required: true },
         speed: { type: String, required: true },
@@ -38,6 +41,7 @@ const statsMongooseSchema = new Schema<Stats>(
 
 const abilityScoreMongooseSchema = new Schema<AbilityScore>(
     {
+        original: { type: Boolean, default: true }, 
         name: { type: String, required: true },
         value: { type: Number, required: true },
         modifier: { type: Number, required: true },
@@ -47,6 +51,7 @@ const abilityScoreMongooseSchema = new Schema<AbilityScore>(
 
 const skillsMongooseSchema = new Schema<Skill>(
     {
+        original: { type: Boolean, default: true }, 
         name: { type: String, required: true },
         description: { type: String },
     },
@@ -55,6 +60,7 @@ const skillsMongooseSchema = new Schema<Skill>(
 
 const actionsMongooseSchema = new Schema<Action>(
     {
+        original: { type: Boolean, default: true }, 
         name: { type: String, required: true },
         description: { type: String },
         type: { type: String, required: true },
@@ -64,6 +70,7 @@ const actionsMongooseSchema = new Schema<Action>(
 
 const schema = new Schema<Monster>(
     {
+        original: { type: Boolean, default: true }, 
         name: { type: String, required: true },
         characteristics: { type: [String], required: true },
         stats: { type: statsMongooseSchema, required: true },

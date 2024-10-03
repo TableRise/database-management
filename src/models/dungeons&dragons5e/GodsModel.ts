@@ -6,6 +6,7 @@ import newUUID from '../../helpers/newUUID';
 
 const schema = new Schema<God>(
     {
+        original: { type: Boolean, default: true }, 
         name: { type: String, required: true },
         alignment: { type: String, required: true },
         suggestedDomains: { type: String, required: true },
