@@ -159,6 +159,7 @@ const matchDataMongooseSchema = new Schema<MatchData>(
       deleteUrl: '',
       request: { success: true, status: 200 }
     }},
+    password: { type: String, required: true },
     logs: { type: [logMongooseSchema], required: true },
   },
   { _id: false }
