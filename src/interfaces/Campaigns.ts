@@ -79,6 +79,7 @@ export interface MatchData {
   musics: Music[];
   mapImages: ImageObject[];
   actualMapImage: ImageObject;
+  password: string;
   logs: Log[];
 }
 
