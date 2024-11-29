@@ -1,5 +1,8 @@
+import { userStatus } from "../types/DatabaseEntities";
+
 export interface InProgress {
-    status: 'done' | 'wait_to_complete' |'wait_to_confirm' | 'wait_to_delete' | 'wait_to_verify';
+    status: userStatus;
+    nextStatus: userStatus;
     code: string;
 }
 
