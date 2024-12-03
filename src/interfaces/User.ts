@@ -17,6 +17,7 @@ export interface GameInfo {
     campaigns: string[];
     characters: string[];
     badges: string[];
+    bannedFromCampaigns: string[];
 }
 
 export interface UserDetail {
