@@ -2,6 +2,7 @@ import { userStatus } from "../types/DatabaseEntities";
 
 export interface InProgress {
     status: userStatus;
+    currentFlow: string;
     prevStatusMustBe: userStatus;
     nextStatusWillBe: userStatus;
     code: string;
