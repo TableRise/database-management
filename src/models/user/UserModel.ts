@@ -7,6 +7,7 @@ import { ImageObject } from '../../interfaces/Common';
 const inProgressMongooseSchema = new Schema<InProgress>(
   {
     status: { type: String },
+    currentFlow: { type: String },
     prevStatusMustBe: { type: String },
     nextStatusWillBe: { type: String },
     code: { type: String },
