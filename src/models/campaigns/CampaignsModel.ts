@@ -193,6 +193,7 @@ const campaignMongooseSchema = new Schema<Campaign>(
     system: { type: String, required: true },
     campaignPlayers: { type: [playerMongooseSchema] },
     matchData: { type: matchDataMongooseSchema },
+    bannedPlayers: { type: [String] },
     infos: { type: infosMongooseSchema },
     lores: { type: loresMongooseSchema },
     images: { type: imagesCampaignSchema },
