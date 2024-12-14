@@ -197,6 +197,7 @@ const campaignMongooseSchema = new Schema<Campaign>(
     infos: { type: infosMongooseSchema },
     lores: { type: loresMongooseSchema },
     images: { type: imagesCampaignSchema },
+    password: { type: String },
     createdAt: { type: String, required: true },
     updatedAt: { type: String, required: true },
   },

@@ -108,6 +108,7 @@ export default interface Campaign {
   infos: Infos;
   lores: Lores;
   images: ImageCampaign;
+  password: string;
   createdAt: string;
   updatedAt: string;
 }
