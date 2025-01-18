@@ -8,6 +8,7 @@ export interface CharactersDnd {
     data: Data;
     npc: boolean;
     picture: string;
+    logs: string[];
     createdAt: string;
     updatedAt: string;
 }
