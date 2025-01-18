@@ -1,7 +1,7 @@
 import mongoose, { Schema } from 'mongoose';
 import newUUID from '../../helpers/newUUID';
 import MongoModel from '../MongoModel';
-import { AbilityScore, AlliesAndOrgs, Appearance, Attack, Author, Characteristics, CharactersDnd5e, Damage, Data, DeathSaves, HitPoints, Money, Other, Profile, SpellCasting, SpellLevel, Spells, Stats } from '../../interfaces/CharactersDnd5e';
+import { AbilityScore, AlliesAndOrgs, Appearance, Attack, Author, Characteristics, CharactersDnd, Damage, Data, DeathSaves, HitPoints, Money, Other, Profile, SpellCasting, SpellLevel, Spells, Stats } from '../../interfaces/CharactersDnd';
 import { ImageObject } from '../../interfaces/Common';
 
 
@@ -217,7 +217,7 @@ const dataMongooseSchema = new Schema<Data>(
 );
 
 
-const charactersDnd5eMongooseSchema = new Schema<CharactersDnd5e>(
+const charactersDnd5eMongooseSchema = new Schema<CharactersDnd>(
     {
       characterId: { type: String, required: true, default: newUUID() },
       campaignId: { type: String, required: true },
@@ -237,7 +237,7 @@ const connection = mongoose.connection.useDb('charactersDnd5e', {
   useCache: true,
 });
 
-export default class CharactersModel extends MongoModel<CharactersDnd5e> {
+export default class CharactersModel extends MongoModel<CharactersDnd> {
   constructor(public model = connection.model('charactersDnd5e', charactersDnd5eMongooseSchema)) {
     super(model);
   }

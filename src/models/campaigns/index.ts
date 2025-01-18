@@ -1,7 +1,7 @@
 import CampaignsModel from './CampaignsModel';
-import CharactersDnd5eModel from './CharactersDnd5eModel';
+import CharactersDndModel from './CharactersDndModel';
 
 export default {
   CampaignsModel,
-  CharactersDnd5eModel
+  CharactersDndModel
 };
