@@ -237,7 +237,7 @@ const connection = mongoose.connection.useDb('charactersDnd5e', {
   useCache: true,
 });
 
-export default class CharactersModel extends MongoModel<CharactersDnd> {
+export default class CharactersDndModel extends MongoModel<CharactersDnd> {
   constructor(public model = connection.model('charactersDnd5e', charactersDnd5eMongooseSchema)) {
     super(model);
   }

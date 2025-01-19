@@ -1,4 +1,4 @@
-export type ModelEntity = 'dungeons&dragons5e' | 'user' | 'campaign' | 'charactersDnd5e';
+export type ModelEntity = 'dungeons&dragons5e' | 'user' | 'campaign' | 'characterDnd';
 
 export type DnDEntities =
   | 'Armors'
@@ -20,7 +20,7 @@ export type UserEntities = 'Users' | 'UserDetails';
 
 export type CampaignsEntities = 'Campaigns';
 
-export type CharactersDnd5eEntities = 'CharactersDnd5e';
+export type CharactersDndEntities = 'CharactersDnd';
 
 export type userStatus = 
 | 'done' 

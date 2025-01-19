@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 import * as redis from 'redis';
 import models from './src/models';
 import MongoModel from './src/models/MongoModel';
-import { CampaignsEntities, DnDEntities, ModelEntity, UserEntities } from './src/types/DatabaseEntities';
+import { CampaignsEntities, CharactersDndEntities, DnDEntities, ModelEntity, UserEntities } from './src/types/DatabaseEntities';
 import { MongooseEnvs, RedisEnvs } from './src/types/Envs';
 
 const path = require('path');
@@ -49,7 +49,7 @@ export default class DatabaseManagement {
 
   public modelInstance(
     modelEntity: ModelEntity,
-    entity: DnDEntities | UserEntities | CampaignsEntities
+    entity: DnDEntities | UserEntities | CampaignsEntities | CharactersDndEntities
   ): MongoModel<any> {
     const entityString = `${entity}Model`;
     const model = new models[modelEntity][entityString]();
