@@ -132,7 +132,7 @@ export interface HitPoints {
     points: number;
     currentPoints: number;
     tempPoints: number;
-    dicePoints: number;
+    dicePoints: string;
 }
 
 export interface DeathSaves {

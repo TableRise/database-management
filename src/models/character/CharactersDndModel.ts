@@ -114,7 +114,7 @@ const hitPointsMongooseSchema = new Schema<HitPoints>(
         points: { type: Number, required: true },
         currentPoints: { type: Number, required: true },
         tempPoints: { type: Number, required: true },
-        dicePoints: { type: Number, required: true },
+        dicePoints: { type: String, required: true },
     },
     { _id: false }
 );
