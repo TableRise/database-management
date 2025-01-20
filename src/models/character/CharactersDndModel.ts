@@ -217,28 +217,29 @@ const dataMongooseSchema = new Schema<Data>(
 );
 
 
-const charactersDnd5eMongooseSchema = new Schema<CharactersDnd>(
+const charactersDndMongooseSchema = new Schema<CharactersDnd>(
     {
       characterId: { type: String, required: true, default: newUUID() },
-      campaignId: { type: String, required: true },
-      matchId: { type: String, required: true },
+      campaignId: { type: String },
+      matchId: { type: String },
       author: { type: authorMongooseSchema },
       data: { type: dataMongooseSchema },
       npc: {type: Boolean },
       picture: { type: String },
+      logs: { type: [String] },
       createdAt: { type: String, required: true },
       updatedAt: { type: String, required: true },
     },
     { versionKey: false }
   );
 
-const connection = mongoose.connection.useDb('charactersDnd5e', {
+const connection = mongoose.connection.useDb('charactersDnd', {
   noListener: true,
   useCache: true,
 });
 
 export default class CharactersDndModel extends MongoModel<CharactersDnd> {
-  constructor(public model = connection.model('charactersDnd5e', charactersDnd5eMongooseSchema)) {
+  constructor(public model = connection.model('charactersDnd', charactersDndMongooseSchema)) {
     super(model);
   }
 }
