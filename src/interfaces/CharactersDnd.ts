@@ -87,7 +87,7 @@ export interface Characteristics {
     bonds: string;
     flaws: string;
     appearance: Appearance;
-    alliesAndOrgs: AlliesAndOrgs;
+    alliesAndOrgs: AlliesAndOrgs[];
     other: Other;
     treasure: string[];
 }

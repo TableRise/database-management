@@ -2,26 +2,7 @@ import mongoose, { Schema } from 'mongoose';
 import newUUID from '../../helpers/newUUID';
 import MongoModel from '../MongoModel';
 import { AbilityScore, AlliesAndOrgs, Appearance, Attack, Author, Characteristics, CharactersDnd, Damage, Data, DeathSaves, HitPoints, Money, Other, Profile, SpellCasting, SpellLevel, Spells, Stats } from '../../interfaces/CharactersDnd';
-import { ImageObject } from '../../interfaces/Common';
-
-
-const imageObjectMongooseSchema = new Schema<ImageObject>(
-    {
-        id: { type: String },
-        title: { type: String },
-        link: { type: String },
-        uploadDate: { type: String },
-        thumbSizeUrl: { type: String },
-        mediumSizeUrl: { type: String },
-        deleteUrl: { type: String },
-        request: {
-            success: { type: Boolean },
-            status: { type: Number }
-        }
-    }
-)
-
-
+import CommonModelSchemas from '../common/CommonModelSchemas';
 
 const authorMongooseSchema = new Schema<Author>(
     {
@@ -40,7 +21,7 @@ const appearanceMongooseSchema = new Schema<Appearance>(
         height: { type: String, required: true },
         skin: { type: String, required: true },
         hair: { type: String, required: true },
-        picture: { type: imageObjectMongooseSchema, required: true },
+        picture: { type: CommonModelSchemas.pictureMongooseSchema, required: true },
     },
     { _id: false }
 );
@@ -48,8 +29,8 @@ const appearanceMongooseSchema = new Schema<Appearance>(
 const alliesAndOrgsMongooseSchema = new Schema<AlliesAndOrgs>(
     {
       orgName: { type: String, required: true },
-      symbol: { type: String, required: true },
-      content: { type: String, required: true },
+      symbol: CommonModelSchemas.pictureMongooseSchema,
+      content: { type: String },
     },
     { _id: false }
 );  
@@ -72,7 +53,7 @@ const characteristicsMongooseSchema = new Schema<Characteristics>(
         bonds: { type: String, required: true },
         flaws: { type: String, required: true },
         appearance: { type: appearanceMongooseSchema, required: true },
-        alliesAndOrgs: {type: alliesAndOrgsMongooseSchema, required: true },
+        alliesAndOrgs: {type: [alliesAndOrgsMongooseSchema], required: true },
         other: { type: otherMongooseSchema, required: true },
         treasure: { type: [String], required: true },
     },
@@ -132,7 +113,7 @@ const abilityScoreMongooseSchema = new Schema<AbilityScore>(
 const statsMongooseSchema = new Schema<Stats>(
     {
         abilityScores: { type: [abilityScoreMongooseSchema], required: true },
-        skills: { type: new Schema({}, { strict: false }), required: true },
+        skills: { type: Map, of: Number },
         proficiencyBonus: { type: Number, required: true },
         inspiration: { type: Number, required: true },
         passiveWisdom: { type: Number, required: true },
@@ -225,7 +206,7 @@ const charactersDndMongooseSchema = new Schema<CharactersDnd>(
       author: { type: authorMongooseSchema },
       data: { type: dataMongooseSchema },
       npc: {type: Boolean },
-      picture: { type: String },
+      picture: CommonModelSchemas.pictureMongooseSchema,
       logs: { type: [String] },
       createdAt: { type: String, required: true },
       updatedAt: { type: String, required: true },

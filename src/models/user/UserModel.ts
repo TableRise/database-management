@@ -2,7 +2,7 @@ import mongoose, { Schema } from 'mongoose';
 import MongoModel from '../MongoModel';
 import User, { InProgress, TwoFactorSecret } from '../../interfaces/User';
 import newUUID from '../../helpers/newUUID';
-import { ImageObject } from '../../interfaces/Common';
+import CommonModelSchemas from '../common/CommonModelSchemas';
 
 const inProgressMongooseSchema = new Schema<InProgress>(
   {
@@ -24,23 +24,6 @@ const twoFactorSecretMongooseSchema = new Schema<TwoFactorSecret>(
   { _id: false }
 );
 
-const pictureMongooseSchema = new Schema<ImageObject>(
-  {
-    id: { type: String },
-    title: { type: String },
-    link: { type: String },
-    uploadDate: { type: String },
-    thumbSizeUrl: { type: String },
-    mediumSizeUrl: { type: String },
-    deleteUrl: { type: String },
-    request: {
-      success: { type: Boolean },
-      status: { type: Number },
-    },
-  },
-  { _id: false }
-);
-
 const userMongooseSchema = new Schema<User>(
   {
     userId: { type: String, required: true, default: newUUID() },
@@ -50,7 +33,7 @@ const userMongooseSchema = new Schema<User>(
     password: { type: String, required: true },
     nickname: { type: String },
     tag: { type: String },
-    picture: { type: pictureMongooseSchema },
+    picture: { type: CommonModelSchemas.pictureMongooseSchema },
     twoFactorSecret: { type: twoFactorSecretMongooseSchema },
     createdAt: { type: String, required: true },
     updatedAt: { type: String, required: true },
