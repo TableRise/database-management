@@ -3,6 +3,7 @@ import newUUID from '../../helpers/newUUID';
 import MongoModel from '../MongoModel';
 import { AbilityScore, AlliesAndOrgs, Appearance, Attack, Author, Characteristics, CharactersDnd, Damage, Data, DeathSaves, HitPoints, Money, Other, Profile, SpellCasting, SpellLevel, Spells, Stats } from '../../interfaces/CharactersDnd';
 import CommonModelSchemas from '../common/CommonModelSchemas';
+import { Logs } from '../../interfaces/Common';
 
 const authorMongooseSchema = new Schema<Author>(
     {
@@ -197,6 +198,11 @@ const dataMongooseSchema = new Schema<Data>(
   { _id: false }
 );
 
+const characterLogsDndMongooseSchema = new Schema<Logs>({
+    message: { type: String, required: true },
+    loggedAt: { type: String, required: true }
+}, { _id: false });
+
 
 const charactersDndMongooseSchema = new Schema<CharactersDnd>(
     {
@@ -207,7 +213,7 @@ const charactersDndMongooseSchema = new Schema<CharactersDnd>(
       data: { type: dataMongooseSchema },
       npc: {type: Boolean },
       picture: CommonModelSchemas.pictureMongooseSchema,
-      logs: { type: [String] },
+      logs: { type: [characterLogsDndMongooseSchema] },
       createdAt: { type: String, required: true },
       updatedAt: { type: String, required: true },
     },

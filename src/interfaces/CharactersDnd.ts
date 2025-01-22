@@ -1,4 +1,4 @@
-import { ImageObject } from "./Common";
+import { ImageObject, Logs } from "./Common";
 
 export interface CharactersDnd {
     characterId: string;
@@ -8,7 +8,7 @@ export interface CharactersDnd {
     data: Data;
     npc: boolean;
     picture: string;
-    logs: string[];
+    logs: Logs[];
     createdAt: string;
     updatedAt: string;
 }

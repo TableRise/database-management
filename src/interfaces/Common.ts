@@ -13,3 +13,8 @@ export interface ImageObject {
     deleteUrl: string;
     request: ImageObjectRequest;
 }
+
+export interface Logs {
+    message: string;
+    loggedAt: string;
+}
