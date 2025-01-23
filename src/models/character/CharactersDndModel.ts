@@ -22,7 +22,7 @@ const appearanceMongooseSchema = new Schema<Appearance>(
         height: { type: String, required: true },
         skin: { type: String, required: true },
         hair: { type: String, required: true },
-        picture: { type: CommonModelSchemas.pictureMongooseSchema, required: true },
+        picture: { type: CommonModelSchemas.pictureMongooseSchema }
     },
     { _id: false }
 );
@@ -30,11 +30,11 @@ const appearanceMongooseSchema = new Schema<Appearance>(
 const alliesAndOrgsMongooseSchema = new Schema<AlliesAndOrgs>(
     {
       orgName: { type: String, required: true },
-      symbol: CommonModelSchemas.pictureMongooseSchema,
+      symbol: { type: CommonModelSchemas.pictureMongooseSchema },
       content: { type: String },
     },
     { _id: false }
-);  
+);
 
 const otherMongooseSchema = new Schema<Other>(
     {
@@ -43,7 +43,7 @@ const otherMongooseSchema = new Schema<Other>(
       extraCharacteristics: { type: String, required: true },
     },
     { _id: false }
-); 
+);
 
 const characteristicsMongooseSchema = new Schema<Characteristics>(
     {
@@ -212,7 +212,7 @@ const charactersDndMongooseSchema = new Schema<CharactersDnd>(
       author: { type: authorMongooseSchema },
       data: { type: dataMongooseSchema },
       npc: {type: Boolean },
-      picture: CommonModelSchemas.pictureMongooseSchema,
+      picture: { type: CommonModelSchemas.pictureMongooseSchema },
       logs: { type: [characterLogsDndMongooseSchema] },
       createdAt: { type: String, required: true },
       updatedAt: { type: String, required: true },

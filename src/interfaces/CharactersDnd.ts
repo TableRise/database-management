@@ -7,7 +7,7 @@ export interface CharactersDnd {
     author: Author;
     data: Data;
     npc: boolean;
-    picture: string;
+    picture: ImageObject;
     logs: Logs[];
     createdAt: string;
     updatedAt: string;
@@ -104,7 +104,7 @@ export interface Appearance {
 
 export interface AlliesAndOrgs {
     orgName: string;
-    symbol: string;
+    symbol: ImageObject;
     content: string;
 }
 
