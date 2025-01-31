@@ -1,11 +1,21 @@
 import mongoose, { Schema } from 'mongoose';
 import MongoModel from '../MongoModel';
-import { GameInfo, SecretQuestion, UserDetail } from '../../interfaces/User';
+import { GameInfo, GameInfoCampaigns, SecretQuestion, UserDetail } from '../../interfaces/User';
 import newUUID from '../../helpers/newUUID';
+
+const gameInfoCampaignsMongooseSchema = new Schema<GameInfoCampaigns>(
+    {
+        campaignId: { type: String, required: true },
+        role: { type: String, required: true },
+        title: { type: String, required: true },
+        description: { type: String, required: true },
+        cover: { type: String },
+    }
+)
 
 const gameInfoMongooseSchema = new Schema<GameInfo>(
     {
-        campaigns: { type: [String], required: true },
+        campaigns: { type: [gameInfoCampaignsMongooseSchema], required: true },
         characters: { type: [String], required: true },
         badges: { type: [String], required: true },
         bannedFromCampaigns: { type: [String], required: true },
