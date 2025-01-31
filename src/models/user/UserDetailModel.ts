@@ -2,6 +2,7 @@ import mongoose, { Schema } from 'mongoose';
 import MongoModel from '../MongoModel';
 import { GameInfo, GameInfoCampaigns, SecretQuestion, UserDetail } from '../../interfaces/User';
 import newUUID from '../../helpers/newUUID';
+import CommonSchemas from '../common/CommonModelSchemas';
 
 const gameInfoCampaignsMongooseSchema = new Schema<GameInfoCampaigns>(
     {
@@ -9,7 +10,7 @@ const gameInfoCampaignsMongooseSchema = new Schema<GameInfoCampaigns>(
         role: { type: String, required: true },
         title: { type: String, required: true },
         description: { type: String, required: true },
-        cover: { type: String },
+        cover: { type: CommonSchemas.pictureMongooseSchema },
     }
 )
 

@@ -1,4 +1,5 @@
 import { userStatus } from "../types/DatabaseEntities";
+import { ImageObject } from "./Common";
 
 export interface InProgress {
     status: userStatus;
@@ -18,7 +19,7 @@ export interface GameInfoCampaigns {
     role: string;
     title: string;
     description: string;
-    cover?: string;
+    cover?: ImageObject;
 }
 
 export interface GameInfo {
