@@ -103,7 +103,6 @@ export default interface Campaign {
   system: 'd&d5e' | 'other';
   description: string;
   campaignPlayers: Player[];
-  bannedPlayers: string[];
   matchData: MatchData;
   infos: Infos;
   lores: Lores;
