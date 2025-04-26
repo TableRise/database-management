@@ -93,7 +93,7 @@ const announcementMongooseSchema = new Schema<Announcement>(
 const infosMongooseSchema = new Schema<Infos>(
   {
     campaignAge: { type: String, required: true },
-    matchDates: { type: [String], required: true },
+    nextMatchDate: { type: String, required: true },
     announcements: { type: [announcementMongooseSchema], required: true },
     visibility: { type: String, required: true },
   },

@@ -38,7 +38,7 @@ export interface Announcement {
 
 export interface Infos {
   campaignAge: string;
-  matchDates: string[];
+  nextMatchDate: string;
   announcements: Announcement[];
   visibility: 'hidden' | 'visible';
 }
