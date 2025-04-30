@@ -14,6 +14,8 @@ const characteristicsSchema = new Schema<RaceCharacteristics>(
         original: { type: Boolean, default: true }, 
         name: { type: String },
         description: { type: String },
+        activationLevel: { type: String },
+        popUp: { type: Boolean }
     },
     { versionKey: false, _id: false }
 );

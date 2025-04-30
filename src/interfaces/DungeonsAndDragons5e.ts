@@ -155,6 +155,8 @@ export interface ClassCharacteristics {
   original: boolean;
   title: string;
   description: string;
+  activationLevel: string;
+  popUp: boolean;
 }
 
 export interface SubClass {
@@ -296,6 +298,8 @@ export interface RaceCharacteristics {
   original: boolean;
   name: string;
   description: string;
+  activationLevel: string;
+  popUp: boolean;
 }
 
 export interface SubRace {

@@ -161,6 +161,8 @@ const characteristicsMongooseSchema = new Schema<ClassCharacteristics>(
         original: { type: Boolean, default: true }, 
         title: { type: String, required: true },
         description: { type: String },
+        activationLevel: { type: String },
+        popUp: { type: Boolean }
     },
     { versionKey: false, _id: false }
 );
