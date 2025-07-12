@@ -86,7 +86,7 @@ const unarmoredMovementMongooseSchema = new Schema<UnarmoredMovement>(
     {
         original: { type: Boolean, default: true }, 
         isValidToThisClass: { type: Boolean, required: true },
-        amount: { type: [Number], required: true },
+        amount: { type: [String], required: true },
     },
     { versionKey: false, _id: false }
 );

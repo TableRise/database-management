@@ -101,7 +101,7 @@ export interface MartialArts {
 export interface UnarmoredMovement {
   original: boolean;
   isValidToThisClass: boolean;
-  amount: number[];
+  amount: string[];
 }
 
 export interface SneakAttack {
