@@ -107,7 +107,7 @@ export interface UnarmoredMovement {
 export interface SneakAttack {
   original: boolean;
   isValidToThisClass: boolean;
-  amount: number[];
+  amount: string[];
 }
 
 export interface SorceryPoints {
