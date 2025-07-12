@@ -31,6 +31,7 @@ const equipmentMongooseSchema = new Schema<Equipment>(
         original: { type: Boolean, default: true }, 
         a: { type: String, required: true },
         b: { type: String, required: true },
+        c: { type: String },
     },
     { versionKey: false, _id: false }
 );
@@ -49,7 +50,7 @@ const spellSlotsPerSpellLevelMongooseSchema = new Schema<SpellSlotsPerSpellLevel
         original: { type: Boolean, default: true }, 
         isValidToThisClass: { type: Boolean, required: true },
         spellLevel: { type: [Number], required: true },
-        spellSpaces: { type: [Number], required: true },
+        spellSpaces: { type: [[Number]], required: true },
     },
     { versionKey: false, _id: false }
 );
@@ -156,12 +157,21 @@ const levelingSpecsMongooseSchema = new Schema<LevelingSpecs>(
     { versionKey: false, _id: false }
 );
 
+const characteristicsTableMongooseSchema = new Schema<any>(
+    {
+        title: { type: String },
+        columns: { type: [String], required: true },
+        lines: { type: [[String]], required: true }
+    }
+)
+
 const characteristicsMongooseSchema = new Schema<ClassCharacteristics>(
     {
         original: { type: Boolean, default: true }, 
         title: { type: String, required: true },
         description: { type: String },
         activationLevel: { type: String },
+        tables: { type: [characteristicsTableMongooseSchema] },
         popUp: { type: Boolean }
     },
     { versionKey: false, _id: false }

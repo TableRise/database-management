@@ -64,6 +64,7 @@ export interface Equipment {
   original: boolean;
   a: string;
   b: string;
+  c?: string;
 }
 
 export interface CantripsKnown {
@@ -76,7 +77,7 @@ export interface SpellSlotsPerSpellLevel {
   original: boolean;
   isValidToThisClass: boolean;
   spellLevel: number[];
-  spellSpaces: number[];
+  spellSpaces: number[][];
 }
 
 export interface SpellsKnown {
@@ -151,10 +152,17 @@ export interface LevelingSpecs {
   rageDamage: RageDamage;
 }
 
+export interface ClassCharacteristicsTables {
+  title?: string;
+  columns: string[];
+  lines: string[][];
+}
+
 export interface ClassCharacteristics {
   original: boolean;
   title: string;
   description: string;
+  tables: ClassCharacteristicsTables[];
   activationLevel: string;
   popUp: boolean;
 }
