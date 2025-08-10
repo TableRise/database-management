@@ -38,7 +38,7 @@ export interface Background {
   name: string;
   description: string;
   skillProficiencies: string[];
-  languages: string[];
+  languages: Number;
   equipment: string[];
   characteristics: Characteristics;
 }
