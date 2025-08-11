@@ -5,7 +5,7 @@ import newUUID from '../../helpers/newUUID';
 
 const systemReferenceMongooseSchema = new Schema<SystemReferences>(
     {
-        original: { type: Boolean, default: true }, 
+        original?: { type: Boolean, default: true }, 
         srd: { type: String, required: true },
         icon: { type: String, required: true },
         cover: { type: String, required: false },
@@ -15,7 +15,7 @@ const systemReferenceMongooseSchema = new Schema<SystemReferences>(
 
 const systemContentMongooseSchema = new Schema<SystemContent>(
     {
-        original: { type: Boolean, default: true }, 
+        original?: { type: Boolean, default: true }, 
         races: { type: [String], required: true },
         classes: { type: [String], required: true },
         spells: { type: [String], required: true },

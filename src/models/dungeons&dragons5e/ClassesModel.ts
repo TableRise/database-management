@@ -6,7 +6,7 @@ import newUUID from '../../helpers/newUUID';
 
 const hitPointsMongooseSchema = new Schema<HitPoints>(
     {
-        original: { type: Boolean, default: true }, 
+        original?: { type: Boolean, default: true }, 
         hitDice: { type: String, required: true },
         hitPointsAtFirstLevel: { type: String, required: true },
         hitPointsAtHigherLevels: { type: String, required: true },
@@ -16,7 +16,7 @@ const hitPointsMongooseSchema = new Schema<HitPoints>(
 
 const proficienciesMongooseSchema = new Schema<Proficiencies>(
     {
-        original: { type: Boolean, default: true }, 
+        original?: { type: Boolean, default: true }, 
         armor: { type: [String], required: true },
         weapons: { type: [String], required: true },
         tools: { type: [String], required: true },
@@ -28,7 +28,7 @@ const proficienciesMongooseSchema = new Schema<Proficiencies>(
 
 const equipmentMongooseSchema = new Schema<Equipment>(
     {
-        original: { type: Boolean, default: true }, 
+        original?: { type: Boolean, default: true }, 
         a: { type: String, required: true },
         b: { type: String, required: true },
         c: { type: String },
@@ -38,7 +38,7 @@ const equipmentMongooseSchema = new Schema<Equipment>(
 
 const cantripsKnownMongooseSchema = new Schema<CantripsKnown>(
     {
-        original: { type: Boolean, default: true }, 
+        original?: { type: Boolean, default: true }, 
         isValidToThisClass: { type: Boolean, required: true },
         amount: { type: [Number], required: true },
     },
@@ -47,7 +47,7 @@ const cantripsKnownMongooseSchema = new Schema<CantripsKnown>(
 
 const spellSlotsPerSpellLevelMongooseSchema = new Schema<SpellSlotsPerSpellLevel>(
     {
-        original: { type: Boolean, default: true }, 
+        original?: { type: Boolean, default: true }, 
         isValidToThisClass: { type: Boolean, required: true },
         spellLevel: { type: [Number], required: true },
         spellSpaces: { type: [[Number]], required: true },
@@ -57,7 +57,7 @@ const spellSlotsPerSpellLevelMongooseSchema = new Schema<SpellSlotsPerSpellLevel
 
 const spellsKnownMongooseSchema = new Schema<SpellsKnown>(
     {
-        original: { type: Boolean, default: true }, 
+        original?: { type: Boolean, default: true }, 
         isValidToThisClass: { type: Boolean, required: true },
         amount: { type: [Number], required: true },
     },
@@ -66,7 +66,7 @@ const spellsKnownMongooseSchema = new Schema<SpellsKnown>(
 
 const kiPointsMongooseSchema = new Schema<KiPoints>(
     {
-        original: { type: Boolean, default: true }, 
+        original?: { type: Boolean, default: true }, 
         isValidToThisClass: { type: Boolean, required: true },
         amount: { type: [Number], required: true },
     },
@@ -75,7 +75,7 @@ const kiPointsMongooseSchema = new Schema<KiPoints>(
 
 const martialArtsMongooseSchema = new Schema<MartialArts>(
     {
-        original: { type: Boolean, default: true }, 
+        original?: { type: Boolean, default: true }, 
         isValidToThisClass: { type: Boolean, required: true },
         amount: { type: [Number], required: true },
     },
@@ -84,7 +84,7 @@ const martialArtsMongooseSchema = new Schema<MartialArts>(
 
 const unarmoredMovementMongooseSchema = new Schema<UnarmoredMovement>(
     {
-        original: { type: Boolean, default: true }, 
+        original?: { type: Boolean, default: true }, 
         isValidToThisClass: { type: Boolean, required: true },
         amount: { type: [String], required: true },
     },
@@ -93,7 +93,7 @@ const unarmoredMovementMongooseSchema = new Schema<UnarmoredMovement>(
 
 const sneakAttackMongooseSchema = new Schema<SneakAttack>(
     {
-        original: { type: Boolean, default: true }, 
+        original?: { type: Boolean, default: true }, 
         isValidToThisClass: { type: Boolean, required: true },
         amount: { type: [String], required: true },
     },
@@ -102,7 +102,7 @@ const sneakAttackMongooseSchema = new Schema<SneakAttack>(
 
 const sorceryPointsMongooseSchema = new Schema<SorceryPoints>(
     {
-        original: { type: Boolean, default: true }, 
+        original?: { type: Boolean, default: true }, 
         isValidToThisClass: { type: Boolean, required: true },
         amount: { type: [Number], required: true },
     },
@@ -111,7 +111,7 @@ const sorceryPointsMongooseSchema = new Schema<SorceryPoints>(
 
 const invocationsKnownMongooseSchema = new Schema<InvocationsKnown>(
     {
-        original: { type: Boolean, default: true }, 
+        original?: { type: Boolean, default: true }, 
         isValidToThisClass: { type: Boolean, required: true },
         amount: { type: [Number], required: true },
     },
@@ -120,7 +120,7 @@ const invocationsKnownMongooseSchema = new Schema<InvocationsKnown>(
 
 const ragesMongooseSchema = new Schema<Rages>(
     {
-        original: { type: Boolean, default: true }, 
+        original?: { type: Boolean, default: true }, 
         isValidToThisClass: { type: Boolean, required: true },
         amount: { type: [Number], required: true },
     },
@@ -129,7 +129,7 @@ const ragesMongooseSchema = new Schema<Rages>(
 
 const rageDamageMongooseSchema = new Schema<RageDamage>(
     {
-        original: { type: Boolean, default: true }, 
+        original?: { type: Boolean, default: true }, 
         isValidToThisClass: { type: Boolean, required: true },
         amount: { type: [Number], required: true },
     },
@@ -138,7 +138,7 @@ const rageDamageMongooseSchema = new Schema<RageDamage>(
 
 const levelingSpecsMongooseSchema = new Schema<LevelingSpecs>(
     {
-        original: { type: Boolean, default: true }, 
+        original?: { type: Boolean, default: true }, 
         level: { type: [Number], required: true },
         proficiencyBonus: { type: [Number], required: true },
         features: { type: [String], required: true },
@@ -167,7 +167,7 @@ const characteristicsTableMongooseSchema = new Schema<any>(
 
 const characteristicsMongooseSchema = new Schema<ClassCharacteristics>(
     {
-        original: { type: Boolean, default: true }, 
+        original?: { type: Boolean, default: true }, 
         title: { type: String, required: true },
         description: { type: String },
         activationLevel: { type: String },
@@ -179,7 +179,7 @@ const characteristicsMongooseSchema = new Schema<ClassCharacteristics>(
 
 const subClassMoongoseSchema = new Schema<SubClass>(
     {
-        original: { type: Boolean, default: true }, 
+        original?: { type: Boolean, default: true }, 
         title: { type: String, required: true },
         description: { type: String },
         characteristics: [characteristicsMongooseSchema]
@@ -189,7 +189,7 @@ const subClassMoongoseSchema = new Schema<SubClass>(
 
 const schema = new Schema<Class>(
     {
-        original: { type: Boolean, default: true }, 
+        original?: { type: Boolean, default: true }, 
         name: { type: String, required: true },
         description: { type: String },
         hitPoints: hitPointsMongooseSchema,

@@ -1,12 +1,12 @@
 // Armor entity
 export interface Cost {
-  original: boolean;
+  original?: boolean;
   value: number;
   currency: string;
 }
 
 export interface Armor {
-  original: boolean;
+  original?: boolean;
   type: string;
   name: string;
   description: string;
@@ -19,7 +19,7 @@ export interface Armor {
 
 // Background entity
 export interface Suggested {
-  original: boolean;
+  original?: boolean;
   personalityTrait: string[];
   ideal: string[];
   bond: string[];
@@ -27,14 +27,14 @@ export interface Suggested {
 }
 
 export interface Characteristics {
-  original: boolean;
+  original?: boolean;
   name: string;
   description: string;
   suggested: Suggested;
 }
 
 export interface Background {
-  original: boolean;
+  original?: boolean;
   name: string;
   description: string;
   skillProficiencies: string[];
@@ -45,14 +45,14 @@ export interface Background {
 
 // Class entity
 export interface HitPoints {
-  original: boolean;
+  original?: boolean;
   hitDice: string;
   hitPointsAtFirstLevel: string;
   hitPointsAtHigherLevels: string;
 }
 
 export interface Proficiencies {
-  original: boolean;
+  original?: boolean;
   armor: string[];
   weapons: string[];
   tools: string[];
@@ -61,81 +61,81 @@ export interface Proficiencies {
 }
 
 export interface Equipment {
-  original: boolean;
+  original?: boolean;
   a: string;
   b: string;
   c?: string;
 }
 
 export interface CantripsKnown {
-  original: boolean;
+  original?: boolean;
   isValidToThisClass: boolean;
   amount: number[];
 }
 
 export interface SpellSlotsPerSpellLevel {
-  original: boolean;
+  original?: boolean;
   isValidToThisClass: boolean;
   spellLevel: number[];
   spellSpaces: number[][];
 }
 
 export interface SpellsKnown {
-  original: boolean;
+  original?: boolean;
   isValidToThisClass: boolean;
   amount: number[];
 }
 
 export interface KiPoints {
-  original: boolean;
+  original?: boolean;
   isValidToThisClass: boolean;
   amount: number[];
 }
 
 export interface MartialArts {
-  original: boolean;
+  original?: boolean;
   isValidToThisClass: boolean;
   amount: number[];
 }
 
 export interface UnarmoredMovement {
-  original: boolean;
+  original?: boolean;
   isValidToThisClass: boolean;
   amount: string[];
 }
 
 export interface SneakAttack {
-  original: boolean;
+  original?: boolean;
   isValidToThisClass: boolean;
   amount: string[];
 }
 
 export interface SorceryPoints {
-  original: boolean;
+  original?: boolean;
   isValidToThisClass: boolean;
   amount: number[];
 }
 
 export interface InvocationsKnown {
-  original: boolean;
+  original?: boolean;
   isValidToThisClass: boolean;
   amount: number[];
 }
 
 export interface Rages {
-  original: boolean;
+  original?: boolean;
   isValidToThisClass: boolean;
   amount: number[];
 }
 
 export interface RageDamage {
-  original: boolean;
+  original?: boolean;
   isValidToThisClass: boolean;
   amount: number[];
 }
 
 export interface LevelingSpecs {
-  original: boolean;
+  original?: boolean;
   level: number[];
   proficiencyBonus: number[];
   features: string[];
@@ -159,7 +159,7 @@ export interface ClassCharacteristicsTables {
 }
 
 export interface ClassCharacteristics {
-  original: boolean;
+  original?: boolean;
   title: string;
   description: string;
   tables: ClassCharacteristicsTables[];
@@ -168,13 +168,13 @@ export interface ClassCharacteristics {
 }
 
 export interface SubClass {
-  original: boolean;
+  original?: boolean;
   title: string;
   description: string;
   characteristics: ClassCharacteristics[];
 }
 export interface Class {
-  original: boolean;
+  original?: boolean;
   name: string;
   description: string;
   hitPoints: HitPoints;
@@ -187,7 +187,7 @@ export interface Class {
 
 // Feat entity
 export interface Feat {
-  original: boolean;
+  original?: boolean;
   name: string;
   prerequisite: string;
   description: string;
@@ -196,7 +196,7 @@ export interface Feat {
 
 // God entity
 export interface God {
-  original: boolean;
+  original?: boolean;
   name: string;
   alignment: string;
   suggestedDomains: string;
@@ -206,20 +206,20 @@ export interface God {
 
 // Item entity
 export interface TradeGoods {
-  original: boolean;
+  original?: boolean;
   isValid: boolean;
   goods: string;
 }
 
 export interface MountOrVehicle {
-  original: boolean;
+  original?: boolean;
   isValid: boolean;
   speed: string;
   carryingCapacity: string;
 }
 
 export interface Item {
-  original: boolean;
+  original?: boolean;
   name: string;
   description: string;
   cost: Cost;
@@ -231,7 +231,7 @@ export interface Item {
 
 // MagicIem entity
 export interface MagicItem {
-  original: boolean;
+  original?: boolean;
   name: string;
   characteristics: string[];
   description: string;
@@ -239,19 +239,19 @@ export interface MagicItem {
 
 // Monster entity
 export interface HitPointsStats {
-  original: boolean;
+  original?: boolean;
   hitDice: string;
   default: number;
 }
 
 export interface SavingThrow {
-  original: boolean;
+  original?: boolean;
   name: string;
   value: number;
 }
 
 export interface Stats {
-  original: boolean;
+  original?: boolean;
   armorClass: number;
   hitPoints: HitPointsStats;
   speed: string;
@@ -265,27 +265,27 @@ export interface Stats {
 }
 
 export interface AbilityScore {
-  original: boolean;
+  original?: boolean;
   name: string;
   value: number;
   modifier: number;
 }
 
 export interface Skill {
-  original: boolean;
+  original?: boolean;
   name: string;
   description: string;
 }
 
 export interface Action {
-  original: boolean;
+  original?: boolean;
   name: string;
   description: string;
   type: string;
 }
 
 export interface Monster {
-  original: boolean;
+  original?: boolean;
   name: string;
   characteristics: string[];
   stats: Stats;
@@ -297,13 +297,13 @@ export interface Monster {
 
 // Race entity
 export interface AbilityScoreIncrease {
-  original: boolean;
+  original?: boolean;
   name: string;
   value: number;
 }
 
 export interface RaceCharacteristics {
-  original: boolean;
+  original?: boolean;
   name: string;
   description: string;
   activationLevel: string;
@@ -311,7 +311,7 @@ export interface RaceCharacteristics {
 }
 
 export interface SubRace {
-  original: boolean;
+  original?: boolean;
   name: string;
   description: string;
   abilityScoreIncrease: AbilityScoreIncrease[];
@@ -319,7 +319,7 @@ export interface SubRace {
 }
 
 export interface Race {
-  original: boolean;
+  original?: boolean;
   name: string;
   description: string;
   abilityScoreIncrease: AbilityScoreIncrease[];
@@ -338,7 +338,7 @@ export interface Race {
 
 // Realm entity
 export interface Realm {
-  original: boolean;
+  original?: boolean;
   name: string;
   description: string;
   thumbnail: string;
@@ -346,13 +346,13 @@ export interface Realm {
 
 // Spell entity
 export interface Damage {
-  original: boolean;
+  original?: boolean;
   type: string;
   dice: string;
 }
 
 export interface HigherLevels {
-  original: boolean;
+  original?: boolean;
   level: string;
   damage: Damage[];
   buffs: string[];
@@ -360,7 +360,7 @@ export interface HigherLevels {
 }
 
 export interface Spell {
-  original: boolean;
+  original?: boolean;
   name: string;
   description: string;
   type: string;
@@ -377,14 +377,14 @@ export interface Spell {
 
 // System entity
 export interface SystemReferences {
-  original: boolean;
+  original?: boolean;
   srd: string;
   icon: string;
   cover: string;
 }
 
 export interface SystemContent {
-  original: boolean;
+  original?: boolean;
   races: string[];
   classes: string[];
   spells: string[];
@@ -398,7 +398,7 @@ export interface SystemContent {
 }
 
 export interface System {
-  original: boolean;
+  original?: boolean;
   name: string;
   content: SystemContent;
   references: SystemReferences;
@@ -406,7 +406,7 @@ export interface System {
 }
 
 export interface SystemPayload {
-  original: boolean;
+  original?: boolean;
   name: string;
   references: SystemReferences;
   active: boolean;
@@ -414,7 +414,7 @@ export interface SystemPayload {
 
 // Weapon entity
 export interface Weapon {
-  original: boolean;
+  original?: boolean;
   name: string;
   description: string;
   cost: Cost;
@@ -426,13 +426,13 @@ export interface Weapon {
 
 // Wiki entity
 export interface SubTopic {
-  original: boolean;
+  original?: boolean;
   subTitle: string;
   description: string;
 }
 
 export interface Wiki {
-  original: boolean;
+  original?: boolean;
   title: string;
   description: string;
   reference: string;
