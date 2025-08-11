@@ -6,7 +6,7 @@ import { Internacional } from '../../interfaces/Internacional';
 
 const damageMongooseSchema = new Schema<Damage>(
     {
-        original?: { type: Boolean, default: true }, 
+        original: { type: Boolean, default: true }, 
         type: { type: String, required: true },
         dice: { type: String, required: true },
     },
@@ -15,7 +15,7 @@ const damageMongooseSchema = new Schema<Damage>(
 
 const higherLevelsMongooseSchema = new Schema<HigherLevels>(
     {
-        original?: { type: Boolean, default: true }, 
+        original: { type: Boolean, default: true }, 
         level: { type: String, required: true },
         damage: { type: [damageMongooseSchema], required: true },
         buffs: { type: [String], required: true },
@@ -26,7 +26,7 @@ const higherLevelsMongooseSchema = new Schema<HigherLevels>(
 
 const schema = new Schema<Spell>(
     {
-        original?: { type: Boolean, default: true }, 
+        original: { type: Boolean, default: true }, 
         name: { type: String, required: true },
         description: { type: String },
         type: { type: String, required: true },

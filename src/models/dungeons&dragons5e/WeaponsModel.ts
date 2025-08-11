@@ -6,7 +6,7 @@ import { Internacional } from '../../interfaces/Internacional';
 
 const costMongooseSchema = new Schema<Cost>(
     {
-        original?: { type: Boolean, default: true }, 
+        original: { type: Boolean, default: true }, 
         currency: { type: String, required: true },
         value: { type: Number, required: true },
     },
@@ -15,7 +15,7 @@ const costMongooseSchema = new Schema<Cost>(
 
 const schema = new Schema<Weapon>(
     {
-        original?: { type: Boolean, default: true }, 
+        original: { type: Boolean, default: true }, 
         name: { type: String, required: true },
         description: { type: String },
         cost: costMongooseSchema,

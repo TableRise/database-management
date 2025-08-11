@@ -6,7 +6,7 @@ import newUUID from '../../helpers/newUUID';
 
 const schema = new Schema<MagicItem>(
     {
-        original?: { type: Boolean, default: true }, 
+        original: { type: Boolean, default: true }, 
         name: { type: String, required: true },
         characteristics: { type: [String], required: true },
         description: { type: String },

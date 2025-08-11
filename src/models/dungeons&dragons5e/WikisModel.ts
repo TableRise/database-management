@@ -6,7 +6,7 @@ import { Internacional } from '../../interfaces/Internacional';
 
 const subTopicsMongooseSchema = new Schema<SubTopic>(
     {
-        original?: { type: Boolean, default: true }, 
+        original: { type: Boolean, default: true }, 
         subTitle: { type: String, required: true },
         description: { type: String },
     },
@@ -15,7 +15,7 @@ const subTopicsMongooseSchema = new Schema<SubTopic>(
 
 const schema = new Schema<Wiki>(
     {
-        original?: { type: Boolean, default: true }, 
+        original: { type: Boolean, default: true }, 
         title: { type: String, required: true },
         description: { type: String },
         reference: { type: String, required: true },

@@ -6,7 +6,7 @@ import newUUID from '../../helpers/newUUID';
 
 const costSchema = new Schema<Cost>(
     {
-        original?: { type: Boolean, default: true }, 
+        original: { type: Boolean, default: true }, 
         currency: { type: String, required: true },
         value: { type: Number, required: true },
     },
@@ -15,7 +15,7 @@ const costSchema = new Schema<Cost>(
 
 const mountOrVehicleSchema = new Schema<MountOrVehicle>(
     {
-        original?: { type: Boolean, default: true }, 
+        original: { type: Boolean, default: true }, 
         isValid: { type: Boolean, required: true },
         speed: { type: String, required: true },
         carryingCapacity: { type: String, required: true }
@@ -25,7 +25,7 @@ const mountOrVehicleSchema = new Schema<MountOrVehicle>(
 
 const tradeGoodsSchema = new Schema<TradeGoods>(
     {
-        original?: { type: Boolean, default: true }, 
+        original: { type: Boolean, default: true }, 
         isValid: { type: Boolean, required: true },
         goods: { type: String, required: true },
     },
@@ -34,7 +34,7 @@ const tradeGoodsSchema = new Schema<TradeGoods>(
 
 const schema = new Schema<Item>(
     {
-        original?: { type: Boolean, default: true }, 
+        original: { type: Boolean, default: true }, 
         name: { type: String, required: true },
         description: { type: String },
         cost: costSchema,
