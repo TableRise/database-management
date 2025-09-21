@@ -24,10 +24,11 @@ export type CharactersDndEntities = 'CharactersDnd';
 
 export type userStatus = 
 | 'done' 
-| 'wait_to_complete' 
-| 'wait_to_confirm' 
-| 'wait_to_delete' 
-| 'wait_to_verify'
+| 'wait-for-new-flow'
+| 'wait-to-complete' 
+| 'wait-to-confirm' 
+| 'wait-to-delete' 
+| 'wait-to-verify'
 | 'wait-to-confirm'
 | 'wait-to-complete'
 | 'wait-to-verify'
