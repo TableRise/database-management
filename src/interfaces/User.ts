@@ -30,8 +30,8 @@ export interface GameInfo {
 }
 
 export interface UserDetail {
-    userDetailId?: string;
-    userId?: string;
+    userDetailId: string;
+    userId: string;
     firstName: string;
     lastName: string;
     pronoun: 'he/his' | 'she/her' | 'they/them' | 'he/his' | 'she/her' | 'any';
@@ -55,15 +55,15 @@ export interface Picture {
 }
 
 export default interface User {
-    userId?: string;
-    inProgress?: InProgress;
-    providerId?: string;
+    userId: string;
+    inProgress: InProgress;
+    providerId: string;
     email: string;
     password: string;
-    nickname?: string;
-    tag?: string;
-    picture?: Picture;
-    twoFactorSecret?: TwoFactorSecret;
-    createdAt?: string;
-    updatedAt?: string;
+    nickname: string;
+    tag: string;
+    picture: Picture;
+    twoFactorSecret: TwoFactorSecret;
+    createdAt: string;
+    updatedAt: string;
 }
