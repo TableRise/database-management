@@ -18,8 +18,7 @@ const gameInfoMongooseSchema = new Schema<GameInfo>(
     {
         campaigns: { type: [gameInfoCampaignsMongooseSchema], required: true },
         characters: { type: [String], required: true },
-        badges: { type: [String], required: true },
-        bannedFromCampaigns: { type: [String], required: true },
+        badges: { type: [String], required: true }
     }, { _id: false }
 )
 
