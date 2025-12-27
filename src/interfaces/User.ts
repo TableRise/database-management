@@ -34,8 +34,8 @@ export interface UserDetail {
     userId: string;
     firstName: string;
     lastName: string;
-    pronoun: 'he/his' | 'she/her' | 'they/them' | 'he/his' | 'she/her' | 'any';
-    secretQuestion: SecretQuestion;
+    pronoun: string;
+    secretQuestion: SecretQuestion | null;
     birthday: string;
     gameInfo: GameInfo;
     biography: string;
