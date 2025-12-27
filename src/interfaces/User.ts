@@ -34,7 +34,7 @@ export interface UserDetail {
     firstName: string;
     lastName: string;
     pronoun: string;
-    secretQuestion: SecretQuestion | null;
+    secretQuestion: SecretQuestion;
     birthday: string;
     gameInfo: GameInfo;
     biography: string;
