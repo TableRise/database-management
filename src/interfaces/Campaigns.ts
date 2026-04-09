@@ -99,7 +99,7 @@ export default interface Campaign {
   campaignId?: string;
   title: string;
   cover: ImageObject;
-  ageRestriction: number;
+  ageRestriction: string;
   system: 'd&d5e' | 'other';
   description: string;
   campaignPlayers: Player[];

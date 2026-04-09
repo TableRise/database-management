@@ -189,7 +189,7 @@ const campaignMongooseSchema = new Schema<Campaign>(
     title: { type: String, required: true },
     cover: { type: imageObjectMongooseSchema },
     description: { type: String },
-    ageRestriction: { type: Number, required: true },
+    ageRestriction: { type: String, required: true },
     system: { type: String, required: true },
     campaignPlayers: { type: [playerMongooseSchema] },
     matchData: { type: matchDataMongooseSchema },
