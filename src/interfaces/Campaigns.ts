@@ -49,8 +49,9 @@ export interface Log {
 }
 
 export interface Music {
+  id: string;
   title: string;
-  youtubeLink: string;
+  thumbnail: string;
 }
 
 export interface Size {

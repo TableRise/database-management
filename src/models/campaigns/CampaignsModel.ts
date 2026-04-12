@@ -110,8 +110,9 @@ const logMongooseSchema = new Schema<Log>(
 
 const musicMongooseSchema = new Schema<Music>(
   {
+    id: { type: String, required: true },
     title: { type: String, required: true },
-    youtubeLink: { type: String, required: true },
+    thumbnail: { type: String, required: true },
   },
   { _id: false }
 )
