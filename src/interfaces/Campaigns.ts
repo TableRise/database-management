@@ -104,6 +104,7 @@ export default interface Campaign {
   description: string;
   campaignPlayers: Player[];
   matchData: MatchData;
+  musics: Music[];
   infos: Infos;
   lores: Lores;
   images: ImageCampaign;

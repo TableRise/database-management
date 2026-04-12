@@ -193,6 +193,7 @@ const campaignMongooseSchema = new Schema<Campaign>(
     system: { type: String, required: true },
     campaignPlayers: { type: [playerMongooseSchema] },
     matchData: { type: matchDataMongooseSchema },
+    musics: { type: [musicMongooseSchema] },
     infos: { type: infosMongooseSchema },
     lores: { type: loresMongooseSchema },
     images: { type: imagesCampaignSchema },
