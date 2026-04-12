@@ -3,7 +3,7 @@ import { ImageObject } from "./Common";
 export interface MainStory {
   title: string;
   lore: string;
-  image: ImageObject;
+  image?: ImageObject;
   createdAt: string;
   updatedAt: string;
 }

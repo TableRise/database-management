@@ -40,7 +40,7 @@ const mainStoryMongooseSchema = new Schema<MainStory>(
   {
     title: { type: String, required: true },
     lore: { type: String, required: true },
-    image: { type: imageObjectMongooseSchema, required: true },
+    image: { type: imageObjectMongooseSchema },
     createdAt: { type: String, required: true },
     updatedAt: { type: String, required: true },
   },
