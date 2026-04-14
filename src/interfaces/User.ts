@@ -33,7 +33,6 @@ export interface UserDetail {
     userId: string;
     firstName: string;
     lastName: string;
-    pronoun: string;
     secretQuestion: SecretQuestion;
     birthday: string;
     gameInfo: GameInfo;

@@ -35,7 +35,6 @@ const userDetailsMongooseSchema = new Schema<UserDetail>(
         userId: { type: String, required: true },
         firstName: { type: String },
         lastName: { type: String },
-        pronoun: { type: String },
         secretQuestion: { type: secretQuestionMongooseSchema },
         birthday: { type: String },
         gameInfo: { type: gameInfoMongooseSchema },
