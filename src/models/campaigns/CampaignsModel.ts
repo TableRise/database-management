@@ -95,6 +95,7 @@ const infosMongooseSchema = new Schema<Infos>(
     campaignAge: { type: String, required: true },
     nextMatchDate: { type: String, required: true },
     announcements: { type: [announcementMongooseSchema], required: true },
+    playerAmountLimit: { type: Number, required: true },
     visibility: { type: String, required: true },
   },
   { _id: false }

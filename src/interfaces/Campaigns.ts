@@ -40,6 +40,7 @@ export interface Infos {
   campaignAge: string;
   nextMatchDate: string;
   announcements: Announcement[];
+  playerAmountLimit: number;
   visibility: 'hidden' | 'visible';
 }
 
