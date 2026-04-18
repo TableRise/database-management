@@ -1,6 +1,6 @@
 import mongoose, { Schema } from 'mongoose'
 import Campaign, {
-  Announcement,
+  Journal,
   Avatar,
   CharacterLore,
   Environment,
@@ -14,6 +14,7 @@ import Campaign, {
   Player,
   Position,
   Size,
+  SocialMedia,
 } from '../../interfaces/Campaigns'
 import newUUID from '../../helpers/newUUID'
 import MongoModel from '../MongoModel'
@@ -77,26 +78,6 @@ const loresMongooseSchema = new Schema<Lores>(
     },
     environments: { type: [environmentMongooseSchema], required: true },
     mainHistory: { type: [mainStoryMongooseSchema], required: true },
-  },
-  { _id: false }
-)
-
-const announcementMongooseSchema = new Schema<Announcement>(
-  {
-    title: { type: String, required: true },
-    author: { type: String, required: true },
-    content: { type: String, required: true },
-  },
-  { _id: false }
-)
-
-const infosMongooseSchema = new Schema<Infos>(
-  {
-    campaignAge: { type: String, required: true },
-    nextMatchDate: { type: String, required: true },
-    announcements: { type: [announcementMongooseSchema], required: true },
-    playerAmountLimit: { type: Number, required: true },
-    visibility: { type: String, required: true },
   },
   { _id: false }
 )
@@ -173,6 +154,37 @@ const playerMongooseSchema = new Schema<Player>(
     characterIds: { type: [String], required: true },
     role: { type: String, required: true },
     status: { type: String, required: true },
+  },
+  { _id: false }
+)
+
+const journalMongooseSchema = new Schema<Journal>(
+  {
+    title: { type: String, required: true },
+    author: { type: playerMongooseSchema, required: true },
+    content: { type: String, required: true },
+    timestamp: { type: String, required: true },
+    category: { type: String, required: true },
+  },
+  { _id: false }
+)
+
+const socialMediaMongooseSchema = new Schema<SocialMedia>(
+  {
+    discord: { type: String },
+    twitter: { type: String },
+    youtube: { type: String },
+  }
+)
+
+const infosMongooseSchema = new Schema<Infos>(
+  {
+    campaignAge: { type: String, required: true },
+    nextMatchDate: { type: String, required: true },
+    journal: { type: [journalMongooseSchema], required: true },
+    playerAmountLimit: { type: Number, required: true },
+    visibility: { type: String, required: true },
+    socialMedia: { type: socialMediaMongooseSchema }
   },
   { _id: false }
 )

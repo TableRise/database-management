@@ -30,18 +30,27 @@ export interface Lores {
   mainHistory: MainStory[];
 }
 
-export interface Announcement {
+export interface Journal {
   title: string;
-  author: string;
+  author: Player;
   content: string;
+  timestamp: string;
+  category: 'master' | 'admin' | 'players' | 'characters-players' | 'characters-master' | 'environment' | 'world-news' | 'announcements'
+}
+
+export interface SocialMedia {
+  discord?: string;
+  twitter?: string;
+  youtube?: string;
 }
 
 export interface Infos {
   campaignAge: string;
   nextMatchDate: string;
-  announcements: Announcement[];
+  journal: Journal[];
   playerAmountLimit: number;
   visibility: 'hidden' | 'visible';
+  socialMedia: SocialMedia;
 }
 
 export interface Log {
@@ -76,6 +85,8 @@ export interface Avatar {
 
 export interface MatchData {
   matchId: string;
+  prevDate: string;
+  confirmedPlayers: Player[];
   avatars: Avatar[];
   avatarsInGame: Avatar[];
   musics: Music[];
