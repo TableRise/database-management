@@ -201,6 +201,7 @@ const campaignMongooseSchema = new Schema<Campaign>(
   {
     campaignId: { type: String, required: true, default: newUUID() },
     title: { type: String, required: true },
+    code: { type: String, required: true },
     cover: { type: imageObjectMongooseSchema },
     description: { type: String },
     ageRestriction: { type: String, required: true },

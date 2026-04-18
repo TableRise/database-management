@@ -112,6 +112,7 @@ export default interface Campaign {
   campaignId?: string;
   title: string;
   cover: ImageObject;
+  code: string;
   ageRestriction: string;
   system: 'd&d5e' | 'other';
   description: string;
