@@ -74,10 +74,9 @@ export interface Position {
   y: number;
 }
 
-export interface Avatar {
-  avatarId: string;
+export interface CharacterInGame {
+  characterId: string;
   userId: string;
-  picture: ImageObject;
   position: Position;
   size: Size;
   status: 'alive' | 'dead' | 'viewer';
@@ -87,12 +86,10 @@ export interface MatchData {
   matchId: string;
   prevDate: string;
   confirmedPlayers: Player[];
-  avatars: Avatar[];
-  avatarsInGame: Avatar[];
+  characters: CharacterInGame[];
+  charactersInGame: CharacterInGame[];
   musics: Music[];
   mapImages: ImageObject[];
-  actualMapImage: ImageObject;
-  password: string;
   logs: Log[];
 }
 
@@ -120,8 +117,6 @@ export default interface Campaign {
   matchData: MatchData;
   musics: Music[];
   infos: Infos;
-  lores: Lores;
-  images: ImageCampaign;
   password: string;
   createdAt: string;
   updatedAt: string;

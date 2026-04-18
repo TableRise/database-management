@@ -1,7 +1,7 @@
 import mongoose, { Schema } from 'mongoose'
 import Campaign, {
   Journal,
-  Avatar,
+  CharacterInGame,
   CharacterLore,
   Environment,
   ImageCampaign,
@@ -69,19 +69,6 @@ const characterMongooseSchema = new Schema<CharacterLore>(
   { _id: false }
 )
 
-const loresMongooseSchema = new Schema<Lores>(
-  {
-    playerCharacters: { type: [characterMongooseSchema], required: true },
-    dungeonMasterCharacters: {
-      type: [characterMongooseSchema],
-      required: true,
-    },
-    environments: { type: [environmentMongooseSchema], required: true },
-    mainHistory: { type: [mainStoryMongooseSchema], required: true },
-  },
-  { _id: false }
-)
-
 const logMongooseSchema = new Schema<Log>(
   {
     loggedAt: { type: String, required: true },
@@ -115,11 +102,10 @@ const positionMongooseSchema = new Schema<Position>(
   { _id: false }
 )
 
-const avatarMongooseSchema = new Schema<Avatar>(
+const characterInGameMongooseSchema = new Schema<CharacterInGame>(
   {
-    avatarId: { type: String, required: true },
+    characterId: { type: String, required: true },
     userId: { type: String, required: true },
-    picture: { type: imageObjectMongooseSchema, required: true },
     position: { type: positionMongooseSchema, required: true },
     size: { type: sizeMongooseSchema, required: true },
     status: { type: String, required: true },
@@ -140,20 +126,11 @@ const playerMongooseSchema = new Schema<Player>(
 const matchDataMongooseSchema = new Schema<MatchData>(
   {
     matchId: { type: String, required: true },
-    avatars: { type: [avatarMongooseSchema], required: true },
-    avatarsInGame: { type: [avatarMongooseSchema], required: true, default: [] },
+    characters: { type: [characterInGameMongooseSchema], required: true },
+    charactersInGame: { type: [characterInGameMongooseSchema], required: true },
     musics: { type: [musicMongooseSchema], required: true },
     mapImages: { type: [imageObjectMongooseSchema], required: true },
     confirmedPlayers: { type: [playerMongooseSchema] },
-    actualMapImage: { type: imageObjectMongooseSchema, required: true, default: {
-      id: '',
-      title: '',
-      link: '',
-      uploadDate: '',
-      deleteUrl: '',
-      request: { success: true, status: 200 }
-    }},
-    password: { type: String, required: true },
     logs: { type: [logMongooseSchema], required: true },
   },
   { _id: false }
@@ -211,8 +188,6 @@ const campaignMongooseSchema = new Schema<Campaign>(
     matchData: { type: matchDataMongooseSchema },
     musics: { type: [musicMongooseSchema] },
     infos: { type: infosMongooseSchema },
-    lores: { type: loresMongooseSchema },
-    images: { type: imagesCampaignSchema },
     password: { type: String },
     createdAt: { type: String, required: true },
     updatedAt: { type: String, required: true },
