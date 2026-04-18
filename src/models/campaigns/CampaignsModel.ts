@@ -127,6 +127,16 @@ const avatarMongooseSchema = new Schema<Avatar>(
   { _id: false }
 )
 
+const playerMongooseSchema = new Schema<Player>(
+  {
+    userId: { type: String, required: true },
+    characterIds: { type: [String], required: true },
+    role: { type: String, required: true },
+    status: { type: String, required: true },
+  },
+  { _id: false }
+)
+
 const matchDataMongooseSchema = new Schema<MatchData>(
   {
     matchId: { type: String, required: true },
@@ -134,6 +144,7 @@ const matchDataMongooseSchema = new Schema<MatchData>(
     avatarsInGame: { type: [avatarMongooseSchema], required: true, default: [] },
     musics: { type: [musicMongooseSchema], required: true },
     mapImages: { type: [imageObjectMongooseSchema], required: true },
+    confirmedPlayers: { type: [playerMongooseSchema] },
     actualMapImage: { type: imageObjectMongooseSchema, required: true, default: {
       id: '',
       title: '',
@@ -144,16 +155,6 @@ const matchDataMongooseSchema = new Schema<MatchData>(
     }},
     password: { type: String, required: true },
     logs: { type: [logMongooseSchema], required: true },
-  },
-  { _id: false }
-)
-
-const playerMongooseSchema = new Schema<Player>(
-  {
-    userId: { type: String, required: true },
-    characterIds: { type: [String], required: true },
-    role: { type: String, required: true },
-    status: { type: String, required: true },
   },
   { _id: false }
 )
