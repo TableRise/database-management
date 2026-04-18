@@ -43,7 +43,7 @@ const schema = new Schema<Spell>(
     { versionKey: false, _id: false }
 );
 
-export const spellsMongooseSchema = new Schema<Internacional<Spell > & { spellId: string }>(
+export const spellsMongooseSchema = new Schema<Internacional<Spell> & { spellId: string }>(
     {
         spellId: { type: String, required: true, default: newUUID() },
         active: { type: Boolean, required: true },
@@ -57,7 +57,7 @@ export const spellsMongooseSchema = new Schema<Internacional<Spell > & { spellId
 
 const connection = mongoose.connection.useDb('dungeons&dragons5e', { noListener: true, useCache: true });
 
-export default class SpellsModel extends MongoModel<Internacional<Spell>> {
+export default class SpellsModel extends MongoModel<Internacional<Spell> & { spellId: string }> {
     constructor(public model = connection.model('spell', spellsMongooseSchema)) {
         super(model);
     }

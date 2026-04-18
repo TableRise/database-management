@@ -16,7 +16,7 @@ const schema = new Schema<God>(
     { versionKey: false, _id: false }
 );
 
-export const godsMongooseSchema = new Schema<Internacional<God > & { godId: string }>(
+export const godsMongooseSchema = new Schema<Internacional<God> & { godId: string }>(
     {
         godId: { type: String, required: true, default: newUUID() },
         active: { type: Boolean, required: true },
@@ -30,7 +30,7 @@ export const godsMongooseSchema = new Schema<Internacional<God > & { godId: stri
 
 const connection = mongoose.connection.useDb('dungeons&dragons5e', { noListener: true, useCache: true });
 
-export default class GodsModel extends MongoModel<Internacional<God>> {
+export default class GodsModel extends MongoModel<Internacional<God> & { godId: string }> {
     constructor(public model = connection.model('god', godsMongooseSchema)) {
         super(model);
     }

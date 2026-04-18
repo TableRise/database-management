@@ -76,7 +76,7 @@ const connection = mongoose.connection.useDb('dungeons&dragons5e', {
     useCache: true,
 });
 
-export default class RacesModel extends MongoModel<Internacional<Race>> {
+export default class RacesModel extends MongoModel<Internacional<Race> & { raceId: string }> {
     constructor(public model = connection.model('race', racesMongooseSchema)) {
         super(model);
     }

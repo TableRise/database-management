@@ -190,7 +190,7 @@ export interface Feat {
   original?: boolean;
   name: string;
   prerequisite: string;
-  description: string;
+  description?: string;
   benefits: string[];
 }
 

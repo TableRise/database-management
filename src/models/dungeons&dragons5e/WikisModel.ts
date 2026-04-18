@@ -39,7 +39,7 @@ export const wikisMongooseSchema = new Schema<Internacional<Wiki > & { wikiId: s
 
 const connection = mongoose.connection.useDb('dungeons&dragons5e', { noListener: true, useCache: true });
 
-export default class WikisModel extends MongoModel<Internacional<Wiki>> {
+export default class WikisModel extends MongoModel<Internacional<Wiki> & { wikiId: string }> {
     constructor(public model = connection.model('wiki', wikisMongooseSchema)) {
         super(model);
     }

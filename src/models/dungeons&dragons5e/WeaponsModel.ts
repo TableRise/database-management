@@ -27,7 +27,7 @@ const schema = new Schema<Weapon>(
     { versionKey: false, _id: false }
 );
 
-export const weaponsMongooseSchema = new Schema<Internacional<Weapon > & { weaponId: string }>(
+export const weaponsMongooseSchema = new Schema<Internacional<Weapon> & { weaponId: string }>(
     {
         weaponId: { type: String, required: true, default: newUUID() },
         active: { type: Boolean, required: true },
@@ -41,7 +41,7 @@ export const weaponsMongooseSchema = new Schema<Internacional<Weapon > & { weapo
 
 const connection = mongoose.connection.useDb('dungeons&dragons5e', { noListener: true, useCache: true });
 
-export default class WeaponsModel extends MongoModel<Internacional<Weapon>> {
+export default class WeaponsModel extends MongoModel<Internacional<Weapon> & { weaponId: string }> {
     constructor(public model = connection.model('weapon', weaponsMongooseSchema)) {
         super(model);
     }

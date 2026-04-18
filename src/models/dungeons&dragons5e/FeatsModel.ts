@@ -8,14 +8,14 @@ const schema = new Schema<Feat>(
     {
         original: { type: Boolean, default: true }, 
         name: { type: String, required: true },
-        prerequisite: { type: String, required: true },
+        prerequisite: { type: String },
         description: { type: String },
         benefits: { type: [String], required: true },
     },
     { versionKey: false, _id: false }
 );
 
-export const featsMongooseSchema = new Schema<Internacional<Feat > & { featId: string }>(
+export const featsMongooseSchema = new Schema<Internacional<Feat> & { featId: string }>(
     {
         featId: { type: String, required: true, default: newUUID() },
         active: { type: Boolean, required: true },
@@ -29,7 +29,7 @@ export const featsMongooseSchema = new Schema<Internacional<Feat > & { featId: s
 
 const connection = mongoose.connection.useDb('dungeons&dragons5e', { noListener: true, useCache: true });
 
-export default class FeatsModel extends MongoModel<Internacional<Feat>> {
+export default class FeatsModel extends MongoModel<Internacional<Feat> & { featId: string }> {
     constructor(public model = connection.model('feat', featsMongooseSchema)) {
         super(model);
     }

@@ -14,7 +14,7 @@ const schema = new Schema<MagicItem>(
     { versionKey: false, _id: false }
 );
 
-export const magicItemsMongooseSchema = new Schema<Internacional<MagicItem > & { magicItemId: string }>(
+export const magicItemsMongooseSchema = new Schema<Internacional<MagicItem> & { magicItemId: string }>(
     {
         magicItemId: { type: String, required: true, default: newUUID() },
         active: { type: Boolean, required: true },
@@ -28,7 +28,7 @@ export const magicItemsMongooseSchema = new Schema<Internacional<MagicItem > & {
 
 const connection = mongoose.connection.useDb('dungeons&dragons5e', { noListener: true, useCache: true });
 
-export default class MagicItemsModel extends MongoModel<Internacional<MagicItem>> {
+export default class MagicItemsModel extends MongoModel<Internacional<MagicItem> & { magicItemId: string }> {
     constructor(public model = connection.model('magicItem', magicItemsMongooseSchema)) {
         super(model);
     }

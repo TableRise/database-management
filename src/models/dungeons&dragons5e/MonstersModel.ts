@@ -82,7 +82,7 @@ const schema = new Schema<Monster>(
     { versionKey: false, _id: false }
 );
 
-export const monstersMongooseSchema = new Schema<Internacional<Monster > & { monsterId: string }>(
+export const monstersMongooseSchema = new Schema<Internacional<Monster> & { monsterId: string }>(
     {
         monsterId: { type: String, required: true, default: newUUID() },
         active: { type: Boolean, required: true },
@@ -96,7 +96,7 @@ export const monstersMongooseSchema = new Schema<Internacional<Monster > & { mon
 
 const connection = mongoose.connection.useDb('dungeons&dragons5e', { noListener: true, useCache: true });
 
-export default class MonstersModel extends MongoModel<Internacional<Monster>> {
+export default class MonstersModel extends MongoModel<Internacional<Monster> & { monsterId: string }> {
     constructor(public model = connection.model('monster', monstersMongooseSchema)) {
         super(model);
     }

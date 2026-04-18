@@ -46,7 +46,7 @@ const schema = new Schema<Item>(
     { versionKey: false, _id: false }
 );
 
-export const itemsMongooseSchema = new Schema<Internacional<Item > & { itemId: string }>(
+export const itemsMongooseSchema = new Schema<Internacional<Item> & { itemId: string }>(
     {
         itemId: { type: String, required: true, default: newUUID() },
         active: { type: Boolean, required: true },
@@ -58,7 +58,7 @@ export const itemsMongooseSchema = new Schema<Internacional<Item > & { itemId: s
 
 const connection = mongoose.connection.useDb('dungeons&dragons5e', { noListener: true, useCache: true });
 
-export default class ItemsModel extends MongoModel<Internacional<Item>> {
+export default class ItemsModel extends MongoModel<Internacional<Item> & { itemId: string }> {
     constructor(public model = connection.model('item', itemsMongooseSchema)) {
         super(model);
     }

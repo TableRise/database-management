@@ -14,7 +14,7 @@ const schema = new Schema<Realm>(
     { versionKey: false, _id: false }
 );
 
-export const realmsMongooseSchema = new Schema<Internacional<Realm > & { realmId: string }>(
+export const realmsMongooseSchema = new Schema<Internacional<Realm> & { realmId: string }>(
     {
         realmId: { type: String, required: true, default: newUUID() },
         active: { type: Boolean, required: true },
@@ -28,7 +28,7 @@ export const realmsMongooseSchema = new Schema<Internacional<Realm > & { realmId
 
 const connection = mongoose.connection.useDb('dungeons&dragons5e', { noListener: true, useCache: true });
 
-export default class RealmsModel extends MongoModel<Internacional<Realm>> {
+export default class RealmsModel extends MongoModel<Internacional<Realm> & { realmId: string }> {
     constructor(public model = connection.model('realm', realmsMongooseSchema)) {
         super(model);
     }

@@ -216,7 +216,7 @@ export const classMongooseSchema = new Schema<Internacional<Class > & { classId:
 
 const connection = mongoose.connection.useDb('dungeons&dragons5e', { noListener: true, useCache: true });
 
-export default class ClassesModel extends MongoModel<Internacional<Class>> {
+export default class ClassesModel extends MongoModel<Internacional<Class>  & { classId: string }> {
     constructor(public model = connection.model('class', classMongooseSchema)) {
         super(model);
     }

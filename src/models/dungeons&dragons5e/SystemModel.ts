@@ -45,7 +45,7 @@ const systemMongooseSchema = new Schema<System & { systemId: string }>(
 
 const connection = mongoose.connection.useDb('dungeons&dragons5e', { noListener: true, useCache: true });
 
-export default class SystemModel extends MongoModel<System> {
+export default class SystemModel extends MongoModel<System & { systemId: string }> {
     constructor(public model = connection.model('system', systemMongooseSchema, 'system')) {
         super(model);
     }
