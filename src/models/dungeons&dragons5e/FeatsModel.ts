@@ -6,7 +6,7 @@ import newUUID from '../../helpers/newUUID';
 
 const schema = new Schema<Feat>(
     {
-        original: { type: Boolean, default: true }, 
+        homebrew: { type: Boolean, default: true }, 
         name: { type: String, required: true },
         prerequisite: { type: String },
         description: { type: String },
