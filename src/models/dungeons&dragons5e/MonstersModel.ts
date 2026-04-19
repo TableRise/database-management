@@ -76,8 +76,7 @@ const schema = new Schema<Monster>(
         stats: { type: statsMongooseSchema, required: true },
         abilityScore: { type: [abilityScoreMongooseSchema], required: true },
         skills: { type: [skillsMongooseSchema], required: true },
-        actions: { type: [actionsMongooseSchema], required: true },
-        picture: { type: String, required: true },
+        actions: { type: [actionsMongooseSchema], required: true }
     },
     { versionKey: false, _id: false }
 );

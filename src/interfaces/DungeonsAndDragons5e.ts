@@ -292,7 +292,6 @@ export interface Monster {
   abilityScore: AbilityScore[];
   skills: Skill[];
   actions: Action[];
-  picture: string;
 }
 
 // Race entity
