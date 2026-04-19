@@ -15,7 +15,7 @@ const pictureMongooseSchema = new Schema<ImageObject>(
         status: { type: Number },
       },
     },
-    { _id: false }
+    { versionKey: false, _id: false }
 );
 
 export default {

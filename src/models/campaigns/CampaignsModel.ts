@@ -34,7 +34,7 @@ const imageObjectMongooseSchema = new Schema<ImageObject>(
       status: { type: Number }
     }
   },
-  { _id: false }
+  { versionKey: false, _id: false }
 )
 
 const mainStoryMongooseSchema = new Schema<MainStory>(
@@ -45,7 +45,7 @@ const mainStoryMongooseSchema = new Schema<MainStory>(
     createdAt: { type: String, required: true },
     updatedAt: { type: String, required: true },
   },
-  { _id: false }
+  { versionKey: false, _id: false }
 )
 
 const environmentMongooseSchema = new Schema<Environment>(
@@ -56,7 +56,7 @@ const environmentMongooseSchema = new Schema<Environment>(
     createdAt: { type: String, required: true },
     updatedAt: { type: String, required: true },
   },
-  { _id: false }
+  { versionKey: false, _id: false }
 )
 
 const characterMongooseSchema = new Schema<CharacterLore>(
@@ -66,7 +66,7 @@ const characterMongooseSchema = new Schema<CharacterLore>(
     createdAt: { type: String, required: true },
     updatedAt: { type: String, required: true },
   },
-  { _id: false }
+  { versionKey: false, _id: false }
 )
 
 const logMongooseSchema = new Schema<Log>(
@@ -74,7 +74,7 @@ const logMongooseSchema = new Schema<Log>(
     loggedAt: { type: String, required: true },
     content: { type: String, required: true },
   },
-  { _id: false }
+  { versionKey: false, _id: false }
 )
 
 const musicMongooseSchema = new Schema<Music>(
@@ -83,7 +83,7 @@ const musicMongooseSchema = new Schema<Music>(
     title: { type: String, required: true },
     thumbnail: { type: String, required: true },
   },
-  { _id: false }
+  { versionKey: false, _id: false }
 )
 
 const sizeMongooseSchema = new Schema<Size>(
@@ -91,7 +91,7 @@ const sizeMongooseSchema = new Schema<Size>(
     width: { type: Number, required: true },
     height: { type: Number, required: true },
   },
-  { _id: false }
+  { versionKey: false, _id: false }
 )
 
 const positionMongooseSchema = new Schema<Position>(
@@ -99,7 +99,7 @@ const positionMongooseSchema = new Schema<Position>(
     x: { type: Number, required: true },
     y: { type: Number, required: true },
   },
-  { _id: false }
+  { versionKey: false, _id: false }
 )
 
 const characterInGameMongooseSchema = new Schema<CharacterInGame>(
@@ -110,7 +110,7 @@ const characterInGameMongooseSchema = new Schema<CharacterInGame>(
     size: { type: sizeMongooseSchema, required: true },
     status: { type: String, required: true },
   },
-  { _id: false }
+  { versionKey: false, _id: false }
 )
 
 const playerMongooseSchema = new Schema<Player>(
@@ -120,7 +120,7 @@ const playerMongooseSchema = new Schema<Player>(
     role: { type: String, required: true },
     status: { type: String, required: true },
   },
-  { _id: false }
+  { versionKey: false, _id: false }
 )
 
 const matchDataMongooseSchema = new Schema<MatchData>(
@@ -133,7 +133,7 @@ const matchDataMongooseSchema = new Schema<MatchData>(
     confirmedPlayers: { type: [playerMongooseSchema] },
     logs: { type: [logMongooseSchema], required: true },
   },
-  { _id: false }
+  { versionKey: false, _id: false }
 )
 
 const journalMongooseSchema = new Schema<Journal>(
@@ -144,7 +144,7 @@ const journalMongooseSchema = new Schema<Journal>(
     timestamp: { type: String, required: true },
     category: { type: String, required: true },
   },
-  { _id: false }
+  { versionKey: false, _id: false }
 )
 
 const socialMediaMongooseSchema = new Schema<SocialMedia>(
@@ -152,7 +152,8 @@ const socialMediaMongooseSchema = new Schema<SocialMedia>(
     discord: { type: String },
     twitter: { type: String },
     youtube: { type: String },
-  }
+  },
+  { versionKey: false, _id: false }
 )
 
 const infosMongooseSchema = new Schema<Infos>(
@@ -164,7 +165,7 @@ const infosMongooseSchema = new Schema<Infos>(
     visibility: { type: String, required: true },
     socialMedia: { type: socialMediaMongooseSchema }
   },
-  { _id: false }
+  { versionKey: false, _id: false }
 )
 
 const imagesCampaignSchema = new Schema<ImageCampaign>(
@@ -172,7 +173,7 @@ const imagesCampaignSchema = new Schema<ImageCampaign>(
     maps: { type: [imageObjectMongooseSchema], required: true },
     characters: { type: [imageObjectMongooseSchema], required: true },
   },
-  { _id: false }
+  { versionKey: false, _id: false }
 )
 
 const campaignMongooseSchema = new Schema<Campaign>(

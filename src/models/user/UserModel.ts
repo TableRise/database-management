@@ -12,7 +12,7 @@ const inProgressMongooseSchema = new Schema<InProgress>(
     nextStatusWillBe: { type: String },
     code: { type: String },
   },
-  { _id: false }
+  { versionKey: false, _id: false }
 );
 
 const twoFactorSecretMongooseSchema = new Schema<TwoFactorSecret>(
@@ -21,7 +21,7 @@ const twoFactorSecretMongooseSchema = new Schema<TwoFactorSecret>(
     qrcode: { type: String },
     active: { type: Boolean },
   },
-  { _id: false }
+  { versionKey: false, _id: false }
 );
 
 const userMongooseSchema = new Schema<User>(

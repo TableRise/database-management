@@ -162,7 +162,8 @@ const characteristicsTableMongooseSchema = new Schema<any>(
         title: { type: String },
         columns: { type: [String], required: true },
         lines: { type: [[String]], required: true }
-    }
+    },
+    { versionKey: false, _id: false }
 )
 
 const characteristicsMongooseSchema = new Schema<ClassCharacteristics>(

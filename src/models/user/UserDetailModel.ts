@@ -11,7 +11,8 @@ const gameInfoCampaignsMongooseSchema = new Schema<GameInfoCampaigns>(
         title: { type: String, required: true },
         description: { type: String, required: true },
         cover: { type: CommonSchemas.pictureMongooseSchema },
-    }
+    },
+    { versionKey: false, _id: false }
 )
 
 const gameInfoMongooseSchema = new Schema<GameInfo>(
@@ -19,14 +20,14 @@ const gameInfoMongooseSchema = new Schema<GameInfo>(
         campaigns: { type: [gameInfoCampaignsMongooseSchema], required: true },
         characters: { type: [String], required: true },
         badges: { type: [String], required: true }
-    }, { _id: false }
+    }, { versionKey: false, _id: false }
 )
 
 const secretQuestionMongooseSchema = new Schema<SecretQuestion>(
     {
         question: { type: String, required: true },
         answer: { type: String, required: true },
-    }, { _id: false }
+    }, { versionKey: false, _id: false }
 )
 
 const userDetailsMongooseSchema = new Schema<UserDetail>(

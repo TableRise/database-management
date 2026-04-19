@@ -11,7 +11,7 @@ const authorMongooseSchema = new Schema<Author>(
         nickname: { type: String, required: true },
         fullname: { type: String, required: true },
     },
-    { _id: false }
+    { versionKey: false, _id: false }
 );
 
 const appearanceMongooseSchema = new Schema<Appearance>(
@@ -24,7 +24,7 @@ const appearanceMongooseSchema = new Schema<Appearance>(
         hair: { type: String, required: true },
         picture: { type: CommonModelSchemas.pictureMongooseSchema }
     },
-    { _id: false }
+    { versionKey: false, _id: false }
 );
 
 const alliesAndOrgsMongooseSchema = new Schema<AlliesAndOrgs>(
@@ -33,7 +33,7 @@ const alliesAndOrgsMongooseSchema = new Schema<AlliesAndOrgs>(
       symbol: { type: CommonModelSchemas.pictureMongooseSchema },
       content: { type: String },
     },
-    { _id: false }
+    { versionKey: false, _id: false }
 );
 
 const otherMongooseSchema = new Schema<Other>(
@@ -42,7 +42,7 @@ const otherMongooseSchema = new Schema<Other>(
       proficiencies: { type: String, required: true },
       extraCharacteristics: { type: String, required: true },
     },
-    { _id: false }
+    { versionKey: false, _id: false }
 );
 
 const characteristicsMongooseSchema = new Schema<Characteristics>(
@@ -58,7 +58,7 @@ const characteristicsMongooseSchema = new Schema<Characteristics>(
         other: { type: otherMongooseSchema, required: true },
         treasure: { type: [String], required: true },
     },
-    { _id: false }
+    { versionKey: false, _id: false }
 );
 
 const profileMongooseSchema = new Schema<Profile>(
@@ -70,7 +70,7 @@ const profileMongooseSchema = new Schema<Profile>(
         xp: { type: Number, required: true },
         characteristics: { type: characteristicsMongooseSchema, required: true },
     },
-    { _id: false }
+    { versionKey: false, _id: false }
 );
 
 const spellCastingMongooseSchema = new Schema<SpellCasting>(
@@ -80,7 +80,7 @@ const spellCastingMongooseSchema = new Schema<SpellCasting>(
         saveDc: { type: Number, required: true },
         attackBonus: { type: Number, required: true },
     },
-    { _id: false }
+    { versionKey: false, _id: false }
 );
 
 const deathSavesMongooseSchema = new Schema<DeathSaves>(
@@ -88,7 +88,7 @@ const deathSavesMongooseSchema = new Schema<DeathSaves>(
         success: { type: Number, required: true },
         failures: { type: Number, required: true },
     },
-    { _id: false }
+    { versionKey: false, _id: false }
 );
 
 const hitPointsMongooseSchema = new Schema<HitPoints>(
@@ -98,7 +98,7 @@ const hitPointsMongooseSchema = new Schema<HitPoints>(
         tempPoints: { type: Number, required: true },
         dicePoints: { type: String, required: true },
     },
-    { _id: false }
+    { versionKey: false, _id: false }
 );
 
 const abilityScoreMongooseSchema = new Schema<AbilityScore>(
@@ -108,7 +108,7 @@ const abilityScoreMongooseSchema = new Schema<AbilityScore>(
         modifier: { type: Number, required: true },
         proficiency:{ type: Boolean, required: true },
     },
-    { _id: false }
+    { versionKey: false, _id: false }
 );
 
 const statsMongooseSchema = new Schema<Stats>(
@@ -125,7 +125,7 @@ const statsMongooseSchema = new Schema<Stats>(
         deathSaves: { type: deathSavesMongooseSchema, required: true },
         spellCasting: { type: spellCastingMongooseSchema, required: true },
     },
-    { _id: false }
+    { versionKey: false, _id: false }
 );  
 
 const damageMongooseSchema = new Schema<Damage>(
@@ -134,7 +134,7 @@ const damageMongooseSchema = new Schema<Damage>(
         bonus: { type: Number, required: true },
         dice: { type: String, required: true },
     },
-    { _id: false }
+    { versionKey: false, _id: false }
 );
 
 const attackMongooseSchema = new Schema<Attack>(
@@ -143,7 +143,7 @@ const attackMongooseSchema = new Schema<Attack>(
         atkBonus: { type: Number, required: true },
         damage: { type: [damageMongooseSchema], required: true },
     },
-    { _id: false }
+    { versionKey: false, _id: false }
 );
 
 const moneyMongooseSchema = new Schema<Money>(
@@ -154,7 +154,7 @@ const moneyMongooseSchema = new Schema<Money>(
         gp: { type: Number, required: true },
         pp: { type: Number, required: true },
     },
-    { _id: false }
+    { versionKey: false, _id: false }
 );
 
 const spellLevelMongooseSchema = new Schema<SpellLevel>(
@@ -163,7 +163,7 @@ const spellLevelMongooseSchema = new Schema<SpellLevel>(
         slotsTotal: { type: Number, required: true },
         slotsExpended: { type: Number, required: true },
     },
-    { _id: false }
+    { versionKey: false, _id: false }
 );
 
 
@@ -180,7 +180,7 @@ const spellsMongooseSchema = new Schema<Spells>(
         8: { type: spellLevelMongooseSchema, required: true },
         9: { type: spellLevelMongooseSchema, required: true },
     },
-    { _id: false }
+    { versionKey: false, _id: false }
 );
 
 const dataMongooseSchema = new Schema<Data>(
@@ -195,13 +195,13 @@ const dataMongooseSchema = new Schema<Data>(
     createdAt: { type: String, required: true },
     updatedAt: { type: String, required: true },
   },
-  { _id: false }
+  { versionKey: false, _id: false }
 );
 
 const characterLogsDndMongooseSchema = new Schema<Logs>({
     message: { type: String, required: true },
     loggedAt: { type: String, required: true }
-}, { _id: false });
+}, { versionKey: false, _id: false });
 
 
 const charactersDndMongooseSchema = new Schema<CharactersDnd>(
