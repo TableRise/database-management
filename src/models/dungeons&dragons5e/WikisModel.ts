@@ -18,9 +18,9 @@ const schema = new Schema<Wiki>(
         homebrew: { type: Boolean, default: true }, 
         title: { type: String, required: true },
         description: { type: String },
-        reference: { type: String, required: true },
-        image: { type: String, required: true },
-        subTopics: { type: [subTopicsMongooseSchema], required: true },
+        reference: { type: String },
+        image: { type: String },
+        subTopics: { type: [subTopicsMongooseSchema] },
     },
     { versionKey: false, _id: false }
 );
