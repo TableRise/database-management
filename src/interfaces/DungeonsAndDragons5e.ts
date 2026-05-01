@@ -46,7 +46,7 @@ export interface Background {
 // Class entity
 export interface HitPoints {
   homebrew?: boolean;
-  hitDice: string;
+  hitDice: [string];
   hitPointsAtFirstLevel: number;
   hitPointsAtHigherLevels: string;
 }

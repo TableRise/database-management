@@ -7,7 +7,7 @@ import newUUID from '../../helpers/newUUID';
 const hitPointsMongooseSchema = new Schema<HitPoints>(
     {
         homebrew: { type: Boolean, default: true }, 
-        hitDice: { type: String, required: true },
+        hitDice: { type: [String], required: true },
         hitPointsAtFirstLevel: { type: Number, required: true },
         hitPointsAtHigherLevels: { type: String, required: true },
     },
