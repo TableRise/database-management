@@ -196,6 +196,7 @@ const schema = new Schema<Class>(
         hitPoints: hitPointsMongooseSchema,
         proficiencies: proficienciesMongooseSchema,
         equipment: [equipmentMongooseSchema],
+        magicClass: { type: String },
         levelingSpecs: levelingSpecsMongooseSchema,
         characteristics: [characteristicsMongooseSchema],
         subClass: [subClassMoongoseSchema]
@@ -203,7 +204,7 @@ const schema = new Schema<Class>(
     { versionKey: false, _id: false }
 );
 
-export const classMongooseSchema = new Schema<Internacional<Class > & { classId: string }>(
+export const classMongooseSchema = new Schema<Internacional<Class> & { classId: string }>(
     {
         classId: { type: String, required: true, default: newUUID },
         active: { type: Boolean, required: true },

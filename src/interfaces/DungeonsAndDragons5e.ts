@@ -178,6 +178,7 @@ export interface Class {
   name: string;
   description: string;
   hitPoints: HitPoints;
+  magicClass: string;
   proficiencies: Proficiencies;
   equipment: Equipment[];
   levelingSpecs: LevelingSpecs;

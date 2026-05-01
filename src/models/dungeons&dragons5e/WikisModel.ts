@@ -25,7 +25,7 @@ const schema = new Schema<Wiki>(
     { versionKey: false, _id: false }
 );
 
-export const wikisMongooseSchema = new Schema<Internacional<Wiki > & { wikiId: string }>(
+export const wikisMongooseSchema = new Schema<Internacional<Wiki> & { wikiId: string }>(
     {
         wikiId: { type: String, required: true, default: newUUID },
         active: { type: Boolean, required: true },
