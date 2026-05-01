@@ -32,7 +32,7 @@ const systemContentMongooseSchema = new Schema<SystemContent>(
 
 const systemMongooseSchema = new Schema<System & { systemId: string }>(
     {
-        systemId: { type: String, required: true, default: newUUID() },
+        systemId: { type: String, required: true, default: newUUID },
         name: { type: String, required: true },
         content: systemContentMongooseSchema,
         references: systemReferenceMongooseSchema,

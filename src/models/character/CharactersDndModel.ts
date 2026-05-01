@@ -206,7 +206,7 @@ const characterLogsDndMongooseSchema = new Schema<Logs>({
 
 const charactersDndMongooseSchema = new Schema<CharactersDnd>(
     {
-      characterId: { type: String, required: true, default: newUUID() },
+      characterId: { type: String, required: true, default: newUUID },
       campaignId: { type: String },
       matchId: { type: String },
       author: { type: authorMongooseSchema },
