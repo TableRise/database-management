@@ -47,7 +47,7 @@ export interface Background {
 export interface HitPoints {
   homebrew?: boolean;
   hitDice: string;
-  hitPointsAtFirstLevel: string;
+  hitPointsAtFirstLevel: number;
   hitPointsAtHigherLevels: string;
 }
 

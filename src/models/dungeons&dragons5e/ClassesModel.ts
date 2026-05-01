@@ -8,7 +8,7 @@ const hitPointsMongooseSchema = new Schema<HitPoints>(
     {
         homebrew: { type: Boolean, default: true }, 
         hitDice: { type: String, required: true },
-        hitPointsAtFirstLevel: { type: String, required: true },
+        hitPointsAtFirstLevel: { type: Number, required: true },
         hitPointsAtHigherLevels: { type: String, required: true },
     },
     { versionKey: false, _id: false }
