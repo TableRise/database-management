@@ -23,9 +23,9 @@ export interface Data {
     profile: Profile;
     stats: Stats;
     attacks: Attack[];
-    equipments: string[];
+    equipments: string;
     money: Money;
-    features: string[];
+    features: string;
     spells: Spells;
     createdAt: string;
     updatedAt: string;
@@ -42,14 +42,8 @@ export interface Profile {
 
 export interface Attack {
     name: string;
-    atkBonus: number;
-    damage: Damage[];
-}
-
-export interface Damage {
-    type: string;
-    bonus: number;
-    dice: string;
+    atkBonus: string;
+    damage: string;
 }
 
 export interface Money {
@@ -87,9 +81,9 @@ export interface Characteristics {
     bonds: string;
     flaws: string;
     appearance: Appearance;
-    alliesAndOrgs: AlliesAndOrgs[];
+    alliesAndOrgs: string;
     other: Other;
-    treasure: string[];
+    treasure: string;
 }
 
 export interface Appearance {
@@ -102,14 +96,7 @@ export interface Appearance {
     picture: ImageObject;
 }
 
-export interface AlliesAndOrgs {
-    orgName: string;
-    symbol: ImageObject;
-    content: string;
-}
-
 export interface Other {
-    languages: string[];
     proficiencies: string;
     extraCharacteristics: string;
 }
