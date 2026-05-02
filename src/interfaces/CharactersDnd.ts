@@ -22,7 +22,6 @@ export interface Author {
 export interface Data {
     profile: Profile;
     stats: Stats;
-    attacks: Attack[];
     equipments: string;
     money: Money;
     spells: Spells;
@@ -38,12 +37,6 @@ export interface Profile {
     level: number;
     xp: number;
     characteristics: Characteristics;
-}
-
-export interface Attack {
-    name: string;
-    atkBonus: string;
-    damage: string;
 }
 
 export interface Money {

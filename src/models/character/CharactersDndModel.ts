@@ -1,7 +1,7 @@
 import mongoose, { Schema } from 'mongoose';
 import newUUID from '../../helpers/newUUID';
 import MongoModel from '../MongoModel';
-import { AbilityScore, Appearance, Attack, Author, Characteristics, CharactersDnd, Data, DeathSaves, ExtraAbilities, ExtraAbilityLevel, HitPoints, Money, Other, Profile, SpellCasting, SpellLevel, Spells, Stats } from '../../interfaces/CharactersDnd';
+import { AbilityScore, Appearance, Author, Characteristics, CharactersDnd, Data, DeathSaves, ExtraAbilities, ExtraAbilityLevel, HitPoints, Money, Other, Profile, SpellCasting, SpellLevel, Spells, Stats } from '../../interfaces/CharactersDnd';
 import CommonModelSchemas from '../common/CommonModelSchemas';
 import { Logs } from '../../interfaces/Common';
 
@@ -116,15 +116,6 @@ const statsMongooseSchema = new Schema<Stats>(
         spellCasting: { type: spellCastingMongooseSchema, required: true },
     },
     { versionKey: false, _id: false }
-);  
-
-const attackMongooseSchema = new Schema<Attack>(
-    {
-        name: { type: String, required: true },
-        atkBonus: { type: String, required: true },
-        damage: { type: String, required: true },
-    },
-    { versionKey: false, _id: false }
 );
 
 const moneyMongooseSchema = new Schema<Money>(
@@ -193,7 +184,6 @@ const dataMongooseSchema = new Schema<Data>(
   {
     profile: { type: profileMongooseSchema, required:true },
     stats: { type: statsMongooseSchema, required:true },
-    attacks: { type: [attackMongooseSchema], required: true },
     equipments: { type: String, required: true },
     money: { type: moneyMongooseSchema, required: true },
     spells: { type: spellsMongooseSchema, required: true },
