@@ -1,7 +1,7 @@
 import mongoose, { Schema } from 'mongoose';
 import newUUID from '../../helpers/newUUID';
 import MongoModel from '../MongoModel';
-import { AbilityScore, Appearance, Attack, Author, Characteristics, CharactersDnd, Data, DeathSaves, HitPoints, Money, Other, Profile, SpellCasting, SpellLevel, Spells, Stats } from '../../interfaces/CharactersDnd';
+import { AbilityScore, Appearance, Attack, Author, Characteristics, CharactersDnd, Data, DeathSaves, ExtraAbilities, ExtraAbilityLevel, HitPoints, Money, Other, Profile, SpellCasting, SpellLevel, Spells, Stats } from '../../interfaces/CharactersDnd';
 import CommonModelSchemas from '../common/CommonModelSchemas';
 import { Logs } from '../../interfaces/Common';
 
@@ -147,6 +147,15 @@ const spellLevelMongooseSchema = new Schema<SpellLevel>(
     { versionKey: false, _id: false }
 );
 
+const extraAbilityLevelMongooseSchema = new Schema<ExtraAbilityLevel>(
+    {
+        extraAbilityNames: { type: [String], required: true },
+        slotsTotal: { type: Number, required: true },
+        slotsExpended: { type: Number, required: true },
+    },
+    { versionKey: false, _id: false }
+);
+
 
 const spellsMongooseSchema = new Schema<Spells>(
     {
@@ -164,6 +173,22 @@ const spellsMongooseSchema = new Schema<Spells>(
     { versionKey: false, _id: false }
 );
 
+const extraAbilitiesMongooseSchema = new Schema<ExtraAbilities>(
+    {
+        cantrips: { type: [String], required: true },
+        1: { type: extraAbilityLevelMongooseSchema, required: true },
+        2: { type: extraAbilityLevelMongooseSchema, required: true },
+        3: { type: extraAbilityLevelMongooseSchema, required: true },
+        4: { type: extraAbilityLevelMongooseSchema, required: true },
+        5: { type: extraAbilityLevelMongooseSchema, required: true },
+        6: { type: extraAbilityLevelMongooseSchema, required: true },
+        7: { type: extraAbilityLevelMongooseSchema, required: true },
+        8: { type: extraAbilityLevelMongooseSchema, required: true },
+        9: { type: extraAbilityLevelMongooseSchema, required: true },
+    },
+    { versionKey: false, _id: false }
+);
+
 const dataMongooseSchema = new Schema<Data>(
   {
     profile: { type: profileMongooseSchema, required:true },
@@ -172,6 +197,7 @@ const dataMongooseSchema = new Schema<Data>(
     equipments: { type: String, required: true },
     money: { type: moneyMongooseSchema, required: true },
     spells: { type: spellsMongooseSchema, required: true },
+    extraAbilities: { type: extraAbilitiesMongooseSchema, required: true },
     createdAt: { type: String, required: true },
     updatedAt: { type: String, required: true },
   },

@@ -26,6 +26,7 @@ export interface Data {
     equipments: string;
     money: Money;
     spells: Spells;
+    extraAbilities: ExtraAbilities;
     createdAt: string;
     updatedAt: string;
 }
@@ -66,8 +67,27 @@ export interface Spells {
     9: SpellLevel;
 }
 
+export interface ExtraAbilities {
+    cantrips: string[];
+    1: ExtraAbilityLevel;
+    2: ExtraAbilityLevel;
+    3: ExtraAbilityLevel;
+    4: ExtraAbilityLevel;
+    5: ExtraAbilityLevel;
+    6: ExtraAbilityLevel;
+    7: ExtraAbilityLevel;
+    8: ExtraAbilityLevel;
+    9: ExtraAbilityLevel;
+}
+
 export interface SpellLevel {
     spellIds: string[];
+    slotsTotal: number;
+    slotsExpended: number;
+}
+
+export interface ExtraAbilityLevel {
+    extraAbilityNames: string[];
     slotsTotal: number;
     slotsExpended: number;
 }
