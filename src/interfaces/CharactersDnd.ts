@@ -25,7 +25,6 @@ export interface Data {
     attacks: Attack[];
     equipments: string;
     money: Money;
-    features: string;
     spells: Spells;
     createdAt: string;
     updatedAt: string;
