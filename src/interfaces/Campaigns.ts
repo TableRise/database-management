@@ -86,7 +86,7 @@ export interface CharacterInGame {
 export interface MatchData {
   matchId: string;
   prevDate: string;
-  nextSessionResume: string;
+  nextSessionResume?: string;
   confirmedPlayers: Player[];
   characters: CharacterInGame[];
   charactersInGame: CharacterInGame[];

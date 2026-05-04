@@ -128,7 +128,7 @@ const matchDataMongooseSchema = new Schema<MatchData>(
   {
     matchId: { type: String, required: true },
     characters: { type: [characterInGameMongooseSchema], required: true },
-    nextSessionResume: { type: String, required: true },
+    nextSessionResume: { type: String },
     charactersInGame: { type: [characterInGameMongooseSchema], required: true },
     musics: { type: [musicMongooseSchema], required: true },
     mapImages: { type: [imageObjectMongooseSchema], required: true },
