@@ -43,7 +43,7 @@ export interface SocialMedia {
   twitter?: string;
   youtube?: string;
 }
-
+  
 export interface Infos {
   campaignAge: string;
   nextMatchDate: string;
@@ -85,6 +85,7 @@ export interface CharacterInGame {
 export interface MatchData {
   matchId: string;
   prevDate: string;
+  nextSessionResume: string;
   confirmedPlayers: Player[];
   characters: CharacterInGame[];
   charactersInGame: CharacterInGame[];
