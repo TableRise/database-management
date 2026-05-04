@@ -78,6 +78,7 @@ export interface CharacterInGame {
   characterId: string;
   userId: string;
   position: Position;
+  picture: ImageObject;
   size: Size;
   status: 'alive' | 'dead' | 'viewer';
 }
@@ -91,7 +92,6 @@ export interface MatchData {
   charactersInGame: CharacterInGame[];
   musics: Music[];
   actualMapImage: ImageObject;
-  picture: ImageObject;
   mapImages: ImageObject[];
   logs: Log[];
 }

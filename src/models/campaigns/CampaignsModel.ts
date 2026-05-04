@@ -107,6 +107,7 @@ const characterInGameMongooseSchema = new Schema<CharacterInGame>(
     characterId: { type: String, required: true },
     userId: { type: String, required: true },
     position: { type: positionMongooseSchema, required: true },
+    picture: { type: imageObjectMongooseSchema },
     size: { type: sizeMongooseSchema, required: true },
     status: { type: String, required: true },
   },
@@ -133,7 +134,6 @@ const matchDataMongooseSchema = new Schema<MatchData>(
     mapImages: { type: [imageObjectMongooseSchema], required: true },
     confirmedPlayers: { type: [playerMongooseSchema] },
     actualMapImage: { type: imageObjectMongooseSchema },
-    picture: { type: imageObjectMongooseSchema },
     logs: { type: [logMongooseSchema], required: true },
   },
   { versionKey: false, _id: false }
