@@ -90,6 +90,8 @@ export interface MatchData {
   characters: CharacterInGame[];
   charactersInGame: CharacterInGame[];
   musics: Music[];
+  actualMapImage: ImageObject;
+  picture: ImageObject;
   mapImages: ImageObject[];
   logs: Log[];
 }

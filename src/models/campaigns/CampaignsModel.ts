@@ -132,6 +132,8 @@ const matchDataMongooseSchema = new Schema<MatchData>(
     musics: { type: [musicMongooseSchema], required: true },
     mapImages: { type: [imageObjectMongooseSchema], required: true },
     confirmedPlayers: { type: [playerMongooseSchema] },
+    actualMapImage: { type: imageObjectMongooseSchema },
+    picture: { type: imageObjectMongooseSchema },
     logs: { type: [logMongooseSchema], required: true },
   },
   { versionKey: false, _id: false }
