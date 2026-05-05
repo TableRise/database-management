@@ -105,7 +105,8 @@ const statsMongooseSchema = new Schema<Stats>(
     {
         abilityScores: { type: [abilityScoreMongooseSchema], required: true },
         skills: {
-            name: { type: Map, of: Number, required: true },
+            name: { type: String, required: true },
+            value: { type: Number, required: true },
             checked: { type: Boolean, required: true }
         },
         proficiencyBonus: { type: Number, required: true },

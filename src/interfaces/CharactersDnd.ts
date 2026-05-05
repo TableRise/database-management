@@ -116,9 +116,10 @@ export interface Other {
 export interface Stats {
     abilityScores: AbilityScore[];
     skills: {
-        name: Record<string, number>;
+        name: string;
+        value: number;
         checked: boolean;
-    };
+    }[];
     proficiencyBonus: number;
     inspiration: number;
     passiveWisdom: number;
