@@ -47,6 +47,7 @@ export interface SocialMedia {
 export interface Infos {
   campaignAge: string;
   nextMatchDate: string;
+  highlightedJournal: Journal;
   journal: Journal[];
   playerAmountLimit: number;
   visibility: 'hidden' | 'visible';

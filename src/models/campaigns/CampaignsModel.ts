@@ -163,18 +163,11 @@ const infosMongooseSchema = new Schema<Infos>(
   {
     campaignAge: { type: String, required: true },
     nextMatchDate: { type: String, required: true },
+    highlightedJournal: { type: journalMongooseSchema },
     journal: { type: [journalMongooseSchema], required: true },
     playerAmountLimit: { type: Number, required: true },
     visibility: { type: String, required: true },
     socialMedia: { type: socialMediaMongooseSchema }
-  },
-  { versionKey: false, _id: false }
-)
-
-const imagesCampaignSchema = new Schema<ImageCampaign>(
-  {
-    maps: { type: [imageObjectMongooseSchema], required: true },
-    characters: { type: [imageObjectMongooseSchema], required: true },
   },
   { versionKey: false, _id: false }
 )
