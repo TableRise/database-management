@@ -16,10 +16,10 @@ export interface SecretQuestion {
 
 export interface GameInfoCampaigns {
     campaignId: string;
-    role: string;
-    title: string;
-    description: string;
-    cover?: ImageObject;
+    notes: {
+        title: string;
+        content: string;
+    }[]
 }
 
 export interface GameInfo {
