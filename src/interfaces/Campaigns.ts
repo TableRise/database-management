@@ -84,6 +84,28 @@ export interface CharacterInGame {
   status: 'alive' | 'dead' | 'viewer';
 }
 
+export interface MatchToken {
+  tokenId: string;                 // base:${characterId} or clone:${uuid}
+  characterId: string;
+  isClone: boolean;
+  xPct: number;
+  yPct: number;
+  widthPct: number;
+  createdBy: string;
+  updatedBy: string;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface MatchState {
+  activeMapId: string | null;
+  gridVisible: boolean;
+  activeEffect: 'dark' | 'light' | 'rain' | null;
+  playingMusicId: string | null;
+  visibleCharacterIds: string[];
+  tokens: MatchToken[];
+}
+
 export interface MatchData {
   matchId: string;
   prevDate: string;
@@ -95,6 +117,7 @@ export interface MatchData {
   actualMapImage: ImageObject;
   mapImages: ImageObject[];
   logs: Log[];
+  state: MatchState;
 }
 
 export interface Player {

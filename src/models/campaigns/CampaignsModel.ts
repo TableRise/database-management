@@ -15,6 +15,8 @@ import Campaign, {
   Position,
   Size,
   SocialMedia,
+  MatchState,
+  MatchToken,
 } from '../../interfaces/Campaigns'
 import newUUID from '../../helpers/newUUID'
 import MongoModel from '../MongoModel'
@@ -124,6 +126,32 @@ const playerMongooseSchema = new Schema<Player>(
   { versionKey: false, _id: false }
 )
 
+const matchTokenMongooseSchema = new Schema<MatchToken>(
+  {
+    tokenId: { type: String },
+    characterId: { type: String },
+    isClone: { type: Boolean },
+    xPct: { type: Number },
+    yPct: { type: Number },
+    widthPct: { type: Number },
+    createdBy: { type: String },
+    updatedBy: { type: String },
+    createdAt: { type: String },
+    updatedAt: { type: String },
+  }
+)
+
+const matchStateMongooseSchema = new Schema<MatchState>(
+  {
+    activeMapId: { type: String },
+    gridVisible: { type: Boolean },
+    activeEffect: { type: String },
+    playingMusicId: { type: String },
+    visibleCharacterIds: { type: [String] },
+    tokens: { type: [matchTokenMongooseSchema] },
+  }
+)
+
 const matchDataMongooseSchema = new Schema<MatchData>(
   {
     matchId: { type: String, required: true },
@@ -135,6 +163,7 @@ const matchDataMongooseSchema = new Schema<MatchData>(
     confirmedPlayers: { type: [playerMongooseSchema] },
     actualMapImage: { type: imageObjectMongooseSchema },
     logs: { type: [logMongooseSchema], required: true },
+    state: { type: matchStateMongooseSchema }
   },
   { versionKey: false, _id: false }
 )
