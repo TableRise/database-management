@@ -136,6 +136,7 @@ export default interface Campaign {
   title: string;
   cover: ImageObject;
   code: string;
+  mainHistory: string;
   ageRestriction: string;
   system: 'd&d5e' | 'other';
   description: string;
