@@ -113,7 +113,6 @@ export interface MatchData {
   confirmedPlayers: Player[];
   characters: CharacterInGame[];
   charactersInGame: CharacterInGame[];
-  musics: Music[];
   actualMapImage: ImageObject;
   mapImages: ImageObject[];
   logs: Log[];
