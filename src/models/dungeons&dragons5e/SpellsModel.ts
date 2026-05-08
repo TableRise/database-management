@@ -2,11 +2,14 @@ import mongoose, { Schema } from 'mongoose';
 import MongoModel from '../../models/MongoModel';
 import { Damage, HigherLevels, Spell } from '../../interfaces/DungeonsAndDragons5e';
 import newUUID from '../../helpers/newUUID';
-import { Internacional } from '../../interfaces/Internacional';
+
+type SpellDocument = Spell & {
+    spellId: string;
+    active: boolean;
+};
 
 const damageMongooseSchema = new Schema<Damage>(
     {
-        homebrew: { type: Boolean, default: true }, 
         type: { type: String, required: true },
         dice: { type: String, required: true },
     },
@@ -15,7 +18,6 @@ const damageMongooseSchema = new Schema<Damage>(
 
 const higherLevelsMongooseSchema = new Schema<HigherLevels>(
     {
-        homebrew: { type: Boolean, default: true }, 
         level: { type: String, required: true },
         damage: { type: [damageMongooseSchema], required: true },
         buffs: { type: [String], required: true },
@@ -24,9 +26,10 @@ const higherLevelsMongooseSchema = new Schema<HigherLevels>(
     { versionKey: false, _id: false }
 );
 
-const schema = new Schema<Spell>(
+export const spellsMongooseSchema = new Schema<SpellDocument>(
     {
-        homebrew: { type: Boolean, default: true }, 
+        spellId: { type: String, required: true, default: newUUID },
+        active: { type: Boolean, required: true },
         name: { type: String, required: true },
         description: { type: String },
         type: { type: String, required: true },
@@ -40,24 +43,12 @@ const schema = new Schema<Spell>(
         buffs: { type: [String], required: true },
         debuffs: { type: [String], required: true },
     },
-    { versionKey: false, _id: false }
-);
-
-export const spellsMongooseSchema = new Schema<Internacional<Spell> & { spellId: string }>(
-    {
-        spellId: { type: String, required: true, default: newUUID },
-        active: { type: Boolean, required: true },
-        en: schema,
-        pt: schema,
-    },
-    {
-        versionKey: false,
-    }
+    { versionKey: false }
 );
 
 const connection = mongoose.connection.useDb('dungeons&dragons5e', { noListener: true, useCache: true });
 
-export default class SpellsModel extends MongoModel<Internacional<Spell> & { spellId: string }> {
+export default class SpellsModel extends MongoModel<SpellDocument> {
     constructor(public model = connection.model('spell', spellsMongooseSchema)) {
         super(model);
     }

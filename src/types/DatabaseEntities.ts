@@ -1,20 +1,11 @@
 export type ModelEntity = 'dungeons&dragons5e' | 'user' | 'campaign' | 'characterDnd';
 
 export type DnDEntities =
-  | 'Armors'
-  | 'Backgrounds'
   | 'Classes'
   | 'Feats'
-  | 'Gods'
-  | 'Items'
-  | 'MagicItems'
-  | 'Monsters'
   | 'Races'
-  | 'Realms'
   | 'Spells'
-  | 'System'
-  | 'Weapons'
-  | 'Wikis';
+  | 'System';
 
 export type UserEntities = 'Users' | 'UserDetails';
 
