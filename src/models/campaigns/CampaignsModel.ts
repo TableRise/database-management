@@ -169,6 +169,7 @@ const matchDataMongooseSchema = new Schema<MatchData>(
 
 const journalMongooseSchema = new Schema<Journal>(
   {
+    postId: { type: String, required: true, default: newUUID },
     title: { type: String, required: true },
     author: { type: playerMongooseSchema, required: true },
     content: { type: String, required: true },

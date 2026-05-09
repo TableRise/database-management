@@ -31,6 +31,7 @@ export interface Lores {
 }
 
 export interface Journal {
+  postId: string;
   title: string;
   author: Player;
   content: string;
