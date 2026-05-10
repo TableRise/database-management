@@ -29,8 +29,9 @@ const appearanceMongooseSchema = new Schema<Appearance>(
 
 const otherMongooseSchema = new Schema<Other>(
     {
-      proficiencies: { type: String, required: true },
-      extraCharacteristics: { type: String, required: true },
+      languagesAndProficiencies: { type: String },
+      characteristicsAndAbilities: { type: String },
+      characteristicsAndAdditionalAbilities: { type: String },
     },
     { versionKey: false, _id: false }
 );
@@ -39,14 +40,14 @@ const characteristicsMongooseSchema = new Schema<Characteristics>(
     {
         alignment: { type: String, required: true },
         backstory: { type: String, required: true },
-        personalityTraits: { type: String, required: true },
-        ideals: { type: String, required: true },
-        bonds: { type: String, required: true },
-        flaws: { type: String, required: true },
+        personalityTraits: { type: String },
+        ideals: { type: String },
+        bonds: { type: String },
+        flaws: { type: String },
         appearance: { type: appearanceMongooseSchema, required: true },
-        alliesAndOrgs: { type: String, required: true },
+        alliesAndOrgs: { type: String },
         other: { type: otherMongooseSchema, required: true },
-        treasure: { type: String, required: true },
+        treasure: { type: String },
     },
     { versionKey: false, _id: false }
 );

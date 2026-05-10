@@ -88,14 +88,14 @@ export interface ExtraAbilityLevel {
 export interface Characteristics {
     alignment: string;
     backstory: string;
-    personalityTraits: string;
-    ideals: string;
-    bonds: string;
-    flaws: string;
+    personalityTraits?: string;
+    ideals?: string;
+    bonds?: string;
+    flaws?: string;
     appearance: Appearance;
-    alliesAndOrgs: string;
+    alliesAndOrgs?: string;
     other: Other;
-    treasure: string;
+    treasure?: string;
 }
 
 export interface Appearance {
@@ -109,8 +109,9 @@ export interface Appearance {
 }
 
 export interface Other {
-    proficiencies: string;
-    extraCharacteristics: string;
+    characteristicsAndAbilities?: string;
+    characteristicsAndAdditionalAbilities?: string;
+    languagesAndProficiencies?: string;
 }
 
 export interface Stats {
