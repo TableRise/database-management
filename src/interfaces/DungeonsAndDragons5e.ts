@@ -72,14 +72,11 @@ export interface Spell {
   description: string;
   type: string;
   level: number;
-  higherLevels: HigherLevels[];
-  damage: Damage[] | null;
+  higherLevels: string;
   castingTime: string;
   duration: string;
   range: string;
   components: string;
-  buffs: string[];
-  debuffs: string[];
 }
 
 export interface SystemReferences {

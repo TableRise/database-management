@@ -34,14 +34,11 @@ export const spellsMongooseSchema = new Schema<SpellDocument>(
         description: { type: String },
         type: { type: String, required: true },
         level: { type: Number, required: true },
-        higherLevels: { type: [higherLevelsMongooseSchema], required: true },
-        damage: { type: [damageMongooseSchema], required: false },
+        higherLevels: { type: String, required: true },
         castingTime: { type: String, required: true },
         duration: { type: String, required: true },
         range: { type: String, required: true },
-        components: { type: String, required: true },
-        buffs: { type: [String], required: true },
-        debuffs: { type: [String], required: true },
+        components: { type: String, required: true }
     },
     { versionKey: false }
 );
