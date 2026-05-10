@@ -17,7 +17,7 @@ type ClassDocument = Class & {
 
 const hitPointsMongooseSchema = new Schema<HitPoints>(
     {
-        hitDice: { type: [String], required: true },
+        hitDice: { type: String, required: true },
         hitPointsAtFirstLevel: { type: Number, required: true },
         hitPointsAtHigherLevels: { type: String, required: true },
     },

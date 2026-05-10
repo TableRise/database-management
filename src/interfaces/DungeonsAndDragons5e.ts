@@ -1,5 +1,5 @@
 export interface HitPoints {
-  hitDice: [string];
+  hitDice: string;
   hitPointsAtFirstLevel: number;
   hitPointsAtHigherLevels: string;
 }
@@ -71,9 +71,9 @@ export interface Spell {
   name: string;
   description: string;
   type: string;
-  class: string;
+  class: string[];
   level: number;
-  higherLevels: string;
+  higherLevels?: string;
   castingTime: string;
   duration: string;
   range: string;
