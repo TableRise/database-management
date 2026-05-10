@@ -71,6 +71,7 @@ export interface Spell {
   name: string;
   description: string;
   type: string;
+  class: string;
   level: number;
   higherLevels: string;
   castingTime: string;

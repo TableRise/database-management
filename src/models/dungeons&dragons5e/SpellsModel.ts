@@ -33,6 +33,7 @@ export const spellsMongooseSchema = new Schema<SpellDocument>(
         name: { type: String, required: true },
         description: { type: String },
         type: { type: String, required: true },
+        class: { type: String, required: true },
         level: { type: Number, required: true },
         higherLevels: { type: String, required: true },
         castingTime: { type: String, required: true },
