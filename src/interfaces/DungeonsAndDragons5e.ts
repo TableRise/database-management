@@ -105,3 +105,15 @@ export interface SystemPayload {
   references: SystemReferences;
   active: boolean;
 }
+
+export interface Equipment {
+  name: string;
+  type: string;
+  price: Array<number | string>;
+  armorClass?: Array<number | string>;
+  strength?: string;
+  stealth?: string;
+  weight: string;
+  damage?: string;
+  properties?: string;
+}
