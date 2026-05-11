@@ -1,4 +1,5 @@
 import { ImageObject, Logs } from "./Common";
+import { Equipment } from "./DungeonsAndDragons5e";
 
 export interface CharactersDnd {
     characterId: string;
@@ -22,7 +23,8 @@ export interface Author {
 export interface Data {
     profile: Profile;
     stats: Stats;
-    equipments: string;
+    inventory: string;
+    equipments: Equipment & { equipmentId: string }
     money: Money;
     spells: Spells;
     extraAbilities: ExtraAbilities;

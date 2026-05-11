@@ -185,11 +185,27 @@ const extraAbilitiesMongooseSchema = new Schema<ExtraAbilities>(
     { versionKey: false, _id: false }
 );
 
+const equipmentsMongooseSchema = new Schema<CharactersDnd['data']['equipments']>(
+    {
+        equipmentId: { type: String, required: true },
+        name: { type: String, required: true },
+        type: { type: String, required: true },
+        price: { type: [Schema.Types.Mixed], required: true },
+        armorClass: { type: [Schema.Types.Mixed] },
+        strength: { type: String },
+        stealth: { type: String },
+        weight: { type: String, required: true },
+        damage: { type: String },
+        properties: { type: String },
+    }
+)
+
 const dataMongooseSchema = new Schema<Data>(
   {
     profile: { type: profileMongooseSchema, required:true },
     stats: { type: statsMongooseSchema, required:true },
-    equipments: { type: String, required: true },
+    inventory: { type: String },
+    equipments: { type: [equipmentsMongooseSchema] },
     money: { type: moneyMongooseSchema, required: true },
     spells: { type: spellsMongooseSchema, required: true },
     extraAbilities: { type: extraAbilitiesMongooseSchema, required: true },
