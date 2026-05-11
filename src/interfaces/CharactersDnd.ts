@@ -20,11 +20,15 @@ export interface Author {
     fullname: string;
 }
 
+interface EquipmentsData extends Equipment {
+    equipmentId: string;
+};
+
 export interface Data {
     profile: Profile;
     stats: Stats;
     inventory: string;
-    equipments: Equipment & { equipmentId: string }
+    equipments: EquipmentsData[]
     money: Money;
     spells: Spells;
     extraAbilities: ExtraAbilities;

@@ -185,7 +185,7 @@ const extraAbilitiesMongooseSchema = new Schema<ExtraAbilities>(
     { versionKey: false, _id: false }
 );
 
-const equipmentsMongooseSchema = new Schema<CharactersDnd['data']['equipments']>(
+const equipmentsMongooseSchema = new Schema<CharactersDnd['data']['equipments'][number]>(
     {
         equipmentId: { type: String, required: true },
         name: { type: String, required: true },
