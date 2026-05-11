@@ -132,6 +132,11 @@ export interface ImageCampaign {
   characters: ImageObject[];
 }
 
+export interface Configurations {
+  xpSystem: boolean;
+  shopSystem: boolean;
+}
+
 export default interface Campaign {
   campaignId?: string;
   title: string;
@@ -145,6 +150,7 @@ export default interface Campaign {
   matchData: MatchData;
   musics: Music[];
   infos: Infos;
+  configurations: Configurations;
   password: string;
   createdAt: string;
   updatedAt: string;

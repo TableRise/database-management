@@ -17,6 +17,7 @@ import Campaign, {
   SocialMedia,
   MatchState,
   MatchToken,
+  Configurations,
 } from '../../interfaces/Campaigns'
 import newUUID from '../../helpers/newUUID'
 import MongoModel from '../MongoModel'
@@ -201,6 +202,13 @@ const infosMongooseSchema = new Schema<Infos>(
   { versionKey: false, _id: false }
 )
 
+const configurationsMongooseSchema = new Schema<Configurations>(
+  {
+    xpSystem: { type: Boolean },
+    shopSystem: { type: Boolean },
+  }
+)
+
 const campaignMongooseSchema = new Schema<Campaign>(
   {
     campaignId: { type: String, required: true, default: newUUID },
@@ -215,6 +223,10 @@ const campaignMongooseSchema = new Schema<Campaign>(
     matchData: { type: matchDataMongooseSchema },
     musics: { type: [musicMongooseSchema] },
     infos: { type: infosMongooseSchema },
+    configurations: { type: configurationsMongooseSchema, default: {
+      xpSystem: true,
+      shopSystem: true
+    } },
     password: { type: String },
     createdAt: { type: String, required: true },
     updatedAt: { type: String, required: true },
