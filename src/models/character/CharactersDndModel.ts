@@ -41,6 +41,7 @@ const characteristicsMongooseSchema = new Schema<Characteristics>(
     {
         alignment: { type: String, required: true },
         backstory: { type: String, required: true },
+        background: { type: String, required: true },
         personalityTraits: { type: String },
         ideals: { type: String },
         bonds: { type: String },

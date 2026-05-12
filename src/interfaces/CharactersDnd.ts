@@ -94,6 +94,7 @@ export interface ExtraAbilityLevel {
 export interface Characteristics {
     alignment: string;
     backstory: string;
+    background: string;
     personalityTraits?: string;
     ideals?: string;
     bonds?: string;
