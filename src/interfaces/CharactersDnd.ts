@@ -105,6 +105,7 @@ export interface Characteristics {
 }
 
 export interface Appearance {
+    description: string;
     eyes: string;
     age: string;
     weight: string;

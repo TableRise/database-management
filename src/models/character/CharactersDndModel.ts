@@ -22,7 +22,8 @@ const appearanceMongooseSchema = new Schema<Appearance>(
         height: { type: String, required: true },
         skin: { type: String, required: true },
         hair: { type: String, required: true },
-        picture: { type: CommonModelSchemas.pictureMongooseSchema }
+        picture: { type: CommonModelSchemas.pictureMongooseSchema },
+        description: { type: String }
     },
     { versionKey: false, _id: false }
 );
