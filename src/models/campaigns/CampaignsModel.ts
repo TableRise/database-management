@@ -207,7 +207,8 @@ const configurationsMongooseSchema = new Schema<Configurations>(
     xpSystem: { type: Boolean },
     shopSystem: { type: Boolean },
     shopOn: { type: Boolean },
-  }
+  },
+  { versionKey: false, _id: false }
 )
 
 const campaignMongooseSchema = new Schema<Campaign>(
