@@ -206,6 +206,7 @@ const configurationsMongooseSchema = new Schema<Configurations>(
   {
     xpSystem: { type: Boolean },
     shopSystem: { type: Boolean },
+    shopOn: { type: Boolean },
   }
 )
 
@@ -225,7 +226,8 @@ const campaignMongooseSchema = new Schema<Campaign>(
     infos: { type: infosMongooseSchema },
     configurations: { type: configurationsMongooseSchema, default: {
       xpSystem: true,
-      shopSystem: true
+      shopSystem: true,
+      shopOn: true
     } },
     password: { type: String },
     createdAt: { type: String, required: true },

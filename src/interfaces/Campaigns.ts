@@ -135,6 +135,7 @@ export interface ImageCampaign {
 export interface Configurations {
   xpSystem: boolean;
   shopSystem: boolean;
+  shopOn: boolean;
 }
 
 export default interface Campaign {
