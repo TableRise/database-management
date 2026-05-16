@@ -234,7 +234,7 @@ const campaignMongooseSchema = new Schema<Campaign>(
     createdAt: { type: String, required: true },
     updatedAt: { type: String, required: true },
   },
-  { versionKey: false }
+  { versionKey: false, _id: false }
 )
 
 const connection = mongoose.connection.useDb('campaign', {

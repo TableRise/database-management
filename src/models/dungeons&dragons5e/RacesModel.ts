@@ -25,7 +25,7 @@ export const racesMongooseSchema = new Schema<RaceDocument>(
         speed: { type: [Schema.Types.Mixed], required: true },
         language: { type: [String], required: true },
     },
-    { versionKey: false }
+    { versionKey: false, _id: false }
 );
 
 const connection = mongoose.connection.useDb('dungeons&dragons5e', {

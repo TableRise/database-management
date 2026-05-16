@@ -37,6 +37,7 @@ export interface UserDetail {
     birthday: string;
     gameInfo: GameInfo;
     biography: string;
+    cover: ImageObject;
     role: 'user' | 'admin';
 }
 

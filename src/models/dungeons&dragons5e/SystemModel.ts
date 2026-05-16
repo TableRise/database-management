@@ -32,6 +32,7 @@ const systemMongooseSchema = new Schema<System & { systemId: string }>(
     },
     {
         versionKey: false,
+        _id: false
     }
 );
 
