@@ -120,9 +120,15 @@ export interface MatchData {
   state: MatchState;
 }
 
+export interface PlayerNotes {
+  title: string;
+  content: string;
+}
+
 export interface Player {
   userId: string;
   characterIds: string[];
+  notes: PlayerNotes[];
   role: 'admin_player' | 'dungeon_master' | 'player';
   status: 'pending' | 'active' | 'inactive' | 'banned';
 }

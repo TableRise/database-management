@@ -18,6 +18,7 @@ import Campaign, {
   MatchState,
   MatchToken,
   Configurations,
+  PlayerNotes,
 } from '../../interfaces/Campaigns'
 import newUUID from '../../helpers/newUUID'
 import MongoModel from '../MongoModel'
@@ -117,11 +118,19 @@ const characterInGameMongooseSchema = new Schema<CharacterInGame>(
   { versionKey: false, _id: false }
 )
 
+const playerNotesMongooseSchema = new Schema<PlayerNotes>(
+  {
+    title: { type: String, required: true },
+    content: { type: String, required: true }
+  }
+)
+
 const playerMongooseSchema = new Schema<Player>(
   {
     userId: { type: String, required: true },
     characterIds: { type: [String], required: true },
     role: { type: String, required: true },
+    notes: { type: [playerNotesMongooseSchema] },
     status: { type: String, required: true },
   },
   { versionKey: false, _id: false }
@@ -139,7 +148,8 @@ const matchTokenMongooseSchema = new Schema<MatchToken>(
     updatedBy: { type: String },
     createdAt: { type: String },
     updatedAt: { type: String },
-  }
+  },
+  { versionKey: false, _id: false }
 )
 
 const matchStateMongooseSchema = new Schema<MatchState>(
@@ -150,7 +160,8 @@ const matchStateMongooseSchema = new Schema<MatchState>(
     playingMusicId: { type: String },
     visibleCharacterIds: { type: [String] },
     tokens: { type: [matchTokenMongooseSchema] },
-  }
+  },
+  { versionKey: false, _id: false }
 )
 
 const matchDataMongooseSchema = new Schema<MatchData>(
