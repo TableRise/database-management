@@ -144,6 +144,14 @@ export interface Configurations {
   shopOn: boolean;
 }
 
+export interface CampaignBuys {
+  name: string;
+  cost: string;
+  character: string;
+  user: string;
+  date: string;
+}
+
 export default interface Campaign {
   campaignId?: string;
   title: string;
@@ -158,6 +166,7 @@ export default interface Campaign {
   musics: Music[];
   infos: Infos;
   configurations: Configurations;
+  buys: CampaignBuys[];
   password: string;
   createdAt: string;
   updatedAt: string;

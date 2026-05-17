@@ -19,6 +19,7 @@ import Campaign, {
   MatchToken,
   Configurations,
   PlayerNotes,
+  CampaignBuys,
 } from '../../interfaces/Campaigns'
 import newUUID from '../../helpers/newUUID'
 import MongoModel from '../MongoModel'
@@ -222,6 +223,16 @@ const configurationsMongooseSchema = new Schema<Configurations>(
   { versionKey: false, _id: false }
 )
 
+const campaignBuysMongooseSchema = new Schema<CampaignBuys>(
+  {
+    name: { type: String, required: true },
+    cost: { type: String, required: true },
+    character: { type: String, required: true },
+    user: { type: String, required: true },
+    date: { type: String, required: true },
+  }
+)
+
 const campaignMongooseSchema = new Schema<Campaign>(
   {
     campaignId: { type: String, required: true, default: newUUID },
@@ -241,6 +252,7 @@ const campaignMongooseSchema = new Schema<Campaign>(
       shopSystem: true,
       shopOn: true
     } },
+    buys: { type: [campaignBuysMongooseSchema] },
     password: { type: String },
     createdAt: { type: String, required: true },
     updatedAt: { type: String, required: true },
