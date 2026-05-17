@@ -70,7 +70,7 @@ export const classMongooseSchema = new Schema<ClassDocument>(
         magicClass: { type: String },
         levelingSpecs: { type: levelingSpecsMongooseSchema, required: true },
     },
-    { versionKey: false, _id: false }
+    { versionKey: false }
 );
 
 const connection = mongoose.connection.useDb('dungeons&dragons5e', { noListener: true, useCache: true });

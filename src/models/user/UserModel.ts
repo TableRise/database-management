@@ -38,7 +38,7 @@ const userMongooseSchema = new Schema<User>(
     createdAt: { type: String, required: true },
     updatedAt: { type: String, required: true },
   },
-  { versionKey: false, _id: false }
+  { versionKey: false }
 );
 
 const connection = mongoose.connection.useDb('user', {

@@ -17,7 +17,7 @@ export const featsMongooseSchema = new Schema<FeatDocument>(
         description: { type: String },
         benefits: { type: [String], required: true },
     },
-    { versionKey: false, _id: false }
+    { versionKey: false }
 );
 
 const connection = mongoose.connection.useDb('dungeons&dragons5e', { noListener: true, useCache: true });

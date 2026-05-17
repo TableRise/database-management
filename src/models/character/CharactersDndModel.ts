@@ -25,7 +25,7 @@ const appearanceMongooseSchema = new Schema<Appearance>(
         picture: { type: CommonModelSchemas.pictureMongooseSchema },
         description: { type: String }
     },
-    { versionKey: false, _id: false }
+    { versionKey: false }
 );
 
 const otherMongooseSchema = new Schema<Other>(

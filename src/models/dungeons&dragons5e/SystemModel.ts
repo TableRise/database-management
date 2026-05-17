@@ -30,10 +30,7 @@ const systemMongooseSchema = new Schema<System & { systemId: string }>(
         references: systemReferenceMongooseSchema,
         active: { type: Boolean, required: true },
     },
-    {
-        versionKey: false,
-        _id: false
-    }
+    { versionKey: false }
 );
 
 const connection = mongoose.connection.useDb('dungeons&dragons5e', { noListener: true, useCache: true });

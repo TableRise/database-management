@@ -22,7 +22,7 @@ const equipmentMongooseSchema = new Schema<EquipmentDocument>(
         properties: { type: String },
         active: { type: Boolean, default: true },
     },
-    { versionKey: false, _id: false }
+    { versionKey: false }
 );
 
 export default class EquipmentModel extends MongoModel<EquipmentDocument> {
