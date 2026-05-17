@@ -14,16 +14,8 @@ export interface SecretQuestion {
     answer: string;
 }
 
-export interface GameInfoCampaigns {
-    campaignId: string;
-    notes: {
-        title: string;
-        content: string;
-    }[]
-}
-
 export interface GameInfo {
-    campaigns: GameInfoCampaigns[];
+    campaigns: string[];
     characters: string[];
     badges: string[];
 }
