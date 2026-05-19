@@ -24,8 +24,7 @@ export interface UserDetail {
     userDetailId: string;
     userId: string;
     firstName: string;
-    lastName: string;
-    secretQuestion: SecretQuestion;
+    lastName: string
     birthday: string;
     gameInfo: GameInfo;
     biography: string;

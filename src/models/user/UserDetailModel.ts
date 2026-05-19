@@ -10,14 +10,7 @@ const gameInfoMongooseSchema = new Schema<GameInfo>(
         characters: { type: [String], required: true },
         badges: { type: [String], required: true }
     }, { versionKey: false, _id: false }
-)
-
-const secretQuestionMongooseSchema = new Schema<SecretQuestion>(
-    {
-        question: { type: String, required: true },
-        answer: { type: String, required: true },
-    }, { versionKey: false, _id: false }
-)
+);
 
 const userDetailsMongooseSchema = new Schema<UserDetail>(
     {
@@ -25,7 +18,6 @@ const userDetailsMongooseSchema = new Schema<UserDetail>(
         userId: { type: String, required: true },
         firstName: { type: String },
         lastName: { type: String },
-        secretQuestion: { type: secretQuestionMongooseSchema },
         birthday: { type: String },
         gameInfo: { type: gameInfoMongooseSchema },
         biography: { type: String },
