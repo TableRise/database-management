@@ -8,7 +8,7 @@ const inProgressMongooseSchema = new Schema<InProgress>(
   {
     status: { type: String },
     currentFlow: { type: String },
-    prevStatusMustBe: { type: String },
+    prevStatusWas: { type: String },
     nextStatusWillBe: { type: String },
     code: { type: String },
   },

@@ -3,7 +3,7 @@ import { ImageObject } from "./Common";
 export interface InProgress {
     status: string;
     currentFlow: string;
-    prevStatusMustBe: string;
+    prevStatusWas: string;
     nextStatusWillBe: string;
     code: string;
 }
