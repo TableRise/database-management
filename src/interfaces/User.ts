@@ -1,11 +1,10 @@
-import { userStatus } from "../types/DatabaseEntities";
 import { ImageObject } from "./Common";
 
 export interface InProgress {
-    status: userStatus;
+    status: string;
     currentFlow: string;
-    prevStatusMustBe: userStatus;
-    nextStatusWillBe: userStatus;
+    prevStatusMustBe: string;
+    nextStatusWillBe: string;
     code: string;
 }
 
@@ -29,7 +28,7 @@ export interface UserDetail {
     gameInfo: GameInfo;
     biography: string;
     cover: ImageObject;
-    role: 'user' | 'admin';
+    role: string;
 }
 
 export interface TwoFactorSecret {
