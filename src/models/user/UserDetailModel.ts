@@ -21,6 +21,7 @@ const userDetailsMongooseSchema = new Schema<UserDetail>(
         birthday: { type: String },
         gameInfo: { type: gameInfoMongooseSchema },
         biography: { type: String },
+        rank: { type: String, default: 'bronze' },
         cover: { type: CommonModelSchemas.pictureMongooseSchema },
         role: { type: String, required: true },
 

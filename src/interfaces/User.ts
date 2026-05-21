@@ -26,6 +26,7 @@ export interface UserDetail {
     lastName: string
     birthday: string;
     gameInfo: GameInfo;
+    rank: string;
     biography: string;
     cover: ImageObject;
     role: string;
