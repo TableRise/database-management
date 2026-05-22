@@ -25,7 +25,7 @@ const appearanceMongooseSchema = new Schema<Appearance>(
         picture: { type: CommonModelSchemas.pictureMongooseSchema },
         description: { type: String }
     },
-    { versionKey: false }
+    { versionKey: false, _id: false }
 );
 
 const otherMongooseSchema = new Schema<Other>(
@@ -199,7 +199,8 @@ const equipmentsMongooseSchema = new Schema<CharactersDnd['data']['equipments'][
         weight: { type: String, required: true },
         damage: { type: String },
         properties: { type: String },
-    }
+    },
+    { versionKey: false, _id: false }
 )
 
 const dataMongooseSchema = new Schema<Data>(
@@ -236,7 +237,7 @@ const charactersDndMongooseSchema = new Schema<CharactersDnd>(
       createdAt: { type: String, required: true },
       updatedAt: { type: String, required: true },
     },
-    { versionKey: false, _id: false }
+    { versionKey: false }
   );
 
 const connection = mongoose.connection.useDb('charactersDnd', {
