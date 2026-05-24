@@ -17,6 +17,9 @@ export interface GameInfo {
     campaigns: string[];
     characters: string[];
     badges: string[];
+    campaignsJoinedAmount: number;
+    charactersCreatedAmount: number;
+    campaignsClosedAmount: number;
 }
 
 export interface UserDetail {

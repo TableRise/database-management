@@ -243,6 +243,7 @@ const campaignMongooseSchema = new Schema<Campaign>(
     cover: { type: imageObjectMongooseSchema },
     description: { type: String },
     mainHistory: { type: String },
+    status: { type: String, default: 'inProgress' },
     ageRestriction: { type: String, required: true },
     system: { type: String, required: true },
     campaignPlayers: { type: [playerMongooseSchema] },
