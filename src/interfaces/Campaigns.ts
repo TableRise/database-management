@@ -116,6 +116,8 @@ export interface MatchData {
   charactersInGame: CharacterInGame[];
   actualMapImage: ImageObject;
   mapImages: ImageObject[];
+  images: ImageObject[];
+  imageHighlighted: ImageObject;
   logs: Log[];
   state: MatchState;
 }

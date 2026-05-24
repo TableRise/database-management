@@ -174,6 +174,8 @@ const matchDataMongooseSchema = new Schema<MatchData>(
     mapImages: { type: [imageObjectMongooseSchema], required: true },
     confirmedPlayers: { type: [playerMongooseSchema] },
     actualMapImage: { type: imageObjectMongooseSchema },
+    images: { type: [imageObjectMongooseSchema] },
+    imageHighlighted: { type: imageObjectMongooseSchema },
     logs: { type: [logMongooseSchema], required: true },
     state: { type: matchStateMongooseSchema }
   },
