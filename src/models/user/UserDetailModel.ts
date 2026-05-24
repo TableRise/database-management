@@ -12,6 +12,7 @@ const gameInfoMongooseSchema = new Schema<GameInfo>(
         campaignsJoinedAmount: { type: Number,default: 0 },
         charactersCreatedAmount: { type: Number,default: 0 },
         campaignsClosedAmount: { type: Number,default: 0 },
+        equipBoughtAmount: { type: Number,default: 0 },
     }, { versionKey: false, _id: false }
 );
 

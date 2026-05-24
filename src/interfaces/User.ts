@@ -20,6 +20,7 @@ export interface GameInfo {
     campaignsJoinedAmount: number;
     charactersCreatedAmount: number;
     campaignsClosedAmount: number;
+    equipBoughtAmount: number;
 }
 
 export interface UserDetail {
