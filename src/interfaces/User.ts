@@ -21,6 +21,7 @@ export interface GameInfo {
     charactersCreatedAmount: number;
     campaignsClosedAmount: number;
     equipBoughtAmount: number;
+    donateAmount: number;
 }
 
 export interface UserDetail {

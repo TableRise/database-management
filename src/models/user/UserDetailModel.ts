@@ -9,10 +9,11 @@ const gameInfoMongooseSchema = new Schema<GameInfo>(
         campaigns: { type: [String], required: true },
         characters: { type: [String], required: true },
         badges: { type: [String], required: true },
-        campaignsJoinedAmount: { type: Number,default: 0 },
-        charactersCreatedAmount: { type: Number,default: 0 },
-        campaignsClosedAmount: { type: Number,default: 0 },
-        equipBoughtAmount: { type: Number,default: 0 },
+        campaignsJoinedAmount: { type: Number, default: 0 },
+        charactersCreatedAmount: { type: Number, default: 0 },
+        campaignsClosedAmount: { type: Number, default: 0 },
+        equipBoughtAmount: { type: Number, default: 0 },
+        donateAmount: { type: Number, default: 0 },
     }, { versionKey: false, _id: false }
 );
 
