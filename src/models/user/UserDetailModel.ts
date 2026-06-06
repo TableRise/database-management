@@ -34,6 +34,7 @@ const friendsMongooseSchema = new Schema<Friends>(
         tag: { type: String, required: true },
         picture: { type: String, required: true },
         rank: { type: String, required: true },
+        status: { type: String, required: true, default: 'pending' },
     }, { versionKey: false, _id: false }
 );
 

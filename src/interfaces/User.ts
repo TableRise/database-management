@@ -37,7 +37,8 @@ export interface Friends {
     nickname: string,
     tag: string,
     picture: string,
-    rank: string
+    rank: string,
+    status: string
 }
 
 export interface Social {
