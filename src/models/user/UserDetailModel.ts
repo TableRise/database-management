@@ -1,6 +1,6 @@
 import mongoose, { Schema } from 'mongoose';
 import MongoModel from '../MongoModel';
-import { GameInfo, SecretQuestion, UserDetail } from '../../interfaces/User';
+import { Friends, GameInfo, Messages, Social, UserDetail } from '../../interfaces/User';
 import newUUID from '../../helpers/newUUID';
 import CommonModelSchemas from '../common/CommonModelSchemas';
 
@@ -17,6 +17,33 @@ const gameInfoMongooseSchema = new Schema<GameInfo>(
     }, { versionKey: false, _id: false }
 );
 
+const messagesMongooseSchema = new Schema<Messages>(
+    {
+        title: { type: String, required: true },
+        content: { type: String, required: true },
+        userId: { type: String, required: true },
+        timestamp: { type: String, required: true },
+    }, { versionKey: false, _id: false }
+);
+
+const friendsMongooseSchema = new Schema<Friends>(
+    {
+        userId: { type: String, required: true },
+        nickname: { type: String, required: true },
+        tag: { type: String, required: true },
+        picture: { type: String, required: true },
+        rank: { type: String, required: true },
+    }, { versionKey: false, _id: false }
+);
+
+const socialMongooseSchema = new Schema<Social>(
+    {
+        discord: { type: String, default: '' },
+        instagram: { type: String, default: '' },
+        x: { type: String, default: '' },
+    }, { versionKey: false, _id: false }
+);
+
 const userDetailsMongooseSchema = new Schema<UserDetail>(
     {
         userDetailId: { type: String, required: true, default: newUUID },
@@ -28,8 +55,11 @@ const userDetailsMongooseSchema = new Schema<UserDetail>(
         biography: { type: String },
         rank: { type: String, default: 'bronze' },
         cover: { type: CommonModelSchemas.pictureMongooseSchema },
+        messages: { type: [messagesMongooseSchema], default: [] },
+        gallery: { type: [CommonModelSchemas.pictureMongooseSchema], default: [] },
+        friends: { type: [friendsMongooseSchema], default: [] },
         role: { type: String, required: true },
-
+        social: { type: socialMongooseSchema, default: () => ({}) },
     },
     { versionKey: false }
 );

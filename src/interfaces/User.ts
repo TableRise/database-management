@@ -24,17 +24,42 @@ export interface GameInfo {
     donateAmount: number;
 }
 
+export interface Messages {
+    title: string;
+    content: string;
+    userId: string;
+    timestamp: string;
+}
+
+export interface Friends {
+    userId: string,
+    nickname: string,
+    tag: string,
+    picture: string,
+    rank: string
+}
+
+export interface Social {
+    discord: string;
+    instagram: string;
+    x: string;
+}
+
 export interface UserDetail {
     userDetailId: string;
     userId: string;
     firstName: string;
-    lastName: string
+    lastName: string;
     birthday: string;
     gameInfo: GameInfo;
     rank: string;
     biography: string;
     cover: ImageObject;
+    messages: Messages[];
+    gallery: ImageObject[];
+    friends: Friends[];
     role: string;
+    social: Social;
 }
 
 export interface TwoFactorSecret {
