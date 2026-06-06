@@ -30,6 +30,7 @@ export interface Messages {
     content: string;
     userId: string;
     timestamp: string;
+    status: string;
 }
 
 export interface Friends {

@@ -24,6 +24,7 @@ const messagesMongooseSchema = new Schema<Messages>(
         content: { type: String, required: true },
         userId: { type: String, required: true },
         timestamp: { type: String, required: true },
+        status: { type: String, required: true, default: 'not-read' },
     }, { versionKey: false, _id: false }
 );
 
