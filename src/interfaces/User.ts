@@ -25,6 +25,7 @@ export interface GameInfo {
 }
 
 export interface Messages {
+    messageId: string;
     title: string;
     content: string;
     userId: string;

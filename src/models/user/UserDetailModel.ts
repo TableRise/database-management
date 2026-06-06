@@ -19,6 +19,7 @@ const gameInfoMongooseSchema = new Schema<GameInfo>(
 
 const messagesMongooseSchema = new Schema<Messages>(
     {
+        messageId: { type: String, required: true, default: newUUID  },
         title: { type: String, required: true },
         content: { type: String, required: true },
         userId: { type: String, required: true },
