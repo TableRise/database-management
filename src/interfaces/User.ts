@@ -34,12 +34,13 @@ export interface Messages {
 }
 
 export interface Friends {
-    userId: string,
-    nickname: string,
-    tag: string,
-    picture: string,
-    rank: string,
-    status: string
+    userId: string;
+    nickname: string;
+    tag: string;
+    picture: string;
+    rank: string;
+    status: string;
+    favorite: boolean;
 }
 
 export interface Social {
