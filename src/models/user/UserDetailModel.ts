@@ -20,8 +20,11 @@ const gameInfoMongooseSchema = new Schema<GameInfo>(
 const messagesMongooseSchema = new Schema<Messages>(
     {
         messageId: { type: String, required: true, default: newUUID  },
-        title: { type: String, required: true },
-        content: { type: String, required: true },
+        encryptedTitle: { type: String, required: true },
+        encryptedContent: { type: String, required: true },
+        nonce: { type: String, required: true },
+        keyVersion: { type: Number },
+        algorithm: { type: String },
         userId: { type: String, required: true },
         timestamp: { type: String, required: true },
         status: { type: String, required: true, default: 'not-read' },

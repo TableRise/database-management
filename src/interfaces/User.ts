@@ -26,8 +26,11 @@ export interface GameInfo {
 
 export interface Messages {
     messageId: string;
-    title: string;
-    content: string;
+    encryptedTitle: string,
+    encryptedContent: string,
+    nonce: string,
+    keyVersion: number,
+    algorithm: string,
     userId: string;
     timestamp: string;
     status: string;
