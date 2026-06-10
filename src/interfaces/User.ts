@@ -22,6 +22,7 @@ export interface GameInfo {
     campaignsClosedAmount: number;
     equipBoughtAmount: number;
     donateAmount: number;
+    friendsAdded: number;
 }
 
 export interface Messages {
