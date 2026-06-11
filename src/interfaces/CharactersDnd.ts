@@ -41,6 +41,8 @@ export interface Profile {
     class: string;
     race: string;
     level: number;
+    prevLevel: number;
+    notificationsOn: boolean;
     xp: number;
     characteristics: Characteristics;
 }

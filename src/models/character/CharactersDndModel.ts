@@ -60,6 +60,8 @@ const profileMongooseSchema = new Schema<Profile>(
         class: { type: String, required: true },
         race: { type: String, required: true },
         level: { type: Number, required: true },
+        prevLevel: { type: Number, required: true, default: 0 },
+        notificationsOn: { type: Boolean, required: true, default: false },
         xp: { type: Number, required: true },
         characteristics: { type: characteristicsMongooseSchema, required: true },
     },
