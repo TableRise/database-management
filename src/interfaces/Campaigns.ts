@@ -104,6 +104,7 @@ export interface MatchState {
   activeEffect: 'dark' | 'light' | 'rain' | null;
   playingMusicId: string | null;
   visibleCharacterIds: string[];
+  playingMusicTimeSeconds: number;
   tokens: MatchToken[];
 }
 
