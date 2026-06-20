@@ -235,6 +235,7 @@ const charactersDndMongooseSchema = new Schema<CharactersDnd>(
       data: { type: dataMongooseSchema },
       npc: {type: Boolean },
       picture: { type: CommonModelSchemas.pictureMongooseSchema },
+      status: { type: String, required: true, default: 'alive' },
       logs: { type: [characterLogsDndMongooseSchema] },
       createdAt: { type: String, required: true },
       updatedAt: { type: String, required: true },

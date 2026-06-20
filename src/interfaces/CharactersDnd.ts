@@ -9,6 +9,7 @@ export interface CharactersDnd {
     data: Data;
     npc: boolean;
     picture: ImageObject;
+    status: 'alive' | 'dead' | 'half-live';
     logs: Logs[];
     createdAt: string;
     updatedAt: string;
