@@ -105,6 +105,7 @@ export interface MatchState {
   playingMusicId: string | null;
   visibleCharacterIds: string[];
   playingMusicTimeSeconds: number;
+  anchorUpdatedAt: string;
   tokens: MatchToken[];
 }
 

@@ -161,6 +161,7 @@ const matchStateMongooseSchema = new Schema<MatchState>(
     playingMusicId: { type: String },
     visibleCharacterIds: { type: [String] },
     playingMusicTimeSeconds: { type: Number, default: 0 },
+    anchorUpdatedAt: { type: String },
     tokens: { type: [matchTokenMongooseSchema] },
   },
   { versionKey: false, _id: false }
