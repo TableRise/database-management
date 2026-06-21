@@ -63,6 +63,7 @@ export interface UserDetail {
     rank: string;
     xp: number;
     level: number;
+    title: string;
     biography: string;
     cover: ImageObject;
     messages: Messages[];

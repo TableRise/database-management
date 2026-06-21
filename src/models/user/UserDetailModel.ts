@@ -63,6 +63,7 @@ const userDetailsMongooseSchema = new Schema<UserDetail>(
         biography: { type: String },
         rank: { type: String, required: true, default: 'bronze' },
         xp: { type: Number, required: true, default: 0 },
+        title: { type: String, required: true, default: 'Novato(a) na Taverna' },
         level: { type: Number, required: true, default: 1 },
         cover: { type: CommonModelSchemas.pictureMongooseSchema },
         messages: { type: [messagesMongooseSchema], default: [] },
