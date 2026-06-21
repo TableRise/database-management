@@ -223,6 +223,7 @@ const configurationsMongooseSchema = new Schema<Configurations>(
     xpSystem: { type: Boolean },
     shopSystem: { type: Boolean },
     shopOn: { type: Boolean },
+    playOn: { type: Boolean },
   },
   { versionKey: false, _id: false }
 )

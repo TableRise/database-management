@@ -146,6 +146,7 @@ export interface Configurations {
   xpSystem: boolean;
   shopSystem: boolean;
   shopOn: boolean;
+  playOn: boolean;
 }
 
 export interface CampaignBuys {
