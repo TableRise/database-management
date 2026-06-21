@@ -61,6 +61,8 @@ export interface UserDetail {
     birthday: string;
     gameInfo: GameInfo;
     rank: string;
+    xp: number;
+    level: number;
     biography: string;
     cover: ImageObject;
     messages: Messages[];
