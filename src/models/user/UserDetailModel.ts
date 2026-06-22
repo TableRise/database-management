@@ -61,6 +61,7 @@ const userDetailsMongooseSchema = new Schema<UserDetail>(
         firstName: { type: String },
         lastName: { type: String },
         birthday: { type: String },
+        gender: { type: String },
         gameInfo: { type: gameInfoMongooseSchema },
         biography: { type: String },
         rank: { type: String, required: true, default: 'bronze' },

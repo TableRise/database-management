@@ -62,6 +62,7 @@ export interface UserDetail {
     lastName: string;
     birthday: string;
     gameInfo: GameInfo;
+    gender: string;
     rank: string;
     xp: number;
     level: number;
