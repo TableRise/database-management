@@ -15,6 +15,8 @@ const gameInfoMongooseSchema = new Schema<GameInfo>(
         equipBoughtAmount: { type: Number, default: 0 },
         donateAmount: { type: Number, default: 0 },
         friendsAdded: { type: Number, default: 0 },
+        userLevelAmount: { type: Number, default: 0 },
+        userRegistered: { type: Number, default: 0 },
     }, { versionKey: false, _id: false }
 );
 

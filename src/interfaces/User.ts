@@ -23,6 +23,8 @@ export interface GameInfo {
     equipBoughtAmount: number;
     donateAmount: number;
     friendsAdded: number;
+    userRegistered: number;
+    userLevelAmount: number;
 }
 
 export interface Messages {
