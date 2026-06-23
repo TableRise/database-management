@@ -1,4 +1,4 @@
-export type ModelEntity = 'dungeons&dragons5e' | 'user' | 'campaign' | 'characterDnd';
+export type ModelEntity = 'dungeons&dragons5e' | 'user' | 'campaign' | 'characterDnd' | 'internal';
 
 export type DnDEntities =
   | 'Classes'
@@ -12,3 +12,5 @@ export type UserEntities = 'Users' | 'UserDetails';
 export type CampaignsEntities = 'Campaigns';
 
 export type CharactersDndEntities = 'CharactersDnd';
+
+export type InternalEntities = 'Internal';
